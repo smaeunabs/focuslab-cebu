@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocusLab | Work. Focus. Lounge. Coworking Space in Talisay, Cebu</title>
+<meta name="description" content="A comfortable, fully air-conditioned coworking space in Talisay City, Cebu for work, study, and independent productivity. Open 24/7 with fast internet and unlimited coffee.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Hanken+Grotesk:wght@300..800&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-950:#10201a;
+    --green-900:#16291f;
+    --green-800:#1d3527;
+    --green-700:#264532;
+    --green-600:#345a43;
+    --night:#13242e;
+    --night-900:#0e1b22;
+    --cream:#f4efe4;
+    --cream-2:#faf6ec;
+    --paper:#fbf8f0;
+    --gold:#b78a3c;
+    --gold-2:#c89a4f;
+    --gold-light:#d9b873;
+    --ink:#1a261f;
+    --muted:#5c6960;
+    --line:rgba(26,38,31,.12);
+    --shadow:0 24px 60px -24px rgba(16,32,26,.45);
+    --display:"Fraunces",Georgia,serif;
+    --body:"Hanken Grotesk",system-ui,sans-serif;
+    --script:"Pinyon Script",cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold);color:#fff}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1180px,92vw);margin-inline:auto}
+
+  /* ---------- Announcement bar ---------- */
+  .ticker{
+    background:var(--green-950);color:var(--cream-2);
+    font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:.55rem 0;text-align:center;font-weight:600;
+  }
+  .ticker b{color:var(--gold-light)}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,239,228,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    transition:padding .3s ease;
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0}
+  .logo{display:inline-flex;align-items:center;text-decoration:none}
+  .logo-img{height:46px;width:auto;display:block;color:var(--ink)}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--green-800);transition:color .2s}
+  .nav-links a:hover{color:var(--gold)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    font-family:var(--body);font-weight:700;font-size:.82rem;
+    letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:none;
+    padding:.8rem 1.5rem;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s;
+  }
+  .btn-gold{background:var(--gold);color:#fff;box-shadow:0 10px 24px -10px rgba(183,138,60,.8)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(183,138,60,.85)}
+  .btn-green{background:var(--green-800);color:var(--cream-2)}
+  .btn-green:hover{transform:translateY(-2px);background:var(--green-700)}
+  .btn-ghost{background:transparent;color:var(--green-800);border:1.5px solid var(--green-800)}
+  .btn-ghost:hover{background:var(--green-800);color:var(--cream-2)}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--green-800)}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(183,138,60,.18), transparent 55%),
+      radial-gradient(90% 80% at 0% 100%, rgba(38,69,50,.22), transparent 60%),
+      linear-gradient(160deg,#f7f2e7,#efe8d8);
+    padding:5.5rem 0 5rem;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+    color:var(--green-700);background:rgba(255,255,255,.6);
+    padding:.5rem 1rem;border-radius:999px;border:1px solid var(--line);margin-bottom:1.5rem;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(183,138,60,.2)}
+  h1.hero-title{
+    font-family:var(--display);font-weight:300;font-size:clamp(3rem,7vw,5.6rem);
+    line-height:.95;letter-spacing:-.02em;color:var(--green-900);
+  }
+  h1.hero-title em{font-style:italic;color:var(--gold);font-weight:400}
+  h1.hero-title b{font-weight:600;display:block}
+  .hero-sub{
+    font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;
+    color:var(--green-700);margin:1.5rem 0 1rem;
+  }
+  .hero-sub span{color:var(--gold)}
+  .hero-lead{font-size:1.12rem;color:var(--muted);max-width:34ch;margin-bottom:2rem}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-card{
+    position:relative;background:var(--green-900);color:var(--cream-2);
+    border-radius:24px;padding:2.2rem;box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,.06);
+  }
+  .hero-card::after{
+    content:"";position:absolute;inset:0;border-radius:24px;padding:1px;
+    background:linear-gradient(140deg,var(--gold),transparent 40%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+  }
+  .hero-card .promo-tag{
+    display:inline-block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:700;color:var(--green-950);background:var(--gold-light);padding:.35rem .8rem;border-radius:999px;margin-bottom:1.4rem;
+  }
+  .price-row{display:flex;align-items:flex-end;justify-content:space-between;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .price-row:last-child{border-bottom:none;padding-bottom:0}
+  .price-row .label{font-size:.92rem}
+  .price-row .label small{display:block;color:rgba(244,239,228,.55);font-size:.74rem;letter-spacing:.04em}
+  .price-row .amt{font-family:var(--display);font-weight:500;font-size:1.7rem;color:var(--gold-light)}
+  .price-row .amt sup{font-size:.85rem;top:-.6em;color:rgba(244,239,228,.6)}
+
+  /* ---------- Section frame ---------- */
+  section{padding:5rem 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 3rem}
+  .kicker{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:.8rem}
+  .sec-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.01em;color:var(--green-900)}
+  .sec-head h2 em{font-style:italic;color:var(--gold)}
+  .sec-head p{color:var(--muted);margin-top:1rem;font-size:1.05rem}
+
+  /* ---------- Features ---------- */
+  .features{background:var(--green-900);color:var(--cream-2);position:relative}
+  .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden}
+  .feat{background:var(--green-900);padding:2.2rem 1.8rem;transition:background .3s}
+  .feat:hover{background:var(--green-800)}
+  .feat .ic{width:46px;height:46px;color:var(--gold-light);margin-bottom:1.1rem}
+  .feat h3{font-family:var(--display);font-weight:500;font-size:1.25rem;margin-bottom:.5rem}
+  .feat p{font-size:.92rem;color:rgba(244,239,228,.66)}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .about-copy h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,4vw,2.9rem);line-height:1.08;color:var(--green-900);margin-bottom:1.3rem}
+  .about-copy h2 em{font-style:italic;color:var(--gold)}
+  .about-copy p{color:var(--muted);margin-bottom:1.2rem;font-size:1.06rem}
+  .who{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+  .who span{font-size:.8rem;letter-spacing:.06em;font-weight:600;color:var(--green-700);background:var(--cream-2);border:1px solid var(--line);padding:.5rem 1rem;border-radius:999px}
+  .about-tags{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .about-tags .t{
+    background:linear-gradient(160deg,var(--green-800),var(--green-700));color:var(--cream-2);
+    border-radius:18px;padding:2rem 1.6rem;box-shadow:var(--shadow);
+  }
+  .about-tags .t.gold{background:linear-gradient(160deg,var(--gold),#9d7330)}
+  .about-tags .t .big{font-family:var(--display);font-weight:300;font-size:2.6rem;line-height:1}
+  .about-tags .t small{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-top:.5rem;opacity:.8}
+
+  /* ---------- Rates ---------- */
+  .rates{background:var(--cream-2)}
+  .rate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .rate-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:2.4rem 2rem;
+    position:relative;transition:transform .3s,box-shadow .3s;overflow:hidden;
+  }
+  .rate-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .rate-card .ic{width:42px;height:42px;color:var(--green-700);margin-bottom:1.2rem}
+  .rate-card h3{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:.8rem}
+  .rate-card .price{font-family:var(--display);font-weight:400;font-size:3rem;line-height:1;color:var(--green-900)}
+  .rate-card .price sup{font-size:1.2rem;top:-1.1em;color:var(--gold)}
+  .rate-card .note{color:var(--muted);font-size:.95rem;margin-top:.6rem}
+  .rate-card.feature{background:linear-gradient(165deg,var(--green-800),var(--green-900));color:var(--cream-2);border-color:transparent}
+  .rate-card.feature .ic,.rate-card.feature .price{color:var(--gold-light)}
+  .rate-card.feature h3{color:rgba(244,239,228,.7)}
+  .rate-card.feature .price sup{color:var(--gold-light)}
+  .rate-card.feature .note{color:rgba(244,239,228,.7)}
+  .rate-card .ribbon{position:absolute;top:1.3rem;right:-2.4rem;transform:rotate(45deg);background:var(--gold);color:#fff;font-size:.66rem;letter-spacing:.14em;font-weight:700;text-transform:uppercase;padding:.3rem 2.6rem}
+
+  .promo-band{
+    margin-top:2.4rem;background:var(--green-950);border-radius:22px;color:var(--cream-2);
+    padding:2.2rem 2.4rem;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;position:relative;overflow:hidden;
+  }
+  .promo-band::before{content:"";position:absolute;top:-40%;right:-5%;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(183,138,60,.35),transparent 70%)}
+  .promo-band .ico-bird{width:54px;height:54px;color:var(--gold-light)}
+  .promo-band .pb-title{position:relative}
+  .promo-band .pb-title .small{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);font-weight:700}
+  .promo-band .pb-title .big{font-family:var(--display);font-style:italic;font-size:1.9rem;font-weight:400}
+  .promo-mini{display:flex;gap:1.8rem;position:relative}
+  .promo-mini .m{text-align:center}
+  .promo-mini .m .h{font-family:var(--display);font-size:1.9rem;color:var(--gold-light)}
+  .promo-mini .m .h sup{font-size:.8rem;top:-.7em}
+  .promo-mini .m small{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+
+  /* ---------- Memberships ---------- */
+  .toggle-wrap{display:flex;justify-content:center;margin-bottom:2.6rem}
+  .toggle{display:inline-flex;background:var(--cream-2);border:1px solid var(--line);border-radius:999px;padding:.35rem;position:relative}
+  .toggle button{
+    border:none;background:none;cursor:pointer;font-family:var(--body);font-weight:700;
+    font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:.7rem 1.6rem;border-radius:999px;
+    color:var(--muted);z-index:1;transition:color .3s;display:flex;align-items:center;gap:.5rem;
+  }
+  .toggle button.active{color:#fff}
+  .toggle .slider{position:absolute;top:.35rem;bottom:.35rem;left:.35rem;width:calc(50% - .35rem);border-radius:999px;background:var(--green-800);transition:transform .35s cubic-bezier(.6,.05,.2,1),background .35s}
+  .toggle.night .slider{transform:translateX(100%);background:var(--night)}
+  .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .plan{
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:2rem 1.5rem;
+    display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;
+  }
+  .plan:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold)}
+  .plan .ic{width:38px;height:38px;color:var(--green-700);margin-bottom:1rem}
+  .plan h4{font-family:var(--display);font-weight:600;font-size:1.18rem;color:var(--green-900);line-height:1.15}
+  .plan .desc{color:var(--muted);font-size:.9rem;margin:.5rem 0 1.4rem;flex:1}
+  .plan .amt{font-family:var(--display);font-weight:400;font-size:2.1rem;color:var(--green-900)}
+  .plan .amt sup{font-size:.85rem;top:-.9em;color:var(--gold)}
+  .plan .pick{margin-top:1.3rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:.4rem;transition:gap .25s}
+  .plan:hover .pick{gap:.8rem}
+  body.night-active .plan .ic,body.night-active .plan .amt sup,body.night-active .plan .pick{color:var(--night)}
+  body.night-active .plan:hover{border-color:var(--night)}
+  .night-note{
+    margin-top:2rem;display:flex;gap:1rem;align-items:flex-start;background:var(--night);color:var(--cream-2);
+    border-radius:16px;padding:1.4rem 1.8rem;font-size:.95rem;
+  }
+  .night-note svg{flex:none;width:26px;height:26px;color:var(--gold-light);margin-top:2px}
+  .night-note b{color:var(--gold-light)}
+
+  /* Monthly to Freelancers Club callout */
+  .club-cta{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;justify-content:center;text-align:center;background:linear-gradient(150deg,var(--green-800),var(--green-900));color:var(--cream-2);border:1px solid rgba(217,184,115,.3);border-radius:18px;padding:1.4rem 2rem;margin-bottom:2.6rem;position:relative;overflow:hidden}
+  .club-cta::before{content:"";position:absolute;top:-50%;right:-5%;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(183,138,60,.22),transparent 70%);pointer-events:none}
+  .club-cta .cc-ic{flex:none;width:42px;height:42px;border-radius:12px;background:rgba(217,184,115,.16);display:grid;place-items:center;color:var(--gold-light);position:relative}
+  .club-cta .cc-ic svg{width:24px;height:24px}
+  .club-cta .cc-text{position:relative;font-size:1rem}
+  .club-cta .cc-text b{color:var(--gold-light)}
+  .club-cta a{position:relative;display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--green-950);background:var(--gold-light);padding:.6rem 1.1rem;border-radius:999px;transition:transform .2s}
+  .club-cta a:hover{transform:translateY(-2px)}
+
+  /* Highlight band: 24/7 + night pass rule */
+  .highlight{padding:4.5rem 0 1rem}
+  .hl-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:1.2rem}
+  .hl-card{position:relative;border-radius:20px;padding:1.8rem 2rem;display:flex;gap:1.2rem;align-items:center;overflow:hidden}
+  .hl-card .hl-ic{flex:none;width:54px;height:54px;border-radius:14px;display:grid;place-items:center}
+  .hl-card .hl-ic svg{width:30px;height:30px}
+  .hl-card .hl-body h3{font-family:var(--display);font-weight:500;font-size:1.45rem;line-height:1.05;margin-bottom:.3rem}
+  .hl-card .hl-body p{font-size:.95rem;line-height:1.5}
+  .hl-card .hl-body p b{font-weight:700}
+  .hl-247{background:linear-gradient(150deg,var(--gold),#9d7330);color:#fff}
+  .hl-247 .hl-ic{background:rgba(255,255,255,.18);color:#fff}
+  .hl-247 .hl-body p{color:rgba(255,255,255,.9)}
+  .hl-247 .badge247{position:absolute;top:-14px;right:-14px;width:96px;height:96px;border-radius:50%;background:rgba(255,255,255,.12)}
+  .hl-night{background:var(--night);color:var(--cream-2)}
+  .hl-night .hl-ic{background:rgba(217,184,115,.16);color:var(--gold-light)}
+  .hl-night .hl-body h3{color:var(--gold-light)}
+  .hl-night .hl-body p{color:rgba(244,239,228,.82)}
+  .hl-night .hl-body p b{color:var(--gold-light)}
+  @media(max-width:780px){.hl-grid{grid-template-columns:1fr}}
+
+  .hidden{display:none}
+  .plan .club-tag{margin-top:.9rem;display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:rgba(183,138,60,.1);border:1px solid rgba(183,138,60,.3);padding:.35rem .6rem;border-radius:999px}
+  .plan .club-tag svg{width:13px;height:13px}
+
+  /* ---------- Community / Freelancers Club ---------- */
+  .club{background:linear-gradient(165deg,var(--green-900),var(--green-950));color:var(--cream-2);position:relative;overflow:hidden}
+  .club::before{content:"";position:absolute;top:-20%;left:-10%;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(183,138,60,.16),transparent 70%);pointer-events:none}
+  .club .club-head{max-width:720px;margin:0 auto 3rem;text-align:center;position:relative}
+  .club .badge-pill{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--green-950);background:var(--gold-light);padding:.5rem 1.1rem;border-radius:999px;margin-bottom:1.4rem}
+  .club .club-head h2{font-family:var(--display);font-weight:300;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.05;color:var(--cream-2)}
+  .club .club-head h2 em{font-style:italic;color:var(--gold-light)}
+  .club .club-head p{color:rgba(244,239,228,.72);margin-top:1.2rem;font-size:1.08rem}
+  .club .club-head .auto{margin-top:1.4rem;font-size:.95rem;color:var(--gold-light);font-weight:600}
+  .bene-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;position:relative}
+  .bene{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1.8rem 1.6rem;transition:background .3s,transform .3s}
+  .bene:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
+  .bene .ic{width:40px;height:40px;color:var(--gold-light);margin-bottom:1rem}
+  .bene h4{font-family:var(--display);font-weight:500;font-size:1.18rem;margin-bottom:.5rem}
+  .bene p{font-size:.92rem;color:rgba(244,239,228,.66)}
+  .club-foot{margin-top:2.6rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:2.4rem;position:relative}
+  .club-foot .mission h3{font-family:var(--display);font-weight:500;font-size:1.5rem;color:var(--gold-light);margin-bottom:.7rem}
+  .club-foot .mission p{color:rgba(244,239,228,.78)}
+  .club-foot .mission .tagline{margin-top:1.2rem;font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--cream-2)}
+  .incl-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+  .incl-list li{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;color:rgba(244,239,228,.85)}
+  .incl-list li svg{flex:none;width:18px;height:18px;color:var(--gold-light);margin-top:3px}
+  .incl-list .title{grid-column:1 / -1;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold-light);margin-bottom:.3rem}
+  @media(max-width:920px){.bene-grid{grid-template-columns:1fr 1fr}.club-foot{grid-template-columns:1fr;gap:1.6rem}}
+  @media(max-width:560px){.bene-grid{grid-template-columns:1fr}.incl-list{grid-template-columns:1fr}}
+
+  /* ---------- Amenities ---------- */
+  .amen{background:var(--green-900);color:var(--cream-2)}
+  .amen .sec-head h2,.amen .sec-head{color:var(--cream-2)}
+  .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .amen-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.9rem;padding:1.6rem 1rem;border-radius:16px;border:1px solid rgba(255,255,255,.08);transition:background .3s}
+  .amen-item:hover{background:rgba(255,255,255,.04)}
+  .amen-item .ic{width:38px;height:38px;color:var(--gold-light)}
+  .amen-item span{font-size:.86rem;font-weight:600;letter-spacing:.02em;color:rgba(244,239,228,.85)}
+
+  /* ---------- Guidelines + Location ---------- */
+  .info-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
+  .guide-card{background:var(--green-800);color:var(--cream-2);border-radius:22px;padding:2.4rem}
+  .guide-card h3{font-family:var(--display);font-weight:500;font-size:1.5rem;margin-bottom:1.5rem}
+  .guide-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
+  .guide-list li{display:flex;gap:.9rem;align-items:flex-start;font-size:.98rem;color:rgba(244,239,228,.85)}
+  .guide-list li svg{flex:none;width:22px;height:22px;color:var(--gold-light);margin-top:2px}
+  .contact-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:2.4rem}
+  .contact-card h3{font-family:var(--display);font-weight:500;font-size:1.5rem;color:var(--green-900);margin-bottom:1.6rem}
+  .contact-row{display:flex;gap:1rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid var(--line)}
+  .contact-row:last-of-type{border-bottom:none}
+  .contact-row .ic{flex:none;width:40px;height:40px;border-radius:50%;background:var(--cream);display:grid;place-items:center;color:var(--green-700)}
+  .contact-row .ic svg{width:20px;height:20px}
+  .contact-row .ct small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.15rem}
+  .contact-row .ct b{font-weight:600;color:var(--ink);font-size:1.02rem}
+  .hours-badge{margin-top:1.6rem;display:flex;align-items:center;justify-content:space-between;background:var(--green-950);color:var(--cream-2);border-radius:16px;padding:1.2rem 1.6rem}
+  .hours-badge .lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);font-weight:700}
+  .hours-badge .val{font-family:var(--display);font-size:1.4rem}
+
+  /* ---------- CTA / Footer ---------- */
+  .cta{
+    background:
+      radial-gradient(80% 120% at 20% 10%,rgba(183,138,60,.25),transparent 50%),
+      linear-gradient(160deg,var(--green-900),var(--green-950));
+    color:var(--cream-2);text-align:center;border-radius:28px;padding:4.5rem 2rem;position:relative;overflow:hidden;
+  }
+  .cta .script-bg{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--script);font-size:22vw;color:rgba(255,255,255,.025);pointer-events:none}
+  .cta h2{font-family:var(--display);font-weight:300;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;position:relative}
+  .cta h2 em{font-style:italic;color:var(--gold-light)}
+  .cta p{color:rgba(244,239,228,.7);margin:1.2rem auto 2rem;max-width:46ch;position:relative}
+  .cta .hero-cta{justify-content:center;position:relative}
+
+  footer{background:var(--green-950);color:rgba(244,239,228,.7);padding:3.5rem 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+  .foot-brand .logo-img{height:54px;color:var(--cream-2)}
+  .foot-brand p{margin-top:1rem;font-size:.92rem;max-width:32ch}
+  .foot-col h5{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.1rem;font-weight:700}
+  .foot-col a,.foot-col p{display:block;font-size:.92rem;margin-bottom:.6rem;transition:color .2s}
+  .foot-col a:hover{color:var(--gold-light)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.6rem;font-size:.8rem;flex-wrap:wrap;gap:1rem}
+  .foot-bottom .socials{display:flex;gap:.8rem}
+  .foot-bottom .socials a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;transition:background .25s,color .25s}
+  .foot-bottom .socials a:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+  .foot-bottom .socials svg{width:16px;height:16px}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:920px){
+    .hero-grid,.about-grid,.info-grid{grid-template-columns:1fr;gap:2.5rem}
+    .feat-grid,.rate-grid,.plan-grid,.amen-grid{grid-template-columns:repeat(2,1fr)}
+    .promo-band{grid-template-columns:1fr;text-align:center;justify-items:center;gap:1.4rem}
+    .promo-mini{justify-content:center;flex-wrap:wrap}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--cream);padding:1.5rem 6vw;gap:1.2rem;border-bottom:1px solid var(--line)}
+    .nav-toggle{display:block}
+  }
+  @media(max-width:560px){
+    .feat-grid,.rate-grid,.plan-grid,.amen-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    section{padding:3.5rem 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker"><b>★ Now Open in Talisay, Cebu</b> &nbsp;•&nbsp; Limited Slots &nbsp;•&nbsp; First Come, First Served</div>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="index.html" class="logo"><svg class="logo-img" role="img" aria-label="FocusLab. Work. Focus. Lounge." xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="80.214813 -126.454193 154.215729 60.639381">
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M396.785675,196.475693C393.092804,195.740692,389.267792,194.623993,388.285675,193.994156C386.644379,192.941574,386.660095,192.900116,388.480103,193.4814C393.469543,195.074966,407.348907,196.136292,415.815399,195.571671C448.139252,193.416031,477.377075,170.266418,487.896606,138.5C496.554688,112.35463,493.121918,84.213776,478.625702,62.5C466.22049,43.918327,447.89679,31.990553,425.603333,27.985207C416.604431,26.36842,416.066742,26.160704,420.684631,26.084997C423.536163,26.038248,429.101044,26.679829,433.051025,27.510731C463.543518,33.925026,488.24649,59.206184,495.576813,91.5C499.422638,108.442863,496.938263,130.152817,489.200775,147.217453C472.737793,183.525818,434.397339,203.961685,396.785675,196.475693z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M131,171.321167C96.454521,167.780212,66.269157,156.068451,61.351044,144.297745C59.547932,139.982285,59.598976,139.630035,62.532726,136.143478C64.86824,133.367874,71.50016,130.166824,72.611877,131.278534C72.874702,131.541367,71.719551,133.126602,70.044868,134.801285C66.66993,138.176224,66.275757,140.698792,68.46254,144.927551C70.015587,147.930832,77.553085,153.30127,85,156.710464C92.729683,160.2491,110,164.865341,110,163.392792C110,162.664597,106.67981,155.32103,95.91967,132.25C91.720329,123.246117,90.834305,122,88.63163,122C85.437881,122,73.772896,119.30928,70.498199,117.817223C66.327156,115.916771,67.544495,114.655632,72.75,115.484398C80.016495,116.641296,88.47422,117.737617,88.721283,117.554642C88.842995,117.464508,87.14624,113.224136,84.950722,108.131592C79.995056,96.636818,76.628555,84.616089,77.449249,81.346176C78.051369,78.947166,83.572685,75.617867,85.240097,76.648384C85.658043,76.906693,86,79.066139,86,81.447151C86,86.907967,89.860687,100.332649,94.38459,110.602699L97.863312,118.5L103.681656,119.222633C106.881744,119.620087,114.431374,119.901703,120.458611,119.848457C130.945038,119.755821,134.013641,120.588478,130.80278,122.655334C130.086258,123.116577,123.103592,123.720314,115.285767,123.996979L101.071533,124.5L108.528984,140C112.630592,148.524994,116.836983,157.75,117.876534,160.5L119.766624,165.5L126.133308,166.133118C150.834335,168.589432,175.567856,165.328857,184.683273,158.414597C188.98848,155.148987,190.191238,155.337372,189.813354,159.218079C189.28215,164.67334,180.875351,168.83638,166,171.010406C159.848129,171.9095,138.581894,172.098328,131,171.321167z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M406.666656,168.333328C406.299988,167.96666,406,152.662415,406,134.323898L406,100.981125L410.25,101.093262C412.587494,101.154938,417.472412,100.8778,421.105316,100.477402C431.162537,99.368958,439.572632,102.960159,444.010895,110.258316C447.931213,116.704781,447.374451,127.856659,442.812378,134.263474C438.257416,140.660355,426.87851,143.001602,417.124268,139.548874C414.717621,138.696991,412.580109,138,412.374268,138C412.168427,138,412,144.975006,412,153.5L412,169L409.666656,169C408.383331,169,407.033325,168.699997,406.666656,168.333328z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M432.969971,134.720688C439.762512,131.28363,442.138641,120.577484,437.815918,112.886246C434.048798,106.183571,423.75058,103.099373,415.149231,106.097824L412,107.195648L412,120.014488L412,132.833328L416.25,134.337723C421.507324,136.198669,429.679199,136.385849,432.969971,134.720688z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M318.454437,166.741882C318.188904,166.049911,318.090546,150.870865,318.23584,133.010651L318.5,100.53756L337,100.518776L355.5,100.5L355.816437,103.25L356.132843,106L340.566437,106L325,106L325,135.800003C325,157.64444,324.679657,165.920364,323.799988,166.800003C322.227753,168.372253,319.066895,168.337891,318.454437,166.741882z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M375,141.345551C369.63089,140.368607,363.000763,137.781799,363.01532,136.669632C363.059967,133.257675,364.659576,132.695999,369.568359,134.368591C372.201721,135.265869,376.66626,136,379.489563,136C386.115753,136,389,133.590424,389,128.054749L389,124.187416L379.25,123.831329C368.705078,123.44622,364.910889,122.164413,361.778137,117.928741C355.613831,109.594223,363.608337,99.22229,375.44046,100.203506C378.330658,100.443184,382.577759,101.620445,384.878479,102.819641C389.98056,105.478996,390,105.479683,390,103C390,101.429443,390.666656,101,393.104767,101L396.209564,101L395.854767,116.794731C395.467194,134.049866,394.738831,136.532333,389.227417,139.382401C386.093628,141.002945,378.713623,142.021255,375,141.345551z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M389,114.636566C389,110.279633,388.991241,110.269196,383.124969,107.636566C379.893677,106.186455,376.271332,105,375.075287,105C371.569641,105,367.284058,107.733643,366.797241,110.280319C365.602386,116.530754,369.434662,118.915962,380.75,118.964561L389,119L389,114.636566z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M285.557831,126.507881C280.406647,124.672859,276.810242,121.952621,275.202942,118.675728C272.800873,113.778473,259.416443,106.063629,253.25,106.021965C250.515411,106.003487,250,106.366158,250,108.30883C250,109.578682,251.588333,113.255348,253.529633,116.479195C257.125854,122.451302,257.111023,123.290108,253.38942,124.410744C251.717422,124.914215,250.485107,124.077629,247.459106,120.384781C241.184052,112.726913,226.364014,104.235992,223.781158,106.818848C222.102432,108.497566,223.672516,112.346375,228.07753,117.350739C232.657379,122.553726,232.6922,125,228.186371,125C225.467606,125,222.000031,122.433548,221.999969,120.421257C221.999924,118.791641,215.272705,114.068108,207.251343,110.065453C199.380249,106.137794,189.354935,103,184.677078,103C181.47702,103,179.026855,105.386711,179.676529,107.871063C180.79216,112.137222,191.859497,120,196.748764,120C198.001862,120,199.913757,119.446297,200.997406,118.769547C202.62439,117.753479,203.262726,117.83416,204.661179,119.232613C206.085571,120.656998,206.16246,121.348007,205.145081,123.580917C204.003174,126.087151,203.615509,126.212158,198.217743,125.814781C194.227097,125.520996,189.65889,124.082436,183.094208,121.052254C175.817886,117.693604,172.13887,116.5998,166.844208,116.220963L160,115.731262L160,118.865631C160,122.903763,156.916611,126,152.895233,126C149.405136,126,140.733185,121.974823,137.114471,118.675186C127.248741,109.679382,126.394066,100.679512,135.196899,98.482834C140.673477,97.116188,150.783356,102.536591,156.078125,109.678284C158.2444,112.600182,159.028397,112.947845,163.506607,112.972473C166.260239,112.98761,169.972733,113.418587,171.756607,113.930191C175.326202,114.953941,175.672852,114.473679,173.468201,111.558868C172.66069,110.491249,172,108.139122,172,106.331924C172,96.917381,189.204391,97.63958,209.19191,107.893158C216.457382,111.620338,216.82373,111.70723,215.800049,109.46051C214.946991,107.588249,215.070709,106.541039,216.381195,104.540962C219.476273,99.817291,227.485931,101.46946,238.688004,109.142235L242.876007,112.010773L242.34584,108.743774C241.936371,106.220467,242.314987,105.024918,244.009079,103.491783C248.305954,99.603165,258.768372,102.156784,271.196198,110.127487L275.892395,113.139435L278.973114,110.861763L282.053833,108.584091L279.276917,107.179764C277.749603,106.407387,274.338623,104.413727,271.69693,102.749413C267.704285,100.233986,266.944977,99.282707,267.19693,97.111694C267.459015,94.853256,268.035095,94.45636,271.455994,94.177353C277.606598,93.67572,281.741241,94.8339,285.461853,98.100647C287.759033,100.117592,288.982513,102.152237,289.19046,104.301323C289.456177,107.047104,290.064362,107.684273,293.48587,108.80146C295.67807,109.517258,299.503082,110.333809,301.98587,110.616013C309.499359,111.470032,311,111.968941,311,113.612892C311,114.931755,310.14682,115.077881,305.75,114.512085C302.862488,114.140503,297.397156,112.934769,293.604828,111.832664L286.709625,109.828835L283.604828,112.975212L280.5,116.12159L283.358795,118.435097C288.022614,122.209373,298.00766,124.414642,299.5,122C300.487946,120.401497,304.003265,120.844963,304.698151,122.655754C305.104645,123.71508,304.513092,124.975845,303.055969,126.155754C300.266937,128.414185,291.409424,128.592422,285.557831,126.507881z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M155,119.344391C155,115.316811,144.753754,105.980232,138.653519,104.449173C131.433472,102.637062,139.177292,113.916176,148.261002,118.442772C154.296967,121.450623,155,121.544678,155,119.344391z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M282.404999,102.861984C280.373077,100.58152,275.09964,98,272.473114,98C269.961029,98,271.730194,99.819443,276.818787,102.469223C282.861542,105.615868,284.992188,105.765671,282.404999,102.861984z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M203,82.385132C178.902344,81.879524,118.010811,78.892662,113,77.970428C109.475082,77.321678,110.125145,77.245781,116,77.620178C167.175568,80.881538,288.620789,81.876732,354.883545,79.577721C380.944489,78.673531,402.443237,78.109909,402.658569,78.325241C402.873901,78.540573,396.851318,79.021461,389.275055,79.39389C381.698761,79.766319,366.725006,80.509369,356,81.04512C335.985779,82.044899,230.723267,82.966812,203,82.385132z"/>
+</svg></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#rates">Rates</a>
+      <a href="#memberships">Memberships</a>
+      <a href="#community">Community</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#location">Location</a>
+      <a href="book.html" class="btn btn-gold">Book Now</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="eyebrow"><span class="dot"></span>Coworking Space · Talisay City, Cebu</span>
+      <h1 class="hero-title">Work <em>Smarter</em><b>Here.</b></h1>
+      <p class="hero-sub">Fast Internet <span>·</span> Built for Focused Work</p>
+      <p class="hero-lead">A comfortable, fully air-conditioned space for work, study, and independent productivity, open around the clock.</p>
+      <div class="hero-cta">
+        <a href="book.html" class="btn btn-green">Reserve Your Space</a>
+        <a href="#rates" class="btn btn-ghost">View Rates</a>
+      </div>
+    </div>
+    <div class="hero-card reveal in" style="transition-delay:.15s">
+      <span class="promo-tag">Pay as you go</span>
+      <div class="price-row"><div class="label">30-Minute Pass<small>Quick session</small></div><div class="amt"><sup>₱</sup>50</div></div>
+      <div class="price-row"><div class="label">Hourly Pass<small>First hour</small></div><div class="amt"><sup>₱</sup>100</div></div>
+      <div class="price-row"><div class="label">Succeeding hours<small>Per hour after the first</small></div><div class="amt"><sup>₱</sup>85</div></div>
+      <div class="price-row"><div class="label">3-Hour Pass<small>Focused work block</small></div><div class="amt"><sup>₱</sup>250</div></div>
+      <div class="price-row"><div class="label">Day Pass<small>Unlimited access for the day</small></div><div class="amt"><sup>₱</sup>450</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="wrap">
+    <div class="feat-grid reveal">
+      <div class="feat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Open 24/7</h3>
+        <p>Always open, always productive. Work on your own schedule, day or night.</p>
+      </div>
+      <div class="feat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/><path d="M2 9a15 15 0 0 1 20 0"/></svg>
+        <h3>Fast Internet</h3>
+        <p>High-speed and reliable internet, dedicated to focused work.</p>
+      </div>
+      <div class="feat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11h13v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M17 12h2a2 2 0 0 1 0 4h-2"/><path d="M8 4c0 1-1 1-1 2.5M11 4c0 1-1 1-1 2.5"/></svg>
+        <h3>Unlimited Coffee &amp; Water</h3>
+        <p>Complimentary self-serve coffee and drinking water, all day.</p>
+      </div>
+      <div class="feat">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+        <h3>Security Provided</h3>
+        <p>Your safety and peace of mind are our priority.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHT: 24/7 + NIGHT PASS -->
+<section class="highlight">
+  <div class="wrap">
+    <div class="hl-grid reveal">
+      <div class="hl-card hl-247">
+        <span class="badge247"></span>
+        <span class="hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div class="hl-body">
+          <h3>Open 24/7</h3>
+          <p>Always open, always productive. Drop in any hour of the day or night, weekends included.</p>
+        </div>
+      </div>
+      <div class="hl-card hl-night">
+        <span class="hl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></svg></span>
+        <div class="hl-body">
+          <h3>Night Pass starts at 9:00 PM</h3>
+          <p>If you begin working at <b>9:00 PM or later</b>, a Night Pass is required. Night Passes are available on <b>Weekly plans and above</b> only (Weekly, 10-Day, and Monthly).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <p class="kicker">Designed for deep work</p>
+      <h2>A space built for <em>quiet, focused,</em> and uninterrupted work.</h2>
+      <p>FocusLab is open to students, professionals, and anyone seeking a calm place to get things done. Every detail, from the air-conditioning to the seating, is designed for independent, distraction-free productivity.</p>
+      <div class="who">
+        <span>Students</span><span>Professionals</span><span>Freelancers</span><span>Remote Workers</span>
+      </div>
+    </div>
+    <div class="about-tags reveal" style="transition-delay:.1s">
+      <div class="t gold"><div class="big">Calm</div><small>Quiet by design</small></div>
+      <div class="t"><div class="big">Flexible</div><small>Seating that suits you</small></div>
+      <div class="t"><div class="big">A/C</div><small>Fully air-conditioned</small></div>
+      <div class="t"><div class="big">Focused</div><small>Built to get work done</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RATES -->
+<section class="rates" id="rates">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Official Rates</p>
+      <h2>Simple, <em>pay-as-you-go</em> pricing</h2>
+      <p>Drop in for an hour or settle in for the day. No commitment required.</p>
+    </div>
+    <div class="rate-grid reveal">
+      <div class="rate-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Hourly Pass</h3>
+        <div class="price"><sup>₱</sup>100</div>
+        <p class="note">First hour · then <b>₱85</b> per succeeding hour</p>
+      </div>
+      <div class="rate-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M19 5l2-2"/></svg>
+        <h3>3-Hour Pass</h3>
+        <div class="price"><sup>₱</sup>250</div>
+        <p class="note">A solid block of focused work</p>
+      </div>
+      <div class="rate-card feature">
+        <span class="ribbon">Best Value</span>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="4"/><path d="M12 3v2M5 6l1.5 1.5M19 6l-1.5 1.5M2 13h2M20 13h2"/></svg>
+        <h3>Day Pass</h3>
+        <div class="price"><sup>₱</sup>450</div>
+        <p class="note">Unlimited access for the entire day</p>
+      </div>
+    </div>
+
+    <div class="promo-band reveal">
+      <svg class="ico-bird" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <div class="pb-title">
+        <div class="small">Flexible by the half-hour</div>
+        <div class="big">Pay only for the time you need</div>
+      </div>
+      <div class="promo-mini">
+        <div class="m"><div class="h"><sup>₱</sup>50</div><small>30 Minutes</small></div>
+        <div class="m"><div class="h"><sup>₱</sup>100</div><small>1 Hour</small></div>
+        <div class="m"><div class="h"><sup>₱</sup>85</div><small>Succeeding Hr</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIPS -->
+<section id="memberships">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Membership Plans</p>
+      <h2>Stay longer, <em>save more</em></h2>
+      <p>Choose the plan that matches your rhythm, daytime or after-hours.</p>
+    </div>
+
+    <div class="club-cta reveal">
+      <span class="cc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 19a6 6 0 0 1 12 0M14.5 19a5 5 0 0 1 6.5-4.8"/></svg></span>
+      <span class="cc-text">Subscribe to any <b>Monthly Membership</b> and you're automatically included in the <b>South Cebu Freelancers Club</b>, with free community events and Saturday night meetups.</span>
+      <a href="#community">See the club <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="toggle-wrap reveal">
+      <div class="toggle" id="planToggle">
+        <span class="slider"></span>
+        <button class="active" data-mode="day">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+          Day Pass
+        </button>
+        <button data-mode="night">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></svg>
+          Night Pass
+        </button>
+      </div>
+    </div>
+
+    <!-- DAY PLANS -->
+    <div class="plan-grid reveal" id="dayPlans">
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        <h4>Weekly Pass</h4>
+        <p class="desc">Unlimited access for 7 days.</p>
+        <div class="amt"><sup>₱</sup>2,500</div>
+        <a href="book.html?plan=weekly" class="pick">Choose plan →</a>
+      </div>
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><text x="12" y="17" font-size="6" text-anchor="middle" fill="currentColor" stroke="none" font-family="sans-serif">10</text></svg>
+        <h4>10-Day Pass</h4>
+        <p class="desc">Ten days of access, valid for 30 days.</p>
+        <div class="amt"><sup>₱</sup>3,500</div>
+        <a href="book.html?plan=10day" class="pick">Choose plan →</a>
+      </div>
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+        <h4>Monthly Membership</h4>
+        <p class="desc">Flexible seating access all month.</p>
+        <div class="amt"><sup>₱</sup>6,500</div>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club</span>
+        <a href="book.html?plan=monthly" class="pick">Choose plan →</a>
+      </div>
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><path d="M4 11h16v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M7 18v2M17 18v2"/></svg>
+        <h4>Dedicated Monthly</h4>
+        <p class="desc">Includes your own dedicated workspace.</p>
+        <div class="amt"><sup>₱</sup>8,000</div>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club</span>
+        <a href="book.html?plan=dedicated" class="pick">Choose plan →</a>
+      </div>
+    </div>
+
+    <!-- NIGHT PLANS -->
+    <div class="plan-grid reveal hidden" id="nightPlans">
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        <h4>Weekly Night Pass</h4>
+        <p class="desc">Unlimited after-hours access for 7 days.</p>
+        <div class="amt"><sup>₱</sup>3,500</div>
+        <a href="book.html?plan=weekly-night" class="pick">Choose plan →</a>
+      </div>
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><text x="12" y="17" font-size="6" text-anchor="middle" fill="currentColor" stroke="none" font-family="sans-serif">10</text></svg>
+        <h4>10-Day Night Pass</h4>
+        <p class="desc">Ten nights of access, valid for 30 days.</p>
+        <div class="amt"><sup>₱</sup>4,500</div>
+        <a href="book.html?plan=10day-night" class="pick">Choose plan →</a>
+      </div>
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+        <h4>Monthly Night Pass</h4>
+        <p class="desc">Flexible after-hours seating all month.</p>
+        <div class="amt"><sup>₱</sup>8,000</div>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club</span>
+        <a href="book.html?plan=monthly-night" class="pick">Choose plan →</a>
+      </div>
+      <div class="plan">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><path d="M4 11h16v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M7 18v2M17 18v2"/></svg>
+        <h4>Dedicated Night Pass</h4>
+        <p class="desc">Your own dedicated after-hours workspace.</p>
+        <div class="amt"><sup>₱</sup>10,000</div>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club</span>
+        <a href="book.html?plan=dedicated-night" class="pick">Choose plan →</a>
+      </div>
+    </div>
+
+    <div class="night-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 11v5M12 7.5v.5"/></svg>
+      <div><b>Night Pass Policy:</b> If you start working at <b>9:00 PM or later</b>, a Night Pass is required. Night Passes are available on <b>Weekly plans and above</b> only (Weekly, 10-Day, and Monthly). They are not offered on hourly, 3-hour, or single day passes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY / FREELANCERS CLUB -->
+<section class="club" id="community">
+  <div class="wrap">
+    <div class="club-head reveal">
+      <span class="badge-pill">Included with Monthly Membership</span>
+      <h2>The <em>South Cebu Freelancers Club</em></h2>
+      <p>More than just a workspace, FocusLab is building a community of freelancers, remote workers, creators, and online entrepreneurs across South Cebu.</p>
+      <p class="auto">Become a FocusLab Monthly Member and you automatically join the club, with free access to monthly community events and Saturday night meetups.</p>
+    </div>
+
+    <div class="bene-grid reveal">
+      <div class="bene">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 19a6 6 0 0 1 12 0M14.5 19a5 5 0 0 1 6.5-4.8"/></svg>
+        <h4>Networking Opportunities</h4>
+        <p>Connect with fellow freelancers, VAs, remote workers, content creators, and online business owners from Talisay, Minglanilla, Naga, Carcar, and nearby areas.</p>
+      </div>
+      <div class="bene">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><circle cx="12" cy="14" r="1.6" fill="currentColor"/></svg>
+        <h4>Monthly Meetups</h4>
+        <p>Join exclusive community gatherings to share experiences, exchange ideas, discuss challenges, and build meaningful professional relationships.</p>
+      </div>
+      <div class="bene">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h7l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M13 4v5h5M8 14h7M8 17h5"/></svg>
+        <h4>Learning Sessions</h4>
+        <p>Take part in workshops and talks on freelancing, remote work, productivity, client acquisition, AI tools, business growth, and more.</p>
+      </div>
+      <div class="bene">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+        <h4>Accountability &amp; Growth</h4>
+        <p>Surround yourself with ambitious individuals who help keep you motivated, focused, and accountable toward your goals.</p>
+      </div>
+      <div class="bene">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 12a4 4 0 0 1 4-4h2a3 3 0 0 1 0 6h-1"/><path d="M16 12a4 4 0 0 1-4 4h-2a3 3 0 0 1 0-6h1"/></svg>
+        <h4>Collaboration Opportunities</h4>
+        <p>Discover potential partnerships, referrals, projects, and opportunities within the community.</p>
+      </div>
+      <div class="bene">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 12h5"/></svg>
+        <h4>Member Community Access</h4>
+        <p>Join our private community to connect, ask questions, share wins, seek advice, and stay updated on upcoming events.</p>
+      </div>
+    </div>
+
+    <div class="club-foot reveal">
+      <div class="mission">
+        <h3>Our Mission</h3>
+        <p>To create the leading community for freelancers, remote workers, creators, and online entrepreneurs in South Cebu by providing a place to work, learn, connect, and grow together.</p>
+        <p class="tagline">Work. Connect. Learn. Grow.</p>
+      </div>
+      <ul class="incl-list">
+        <li class="title">Included with all monthly memberships</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Freelancers Club Membership</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Community Access</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Networking Opportunities</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Monthly Meetups</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Learning Sessions</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Member-Only Events</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Collaboration &amp; Referrals</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg>Saturday Night Meetups</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amen" id="amenities">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Everything Included</p>
+      <h2 style="color:var(--cream-2)">Amenities that keep you <em>in flow</em></h2>
+    </div>
+    <div class="amen-grid reveal">
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/><path d="M2 9a15 15 0 0 1 20 0"/></svg><span>Fast &amp; Stable Internet</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11h13v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M17 12h2a2 2 0 0 1 0 4h-2"/></svg><span>Complimentary Coffee &amp; Water</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="9" rx="2"/><path d="M7 19c0-2 2-2 5-2s5 0 5 2"/><path d="M8 10h4"/></svg><span>Air-Conditioned Workspace</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 16v-3a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><path d="M3 16h18v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Lounge Area Access</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M12 7l-1.5 3h3L12 13"/></svg><span>Individual Charging Station</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3v6M15 3v6M7 9h10v3a5 5 0 0 1-10 0z"/><path d="M12 17v4"/></svg><span>Charging Stations</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11a9 9 0 0 1 18 0"/><path d="M3 11v3a9 9 0 0 0 18 0v-3"/><path d="M4 5l16 14" /></svg><span>Quiet Productivity Environment</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg><span>Security Provided</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDELINES + LOCATION -->
+<section id="location">
+  <div class="wrap info-grid">
+    <div class="guide-card reveal">
+      <h3>Lounge Guidelines</h3>
+      <ul class="guide-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Please clean as you go.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Keep your belongings with you at all times.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Management is not responsible for any lost items.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Respect the quiet and shared workspace.</li>
+      </ul>
+    </div>
+    <div class="contact-card reveal" style="transition-delay:.1s">
+      <h3>Visit &amp; Connect</h3>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <div class="ct"><small>Location</small><b>Southscape Commercial Bldg., 2nd Floor Unit B1-2-4A, Lawa-an 1, Talisay City, Cebu 6045</b></div>
+      </div>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l2 5v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span>
+        <div class="ct"><small>Mobile · Call or Text</small><b>(+63) 898-018-4081</b></div>
+      </div>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
+        <div class="ct"><small>Email</small><b>support@focuslab-cebu.com</b></div>
+      </div>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></span>
+        <div class="ct"><small>Follow Us</small><b>Focuslab Coworking Space</b></div>
+      </div>
+      <div class="hours-badge">
+        <span class="lbl">Open Daily</span>
+        <span class="val">24 / 7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="script-bg">Focus</div>
+      <h2>Focus. Create. <em>Achieve.</em></h2>
+      <p>Reserve your space today. Advance booking is recommended, as slots are limited and offered first come, first served.</p>
+      <div class="hero-cta">
+        <a href="book.html" class="btn btn-gold">Book Your Space</a>
+        <a href="tel:+638980184081" class="btn btn-ghost" style="color:var(--cream-2);border-color:var(--cream-2)">Call or Text Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><svg class="logo-img" role="img" aria-label="FocusLab. Work. Focus. Lounge." xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="80.214813 -126.454193 154.215729 60.639381">
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M396.785675,196.475693C393.092804,195.740692,389.267792,194.623993,388.285675,193.994156C386.644379,192.941574,386.660095,192.900116,388.480103,193.4814C393.469543,195.074966,407.348907,196.136292,415.815399,195.571671C448.139252,193.416031,477.377075,170.266418,487.896606,138.5C496.554688,112.35463,493.121918,84.213776,478.625702,62.5C466.22049,43.918327,447.89679,31.990553,425.603333,27.985207C416.604431,26.36842,416.066742,26.160704,420.684631,26.084997C423.536163,26.038248,429.101044,26.679829,433.051025,27.510731C463.543518,33.925026,488.24649,59.206184,495.576813,91.5C499.422638,108.442863,496.938263,130.152817,489.200775,147.217453C472.737793,183.525818,434.397339,203.961685,396.785675,196.475693z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M131,171.321167C96.454521,167.780212,66.269157,156.068451,61.351044,144.297745C59.547932,139.982285,59.598976,139.630035,62.532726,136.143478C64.86824,133.367874,71.50016,130.166824,72.611877,131.278534C72.874702,131.541367,71.719551,133.126602,70.044868,134.801285C66.66993,138.176224,66.275757,140.698792,68.46254,144.927551C70.015587,147.930832,77.553085,153.30127,85,156.710464C92.729683,160.2491,110,164.865341,110,163.392792C110,162.664597,106.67981,155.32103,95.91967,132.25C91.720329,123.246117,90.834305,122,88.63163,122C85.437881,122,73.772896,119.30928,70.498199,117.817223C66.327156,115.916771,67.544495,114.655632,72.75,115.484398C80.016495,116.641296,88.47422,117.737617,88.721283,117.554642C88.842995,117.464508,87.14624,113.224136,84.950722,108.131592C79.995056,96.636818,76.628555,84.616089,77.449249,81.346176C78.051369,78.947166,83.572685,75.617867,85.240097,76.648384C85.658043,76.906693,86,79.066139,86,81.447151C86,86.907967,89.860687,100.332649,94.38459,110.602699L97.863312,118.5L103.681656,119.222633C106.881744,119.620087,114.431374,119.901703,120.458611,119.848457C130.945038,119.755821,134.013641,120.588478,130.80278,122.655334C130.086258,123.116577,123.103592,123.720314,115.285767,123.996979L101.071533,124.5L108.528984,140C112.630592,148.524994,116.836983,157.75,117.876534,160.5L119.766624,165.5L126.133308,166.133118C150.834335,168.589432,175.567856,165.328857,184.683273,158.414597C188.98848,155.148987,190.191238,155.337372,189.813354,159.218079C189.28215,164.67334,180.875351,168.83638,166,171.010406C159.848129,171.9095,138.581894,172.098328,131,171.321167z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M406.666656,168.333328C406.299988,167.96666,406,152.662415,406,134.323898L406,100.981125L410.25,101.093262C412.587494,101.154938,417.472412,100.8778,421.105316,100.477402C431.162537,99.368958,439.572632,102.960159,444.010895,110.258316C447.931213,116.704781,447.374451,127.856659,442.812378,134.263474C438.257416,140.660355,426.87851,143.001602,417.124268,139.548874C414.717621,138.696991,412.580109,138,412.374268,138C412.168427,138,412,144.975006,412,153.5L412,169L409.666656,169C408.383331,169,407.033325,168.699997,406.666656,168.333328z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M432.969971,134.720688C439.762512,131.28363,442.138641,120.577484,437.815918,112.886246C434.048798,106.183571,423.75058,103.099373,415.149231,106.097824L412,107.195648L412,120.014488L412,132.833328L416.25,134.337723C421.507324,136.198669,429.679199,136.385849,432.969971,134.720688z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M318.454437,166.741882C318.188904,166.049911,318.090546,150.870865,318.23584,133.010651L318.5,100.53756L337,100.518776L355.5,100.5L355.816437,103.25L356.132843,106L340.566437,106L325,106L325,135.800003C325,157.64444,324.679657,165.920364,323.799988,166.800003C322.227753,168.372253,319.066895,168.337891,318.454437,166.741882z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M375,141.345551C369.63089,140.368607,363.000763,137.781799,363.01532,136.669632C363.059967,133.257675,364.659576,132.695999,369.568359,134.368591C372.201721,135.265869,376.66626,136,379.489563,136C386.115753,136,389,133.590424,389,128.054749L389,124.187416L379.25,123.831329C368.705078,123.44622,364.910889,122.164413,361.778137,117.928741C355.613831,109.594223,363.608337,99.22229,375.44046,100.203506C378.330658,100.443184,382.577759,101.620445,384.878479,102.819641C389.98056,105.478996,390,105.479683,390,103C390,101.429443,390.666656,101,393.104767,101L396.209564,101L395.854767,116.794731C395.467194,134.049866,394.738831,136.532333,389.227417,139.382401C386.093628,141.002945,378.713623,142.021255,375,141.345551z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M389,114.636566C389,110.279633,388.991241,110.269196,383.124969,107.636566C379.893677,106.186455,376.271332,105,375.075287,105C371.569641,105,367.284058,107.733643,366.797241,110.280319C365.602386,116.530754,369.434662,118.915962,380.75,118.964561L389,119L389,114.636566z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M285.557831,126.507881C280.406647,124.672859,276.810242,121.952621,275.202942,118.675728C272.800873,113.778473,259.416443,106.063629,253.25,106.021965C250.515411,106.003487,250,106.366158,250,108.30883C250,109.578682,251.588333,113.255348,253.529633,116.479195C257.125854,122.451302,257.111023,123.290108,253.38942,124.410744C251.717422,124.914215,250.485107,124.077629,247.459106,120.384781C241.184052,112.726913,226.364014,104.235992,223.781158,106.818848C222.102432,108.497566,223.672516,112.346375,228.07753,117.350739C232.657379,122.553726,232.6922,125,228.186371,125C225.467606,125,222.000031,122.433548,221.999969,120.421257C221.999924,118.791641,215.272705,114.068108,207.251343,110.065453C199.380249,106.137794,189.354935,103,184.677078,103C181.47702,103,179.026855,105.386711,179.676529,107.871063C180.79216,112.137222,191.859497,120,196.748764,120C198.001862,120,199.913757,119.446297,200.997406,118.769547C202.62439,117.753479,203.262726,117.83416,204.661179,119.232613C206.085571,120.656998,206.16246,121.348007,205.145081,123.580917C204.003174,126.087151,203.615509,126.212158,198.217743,125.814781C194.227097,125.520996,189.65889,124.082436,183.094208,121.052254C175.817886,117.693604,172.13887,116.5998,166.844208,116.220963L160,115.731262L160,118.865631C160,122.903763,156.916611,126,152.895233,126C149.405136,126,140.733185,121.974823,137.114471,118.675186C127.248741,109.679382,126.394066,100.679512,135.196899,98.482834C140.673477,97.116188,150.783356,102.536591,156.078125,109.678284C158.2444,112.600182,159.028397,112.947845,163.506607,112.972473C166.260239,112.98761,169.972733,113.418587,171.756607,113.930191C175.326202,114.953941,175.672852,114.473679,173.468201,111.558868C172.66069,110.491249,172,108.139122,172,106.331924C172,96.917381,189.204391,97.63958,209.19191,107.893158C216.457382,111.620338,216.82373,111.70723,215.800049,109.46051C214.946991,107.588249,215.070709,106.541039,216.381195,104.540962C219.476273,99.817291,227.485931,101.46946,238.688004,109.142235L242.876007,112.010773L242.34584,108.743774C241.936371,106.220467,242.314987,105.024918,244.009079,103.491783C248.305954,99.603165,258.768372,102.156784,271.196198,110.127487L275.892395,113.139435L278.973114,110.861763L282.053833,108.584091L279.276917,107.179764C277.749603,106.407387,274.338623,104.413727,271.69693,102.749413C267.704285,100.233986,266.944977,99.282707,267.19693,97.111694C267.459015,94.853256,268.035095,94.45636,271.455994,94.177353C277.606598,93.67572,281.741241,94.8339,285.461853,98.100647C287.759033,100.117592,288.982513,102.152237,289.19046,104.301323C289.456177,107.047104,290.064362,107.684273,293.48587,108.80146C295.67807,109.517258,299.503082,110.333809,301.98587,110.616013C309.499359,111.470032,311,111.968941,311,113.612892C311,114.931755,310.14682,115.077881,305.75,114.512085C302.862488,114.140503,297.397156,112.934769,293.604828,111.832664L286.709625,109.828835L283.604828,112.975212L280.5,116.12159L283.358795,118.435097C288.022614,122.209373,298.00766,124.414642,299.5,122C300.487946,120.401497,304.003265,120.844963,304.698151,122.655754C305.104645,123.71508,304.513092,124.975845,303.055969,126.155754C300.266937,128.414185,291.409424,128.592422,285.557831,126.507881z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M155,119.344391C155,115.316811,144.753754,105.980232,138.653519,104.449173C131.433472,102.637062,139.177292,113.916176,148.261002,118.442772C154.296967,121.450623,155,121.544678,155,119.344391z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M282.404999,102.861984C280.373077,100.58152,275.09964,98,272.473114,98C269.961029,98,271.730194,99.819443,276.818787,102.469223C282.861542,105.615868,284.992188,105.765671,282.404999,102.861984z"/>
+    <path transform="matrix(0.352734,0,0,-0.352734,58.994705,-56.613758)" style="stroke:none;fill:currentColor;fill-rule:evenodd" d="M203,82.385132C178.902344,81.879524,118.010811,78.892662,113,77.970428C109.475082,77.321678,110.125145,77.245781,116,77.620178C167.175568,80.881538,288.620789,81.876732,354.883545,79.577721C380.944489,78.673531,402.443237,78.109909,402.658569,78.325241C402.873901,78.540573,396.851318,79.021461,389.275055,79.39389C381.698761,79.766319,366.725006,80.509369,356,81.04512C335.985779,82.044899,230.723267,82.966812,203,82.385132z"/>
+</svg></div>
+        <p>Work. Focus. Lounge. A quiet, fully air-conditioned coworking space in Talisay City, Cebu, designed for focused, independent work.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#rates">Rates</a>
+        <a href="#memberships">Memberships</a>
+        <a href="#community">Community</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#location">Location</a>
+        <a href="book.html">Book Now</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get in Touch</h5>
+        <p>Southscape Commercial Bldg.,<br>2nd Floor Unit B1-2-4A,<br>Lawa-an 1, Talisay City, Cebu</p>
+        <a href="tel:+638980184081">(+63) 898-018-4081</a>
+        <a href="mailto:support@focuslab-cebu.com">support@focuslab-cebu.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 FocusLab Coworking Space. All rights reserved.</span>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Membership toggle
+  const toggle = document.getElementById('planToggle');
+  const dayPlans = document.getElementById('dayPlans');
+  const nightPlans = document.getElementById('nightPlans');
+  toggle.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+      const mode = b.dataset.mode;
+      toggle.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      toggle.classList.toggle('night', mode === 'night');
+      document.body.classList.toggle('night-active', mode === 'night');
+      dayPlans.classList.toggle('hidden', mode === 'night');
+      nightPlans.classList.toggle('hidden', mode === 'day');
+    });
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
