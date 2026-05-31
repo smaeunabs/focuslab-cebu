@@ -78,6 +78,8 @@
   input,select,textarea{width:100%;font-family:var(--body);font-size:1rem;color:var(--ink);background:var(--cream-2);border:1.5px solid var(--line);border-radius:12px;padding:.8rem 1rem;transition:border-color .2s,background .2s}
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);background:#fff}
   textarea{resize:vertical;min-height:80px}
+  input[type="date"],input[type="time"]{-webkit-appearance:none;appearance:none;min-height:3.1rem}
+  input[type="date"]::-webkit-date-and-time-value,input[type="time"]::-webkit-date-and-time-value{text-align:left}
   .hint{font-size:.82rem;color:var(--muted);margin-top:.4rem}
   .err{color:#b3402e;font-size:.82rem;margin-top:.4rem;display:none}
   .field.invalid input,.field.invalid select{border-color:#b3402e}

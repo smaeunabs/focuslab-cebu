@@ -68,6 +68,8 @@
   .nav-links{display:flex;align-items:center;gap:2rem}
   .nav-links a{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--green-800);transition:color .2s}
   .nav-links a:hover{color:var(--gold)}
+  .nav-links a.btn-gold{color:#fff}
+  .nav-links a.btn-gold:hover{color:#fff}
   .btn{
     display:inline-flex;align-items:center;gap:.5rem;
     font-family:var(--body);font-weight:700;font-size:.82rem;
@@ -116,6 +118,9 @@
   .hero-sub span{color:var(--gold)}
   .hero-lead{font-size:1.12rem;color:var(--muted);max-width:34ch;margin-bottom:2rem}
   .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-plans{display:inline-block;margin-top:1.1rem;font-size:.92rem;font-weight:600;letter-spacing:.02em;color:var(--gold);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+  .hero-plans span{opacity:.6;margin:0 .15rem}
+  .hero-plans:hover{border-color:var(--gold)}
   .hero-card{
     position:relative;background:var(--green-900);color:var(--cream-2);
     border-radius:24px;padding:2.2rem;box-shadow:var(--shadow);
@@ -402,12 +407,13 @@
     <div class="reveal in">
       <span class="eyebrow"><span class="dot"></span>Coworking Space · Talisay City, Cebu</span>
       <h1 class="hero-title">Work <em>Smarter</em><b>Here.</b></h1>
-      <p class="hero-sub">Fast Internet <span>·</span> Built for Focused Work</p>
+      <p class="hero-sub">Open 24/7 <span>·</span> Fast Internet <span>·</span> Built for Focused Work</p>
       <p class="hero-lead">A comfortable, fully air-conditioned space for work, study, and independent productivity, open around the clock.</p>
       <div class="hero-cta">
         <a href="book.html" class="btn btn-green">Reserve Your Space</a>
         <a href="#rates" class="btn btn-ghost">View Rates</a>
       </div>
+      <a href="#memberships" class="hero-plans">View all plans <span>·</span> weekly, 10-day &amp; monthly</a>
     </div>
     <div class="hero-card reveal in" style="transition-delay:.15s">
       <span class="promo-tag">Pay as you go</span>
@@ -717,7 +723,7 @@
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="9" rx="2"/><path d="M7 19c0-2 2-2 5-2s5 0 5 2"/><path d="M8 10h4"/></svg><span>Air-Conditioned Workspace</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 16v-3a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><path d="M3 16h18v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Lounge Area Access</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M12 7l-1.5 3h3L12 13"/></svg><span>Individual Charging Station</span></div>
-      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3v6M15 3v6M7 9h10v3a5 5 0 0 1-10 0z"/><path d="M12 17v4"/></svg><span>Charging Stations</span></div>
+      <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 3v6M9.5 3v6M11.5 3v6M7.5 9h4M9.5 9v12"/><path d="M16.5 3c-1.6 0-2.8 2-2.8 5s1.2 3.5 2.8 3.5"/><path d="M16.5 3v18"/></svg><span>Bring Your Own Food, No Corkage</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11a9 9 0 0 1 18 0"/><path d="M3 11v3a9 9 0 0 0 18 0v-3"/><path d="M4 5l16 14" /></svg><span>Quiet Productivity Environment</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg><span>Security Provided</span></div>
     </div>
