@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become the Freelancer Clients Can't Replace | FocusLab Coworking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#132318;
+    --paper:#F6F2E9;
+    --paper-2:#EFE9DA;
+    --blueprint:#3E7A56;
+    --blueprint-lt:#8FCB9E;
+    --redline:#C9962C;
+    --amber:#D9A441;
+    --concrete:#8A8578;
+    --charcoal:#3A3E42;
+    --white:#FFFFFF;
+    --radius:10px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--paper);
+    color:var(--charcoal);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .display{font-family:'Space Grotesk', sans-serif;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  a{text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  /* HEADER */
+  header{position:sticky; top:0; z-index:50; background:rgba(246,242,233,0.92); backdrop-filter:blur(6px); border-bottom:1px solid #DDD6C4;}
+  .nav{max-width:760px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:12px;}
+  .brand{font-size:14.5px; font-weight:700; letter-spacing:0.02em; color:var(--ink);}
+  .brand span{color:var(--redline);}
+  .nav-cta{background:var(--ink); color:var(--white); font-size:12.5px; font-weight:600; padding:9px 16px; border-radius:6px; white-space:nowrap;}
+  .partner-strip{background:var(--ink); text-align:center; padding:6px 12px;}
+  .partner-strip p{color:var(--blueprint-lt); font-size:11px; font-family:'IBM Plex Mono', monospace; letter-spacing:0.04em;}
+  .partner-strip strong{color:var(--white);}
+
+  /* HERO */
+  .grid-bg{
+    background-image:linear-gradient(rgba(62,122,86,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(62,122,86,0.08) 1px, transparent 1px);
+    background-size:28px 28px;
+    position:relative;
+  }
+  .hero{padding:64px 0 48px;}
+  .kicker{font-size:11.5px; color:var(--redline); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; font-weight:500;}
+  .hero h1{font-size:clamp(26px,5vw,42px); font-weight:700; line-height:1.18; color:var(--ink); margin-bottom:18px;}
+  .hero .sub{font-size:16px; color:#4B525A; max-width:560px; line-height:1.6; margin-bottom:28px;}
+  .hero-ctas{display:flex; flex-direction:column; gap:12px; align-items:flex-start;}
+  .btn-primary{display:inline-block; background:var(--redline); color:var(--white); font-weight:700; font-size:15px; padding:15px 26px; border-radius:8px; box-shadow:0 4px 0 #96731C;}
+  .hero-meta{font-size:12.5px; color:var(--concrete); font-family:'IBM Plex Mono', monospace;}
+  .hero-perk{display:inline-block; font-size:12.5px; color:var(--blueprint); background:rgba(62,122,86,0.1); border:1px solid rgba(62,122,86,0.3); padding:6px 12px; border-radius:6px; font-weight:600;}
+
+  /* PAIN */
+  .pain{padding:56px 0; background:var(--ink);}
+  .pain h2{color:var(--white); font-size:clamp(22px,3.6vw,30px); font-weight:700; margin-bottom:24px; max-width:600px; line-height:1.3;}
+  .pain-list p{color:#C7CDD3; font-size:15px; line-height:1.75; margin-bottom:16px;}
+  .pain-list p:last-child{margin-bottom:0;}
+  .pain-list strong{color:var(--white);}
+  .pain-tag{display:inline-block; background:rgba(201,150,44,0.18); color:#E8C583; font-size:11.5px; font-family:'IBM Plex Mono', monospace; padding:5px 10px; border-radius:5px; margin-bottom:18px;}
+
+  /* STORY */
+  .story{padding:60px 0;}
+  .story h2{font-size:clamp(22px,3.6vw,30px); font-weight:700; color:var(--ink); margin-bottom:22px; max-width:600px; line-height:1.3;}
+  .story p{font-size:15px; color:#4B525A; line-height:1.75; margin-bottom:16px; max-width:600px;}
+  .pullquote{border-left:3px solid var(--redline); padding:4px 0 4px 20px; font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:18px; color:var(--ink); margin:26px 0; line-height:1.5;}
+  .edge-callout{background:var(--paper-2); border:1px solid #DDD6C4; border-radius:var(--radius); padding:22px 24px; margin-top:24px; max-width:600px;}
+  .edge-callout p{font-size:14.5px; color:#3F454B; line-height:1.7; margin:0 0 12px;}
+  .edge-callout p:last-child{margin-bottom:0;}
+  .edge-callout b{color:var(--ink);}
+  .meta-callout{background:rgba(62,122,86,0.08); border:1px solid rgba(62,122,86,0.3); border-radius:var(--radius); padding:22px 24px; margin-top:36px;}
+  .meta-callout .evo-label{color:var(--blueprint); margin-bottom:10px;}
+  .meta-callout p{font-size:14px; color:var(--charcoal); line-height:1.7; margin:0;}
+  .meta-callout b{color:var(--ink);}
+
+  /* REFRAME */
+  .reframe{padding:56px 0; background:var(--paper-2); border-top:1px solid #DDD6C4; border-bottom:1px solid #DDD6C4;}
+  .reframe h2{font-size:clamp(20px,3.2vw,26px); font-weight:700; color:var(--ink); margin-bottom:16px; max-width:600px;}
+  .reframe p{font-size:15px; color:#4B525A; line-height:1.7; max-width:580px;}
+
+  /* BENEFITS */
+  .benefits{padding:60px 0;}
+  .benefits .kicker{margin-bottom:8px;}
+  .benefits h2{font-size:clamp(22px,3.6vw,28px); font-weight:700; color:var(--ink); margin-bottom:10px; max-width:560px;}
+  .benefits .sub{font-size:14.5px; color:var(--concrete); margin-bottom:32px; max-width:520px;}
+  .check-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px 24px;}
+  .check-item{border-top:2px solid var(--blueprint); padding-top:12px;}
+  .check-item h4{font-size:14.5px; font-weight:700; color:var(--ink); margin-bottom:6px;}
+  .check-item p{font-size:13px; color:#5A6068; line-height:1.55;}
+
+  /* PROGRAM FLOW */
+  .flow{padding:60px 0; background:var(--ink);}
+  .flow .kicker{color:var(--redline);}
+  .flow h2{color:var(--white); font-size:clamp(22px,3.6vw,28px); font-weight:700; margin-bottom:10px; max-width:560px;}
+  .flow .sub{color:#9CA8B5; font-size:14.5px; margin-bottom:34px; max-width:520px;}
+  .flow-list{display:flex; flex-direction:column;}
+  .flow-item{display:grid; grid-template-columns:34px 1fr; gap:16px; padding:16px 0; border-bottom:1px solid rgba(143,203,158,0.18);}
+  .flow-item:last-child{border-bottom:none;}
+  .flow-num{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--blueprint-lt); padding-top:2px;}
+  .flow-item h4{color:var(--white); font-size:14.5px; font-weight:700; margin-bottom:4px;}
+  .flow-item p{color:#9CA8B5; font-size:13px; line-height:1.6;}
+  .flow-bonus{margin-top:26px; padding:18px 20px; background:rgba(143,203,158,0.1); border:1px solid rgba(143,203,158,0.3); border-radius:8px;}
+  .flow-bonus p{color:#C7D4E2; font-size:13.5px; line-height:1.6; margin:0;}
+  .flow-bonus b{color:var(--white);}
+
+
+  .who{padding:56px 0; background:var(--ink);}
+  .who h2{color:var(--white); font-size:clamp(20px,3.2vw,26px); font-weight:700; margin-bottom:22px;}
+  .who-list{display:flex; flex-wrap:wrap; gap:10px;}
+  .who-tag{background:rgba(143,203,158,0.14); border:1px solid rgba(143,203,158,0.35); color:var(--blueprint-lt); font-size:13px; padding:9px 15px; border-radius:20px;}
+
+  /* FOCUSLAB PARTNER */
+  .venue{padding:60px 0;}
+  .venue-card{border:1px solid #DDD6C4; border-radius:var(--radius); padding:28px 24px; background:var(--white);}
+  .venue-badge{font-size:11px; font-family:'IBM Plex Mono', monospace; color:var(--blueprint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px;}
+  .venue h3{font-size:clamp(19px,3vw,24px); font-weight:700; color:var(--ink); margin-bottom:12px; font-family:'Space Grotesk', sans-serif;}
+  .venue p{font-size:14.5px; color:#4B525A; line-height:1.7; margin-bottom:16px;}
+  .venue-amenities{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;}
+  .amenity{font-size:12px; background:var(--paper-2); color:var(--charcoal); padding:6px 12px; border-radius:16px; font-family:'IBM Plex Mono', monospace;}
+
+  /* SPEAKER */
+  .speaker{padding:56px 0; background:var(--paper-2); border-top:1px solid #DDD6C4; border-bottom:1px solid #DDD6C4;}
+  .speaker h2{font-size:clamp(20px,3.2vw,26px); font-weight:700; color:var(--ink); margin-bottom:18px;}
+  .speaker p{font-size:14.5px; color:#4B525A; line-height:1.75; max-width:580px;}
+
+  /* PRICING */
+  .pricing{padding:64px 0;}
+  .price-card{border:1px solid #DDD6C4; padding:36px 26px; text-align:center; border-radius:var(--radius); background:var(--white);}
+  .price-card h3{font-family:'Space Grotesk', sans-serif; font-size:clamp(19px,3vw,23px); font-weight:700; color:var(--ink); margin-bottom:18px;}
+  .price-row{display:flex; align-items:baseline; justify-content:center; gap:14px; margin:10px 0 6px; flex-wrap:wrap;}
+  .price-now{font-family:'Space Grotesk', sans-serif; font-size:48px; font-weight:700; color:var(--ink);}
+  .price-then{font-family:'Space Grotesk', sans-serif; font-size:22px; color:var(--concrete); text-decoration:line-through; text-decoration-color:var(--redline);}
+  .price-note{font-size:12.5px; color:var(--redline); font-family:'IBM Plex Mono', monospace; margin-bottom:22px;}
+  .perks{display:flex; gap:20px; justify-content:center; margin:24px 0; flex-wrap:wrap; text-align:left;}
+  .perk{max-width:200px;}
+  .perk .k{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--blueprint); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:3px;}
+  .perk .v{font-size:13px; color:var(--charcoal);}
+  .btn-block{display:block; width:100%; text-align:center; margin-top:14px;}
+  .seats-note{font-size:12.5px; color:var(--concrete); margin-top:14px; font-family:'IBM Plex Mono', monospace;}
+
+  /* FAQ */
+  .faq{padding:60px 0; background:var(--paper-2);}
+  .faq h2{font-size:clamp(20px,3.2vw,28px); font-weight:700; margin-bottom:28px; max-width:600px; color:var(--ink);}
+  .faq-item{border-bottom:1px solid #D9D3C3; padding:16px 0;}
+  .faq-item h4{font-size:14px; font-weight:700; margin-bottom:7px; color:var(--ink);}
+  .faq-item p{font-size:13px; color:#575D64; line-height:1.6;}
+
+  /* FINAL CTA */
+  .final-cta{padding:68px 0; background:var(--ink); text-align:center; position:relative; overflow:hidden;}
+  .final-cta h2{color:var(--white); font-size:clamp(22px,3.6vw,34px); font-weight:700; max-width:600px; margin:0 auto 16px; line-height:1.25;}
+  .final-cta p{color:#C7D4E2; font-size:14.5px; max-width:460px; margin:0 auto 26px;}
+  .ps-line{max-width:520px; margin:28px auto 0; padding-top:20px; border-top:1px solid rgba(143,203,158,0.25); text-align:left;}
+  .ps-line p{color:#8EA2B8; font-size:12px; font-family:'IBM Plex Mono', monospace; line-height:1.65; max-width:520px; margin-bottom:12px;}
+  .ps-line p:last-child{margin-bottom:0;}
+
+  footer{padding:32px 0; background:var(--ink); border-top:1px solid rgba(143,203,158,0.2); text-align:center;}
+  footer p{color:#7C8CA0; font-size:11.5px; line-height:1.7;}
+  footer a{color:var(--blueprint-lt);}
+
+  /* EVOLUTION */
+  .evolution{padding:60px 0; background:var(--paper-2); border-top:1px solid #DDD6C4; border-bottom:1px solid #DDD6C4;}
+  .evolution h2{font-size:clamp(22px,3.6vw,28px); font-weight:700; color:var(--ink); margin-bottom:10px; max-width:600px;}
+  .evolution .sub{font-size:14.5px; color:var(--concrete); margin-bottom:30px; max-width:560px;}
+  .evo-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:26px;}
+  .evo-col{background:var(--white); border-radius:var(--radius); padding:22px 20px; border:1px solid #DDD6C4;}
+  .evo-col.then{border-top:3px solid var(--concrete);}
+  .evo-col.now{border-top:3px solid var(--redline);}
+  .evo-label{font-size:11px; font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; color:var(--concrete);}
+  .evo-col.now .evo-label{color:var(--redline);}
+  .evo-col ul{list-style:none;}
+  .evo-col li{font-size:13.5px; color:var(--charcoal); line-height:1.6; margin-bottom:10px; padding-left:16px; position:relative;}
+  .evo-col li:last-child{margin-bottom:0;}
+  .evo-col li::before{content:"–"; position:absolute; left:0; color:var(--concrete);}
+  .evo-col.now li::before{color:var(--redline);}
+  .evo-verdict{background:var(--ink); border-radius:var(--radius); padding:22px 24px;}
+  .evo-verdict p{color:var(--white); font-family:'Space Grotesk', sans-serif; font-size:15.5px; font-weight:600; line-height:1.6; margin:0;}
+  .evo-verdict span{color:var(--blueprint-lt);}
+
+
+  .transform{padding:60px 0; background:var(--paper-2); border-top:1px solid #DDD6C4; border-bottom:1px solid #DDD6C4;}
+  .transform h2{font-size:clamp(22px,3.6vw,28px); font-weight:700; color:var(--ink); margin-bottom:10px; max-width:560px;}
+  .transform .sub{font-size:14px; color:var(--concrete);}
+  .transform-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .transform-col{background:var(--white); border-radius:var(--radius); padding:22px 20px; border:1px solid #DDD6C4;}
+  .transform-col.before{border-top:3px solid var(--redline);}
+  .transform-col.after{border-top:3px solid var(--blueprint);}
+  .transform-label{font-size:11px; font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px;}
+  .transform-col.before .transform-label{color:var(--redline);}
+  .transform-col.after .transform-label{color:var(--blueprint);}
+  .transform-col ul{list-style:none;}
+  .transform-col li{font-size:13.5px; color:var(--charcoal); line-height:1.6; margin-bottom:16px; padding-left:22px; position:relative; min-height:20px;}
+  .transform-col li:last-child{margin-bottom:0;}
+  .transform-col.before li::before{content:"✕"; position:absolute; left:0; top:0; color:var(--redline); font-weight:700;}
+  .transform-col.after li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--blueprint); font-weight:700;}
+
+  /* QUALIFY CHECKLIST */
+  .qualify{padding:60px 0;}
+  .qualify h2{font-size:clamp(22px,3.6vw,28px); font-weight:700; color:var(--ink); margin-bottom:28px; max-width:560px;}
+  .qualify-list{display:flex; flex-direction:column; gap:16px;}
+  .qualify-item{display:flex; align-items:flex-start; gap:14px;}
+  .qualify-check{width:20px; height:20px; border:2px solid var(--blueprint); border-radius:5px; flex-shrink:0; margin-top:2px; position:relative;}
+  .qualify-check::after{content:"✓"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--blueprint); font-weight:700;}
+  .qualify-item p{font-size:14.5px; color:#3F454B; line-height:1.6;}
+
+
+  /* SPEAKER STAMP */
+  .speaker-grid{display:grid; grid-template-columns:150px 1fr; gap:28px; align-items:center;}
+  .stamp{width:150px; height:150px; border:2px solid var(--blueprint); border-radius:50%; display:flex; align-items:center; justify-content:center; padding:10px; flex-shrink:0;}
+  .stamp-inner{text-align:center;}
+  .stamp .top, .stamp .bot{font-size:9px; color:var(--blueprint); text-transform:uppercase; letter-spacing:0.04em; line-height:1.4;}
+  .stamp .mid{font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:14px; color:var(--ink); margin:6px 0;}
+  .section-eyebrow{font-size:11.5px; color:var(--blueprint); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:10px;}
+
+  @media (max-width:600px){
+    .evo-grid{grid-template-columns:1fr;}
+    .transform-grid{grid-template-columns:1fr;}
+    .speaker-grid{grid-template-columns:1fr; text-align:center; justify-items:center;}
+    .flow-item{grid-template-columns:26px 1fr; gap:10px;}
+    .wrap{padding:0 18px;}
+    .hero{padding:40px 0 40px;}
+    .pain, .story, .reframe, .benefits, .who, .venue, .speaker, .pricing, .faq, .final-cta, .transform, .qualify, .evolution, .flow{padding-top:44px; padding-bottom:44px;}
+    .pain h2, .story h2, .reframe h2, .benefits h2, .who h2, .speaker h2, .faq h2, .transform h2, .qualify h2, .evolution h2, .flow h2{font-size:19px;}
+    .hero h1{font-size:24px;}
+    .hero .sub{font-size:14px;}
+    .pain-list p, .story p, .reframe p, .benefits .sub, .venue p, .speaker p{font-size:13px;}
+    .pullquote{font-size:15px;}
+    .check-grid{grid-template-columns:1fr;}
+    .check-item h4{font-size:13.5px;}
+    .check-item p{font-size:12px;}
+    .price-now{font-size:38px;}
+    .price-then{font-size:18px;}
+    .perks{gap:14px;}
+    .venue-card{padding:22px 18px;}
+    .price-card{padding:28px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="partner-strip"><p class="mono">IN PARTNERSHIP WITH <strong>FOCUSLAB COWORKING SPACE</strong> · TALISAY CITY, CEBU</p></div>
+
+<header>
+  <div class="nav">
+    <div class="brand display">THE FUTURE-PROOF <span>FREELANCER</span></div>
+    <a href="#reserve" class="nav-cta">Reserve a seat</a>
+  </div>
+</header>
+
+<section class="hero grid-bg">
+  <div class="wrap">
+    <div class="kicker mono">A LIVE WORKSHOP · CEBU</div>
+    <h1 class="display">How to become the freelancer clients keep, even when they're cutting everyone else.</h1>
+    <p class="sub">AI isn't taking your clients. Freelancers who know how to use it are. One afternoon in Cebu to make sure you're the one they keep, not the one they cut.</p>
+    <div class="hero-ctas">
+      <a href="#reserve" class="btn-primary">Reserve Your Seat</a>
+      <span class="hero-meta">Sunday, Aug 2, 2026 · 1:00 PM onwards · Brewlivia Cafe, Talisay City, Cebu · 25 seats only</span>
+      <span class="hero-perk">+ Free 3-hr access to FocusLab Coworking Space (₱250 value), valid within 30 days</span>
+    </div>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="wrap">
+    <div class="pain-tag mono">IF ANY OF THIS SOUNDS FAMILIAR</div>
+    <h2 class="display">You've felt it too. The ground shifting under freelancing.</h2>
+    <div class="pain-list">
+      <p>A proposal you would've won a year ago now gets a reply like <strong>"we're just going to try ChatGPT for this one."</strong> No hard feelings. Just business.</p>
+      <p>A client who used to pay full rate is suddenly asking why it takes you three days, when "AI can do it in an hour." You don't have a good answer yet.</p>
+      <p>You've opened a job board, scrolled past ten listings with rates lower than what you charged two years ago, and closed the tab without applying to any of them.</p>
+      <p>And somewhere underneath all of it is the real fear: <strong>not that AI takes your work, but that another freelancer who knows how to use it takes your client.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="evolution">
+  <div class="wrap">
+    <div class="kicker mono">THE INDUSTRY SHIFT</div>
+    <h2 class="display">Freelancing isn't disappearing. It's splitting freelancers into two groups: replaced, or irreplaceable.</h2>
+    <p class="sub">This isn't new. It's been building for years, and AI just made it impossible to ignore.</p>
+    <div class="evo-grid">
+      <div class="evo-col then">
+        <div class="evo-label">FREELANCING, 5 YEARS AGO</div>
+        <ul>
+          <li>Clients paid by the hour or the task</li>
+          <li>Low-value, repetitive work still had a steady market</li>
+          <li>Being reliable and fast was often enough</li>
+          <li>Tools mattered less than showing up and doing the work</li>
+        </ul>
+      </div>
+      <div class="evo-col now">
+        <div class="evo-label">FREELANCING, TODAY</div>
+        <ul>
+          <li>Clients pay for outcomes, not hours logged</li>
+          <li>Low-value tasks are quietly disappearing, absorbed by AI</li>
+          <li>High-value, judgment-driven work pays more than ever</li>
+          <li>Knowing how to prompt isn't enough. Knowing how to think with AI is</li>
+        </ul>
+      </div>
+    </div>
+    <div class="evo-verdict">
+      <p>AI doesn't replace freelancers. <span>It replaces freelancers who don't know how to use it.</span> And it makes the ones who do even more valuable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <div class="kicker mono">TRUE STORY, NO SUGARCOATING</div>
+    <h2 class="display">The Friday my client's whole team got cut. Except me.</h2>
+    <p>I've been freelancing for six years, and for all six of those years I've worked with the same client. This year, he asked me to help automate our workflows using AI: research, client updates, reporting. Nothing fancy at first. Just work that used to take hours, now taking minutes.</p>
+    <p>Eventually, I found ways to automate most of the work, even the hard parts. Tasks that used to take one person days, I could now do in minutes. I didn't even have to babysit them. I'd just set it running and go work on something else while it finished.</p>
+    <p>Then, just months later, the budget got tight and he had to cut deep. Within a week, everyone else on the team was gone. I was the one he kept, not by luck, but because losing me wasn't an option he was willing to take.</p>
+    <div class="pullquote">He told me straight: "Everyone else, I had to replace with a cheaper version of themselves. You, I couldn't replace at all. You were already doing the work of an entire team."</div>
+    <p>That's not a brag. It's the whole point of this workshop. The freelancers getting cut right now aren't the ones AI is "better than." They're the ones who never learned to make AI work for them, while somebody else quietly did.</p>
+    <div class="edge-callout">
+      <p><b>Here's the part most people miss.</b> Right now, knowing AI feels like an edge. But eventually, everyone will know how to use it, the same way everyone learned to use email or Canva.</p>
+      <p>When that day comes, what will be your edge?</p>
+      <p>The freelancers who already have real client experience, and pair it with AI, will always be worth more than freelancers who only have one or the other. That's exactly what we'll build toward.</p>
+    </div>
+  </div>
+</section>
+
+<section class="reframe">
+  <div class="wrap">
+    <h2 class="display">This isn't an AI class. It's a job-security class that happens to use AI.</h2>
+    <p>You won't leave knowing every prompt trick. You'll leave with a repeatable way to compress your own busywork, so what's left is the part clients actually pay for: your judgment, your taste, your ability to know what "good" looks like before AI does. That's the part nothing replaces.</p>
+  </div>
+</section>
+
+<section class="transform">
+  <div class="wrap">
+    <div class="kicker mono">THE SHIFT</div>
+    <h2 class="display">What changes after one afternoon</h2>
+    <div class="transform-grid">
+      <div class="transform-col before">
+        <div class="transform-label">BEFORE</div>
+        <ul>
+          <li>Quoting by the hour, and losing bids to "we'll just use AI"</li>
+          <li>Watching rates in your niche quietly drop</li>
+          <li>Using AI here and there, with no real system behind it</li>
+          <li>No good answer when a client asks why they still need you</li>
+          <li>Wondering if you'd be the one kept, or the one let go</li>
+        </ul>
+      </div>
+      <div class="transform-col after">
+        <div class="transform-label">AFTER</div>
+        <ul>
+          <li>Selling outcomes AI can't replace, and clients still paying full price</li>
+          <li>Charging more, because you now do the work of a small team</li>
+          <li>A working AI setup, built for your actual clients and work</li>
+          <li>A clear, confident answer, ready before they even ask</li>
+          <li>Knowing exactly what makes you the one clients keep</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="qualify">
+  <div class="wrap">
+    <div class="kicker mono">IS THIS FOR YOU</div>
+    <h2 class="display">This is for you if:</h2>
+    <div class="qualify-list">
+      <div class="qualify-item"><div class="qualify-check"></div><p>You feel the ground shifting under freelancing, and you're not sure what to do about it.</p></div>
+      <div class="qualify-item"><div class="qualify-check"></div><p>You're a freelancer or VA who's lost a bid to "we'll just try ChatGPT for this one."</p></div>
+      <div class="qualify-item"><div class="qualify-check"></div><p>You want to start freelancing, but don't know where AI even fits into it.</p></div>
+      <div class="qualify-item"><div class="qualify-check"></div><p>You already use AI tools, just not with any real system behind them.</p></div>
+      <div class="qualify-item"><div class="qualify-check"></div><p>You've wondered if you'd be the one kept, or the one let go, if your client had to cut costs tomorrow.</p></div>
+      <div class="qualify-item"><div class="qualify-check"></div><p>You want real, usable skills you can apply this week, not more theory.</p></div>
+      <div class="qualify-item"><div class="qualify-check"></div><p>You're a business owner who wants your own work done faster, without hiring more people to do it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="wrap">
+    <div class="kicker mono">WHAT YOU WALK OUT WITH</div>
+    <h2 class="display">One Sunday. A system you'll still be using in a year.</h2>
+    <p class="sub">No fluff, no 47-slide theory deck. Just what I actually built, taught in the order that made it stick.</p>
+    <div class="check-grid">
+      <div class="check-item">
+        <h4>Your busywork, mapped</h4>
+        <p>Identify the exact hours in your week AI can take off your plate, without touching the work only you can do.</p>
+      </div>
+      <div class="check-item">
+        <h4>A working AI setup</h4>
+        <p>Leave with tools actually configured for your niche, not just a bookmarked list you'll never open.</p>
+      </div>
+      <div class="check-item">
+        <h4>The "can't replace me" pitch</h4>
+        <p>How to talk to clients about AI before they bring it up, so it sounds like an upgrade instead of a threat.</p>
+      </div>
+      <div class="check-item">
+        <h4>A Monday-ready plan</h4>
+        <p>Not inspiration. A written next step for your specific clients, work, and workload.</p>
+      </div>
+    </div>
+    <div class="meta-callout">
+      <div class="evo-label mono">DID YOU KNOW?</div>
+      <p><b>This entire sales page, the copy, the design, all of it, was built with AI in about an hour.</b> I didn't write a line of code or design a single pixel myself. I just prompted. That's the kind of leverage we'll build for you too.</p>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="kicker mono">HOW THE AFTERNOON FLOWS</div>
+    <h2 class="display">Exactly what happens, start to finish</h2>
+    <p class="sub">No surprises. Here's the full run of the afternoon.</p>
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="flow-num">01</div>
+        <div><h4>Registration & networking</h4><p>Grab a coffee, settle in, and meet someone new before we start.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">02</div>
+        <div><h4>Welcome & real talk</h4><p>My story: engineering background, freelancing, working with international clients, and why AI changed everything.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">03</div>
+        <div><h4>Quick introductions</h4><p>Name, what you do, where you're at with freelancing, and what you're hoping to walk away with.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">04</div>
+        <div><h4>Freelancing has changed</h4><p>What freelancing looked like 5 years ago, why some freelancers are losing work, and why others are charging more than ever.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">05</div>
+        <div><h4>Why context beats prompts</h4><p>The biggest mindset shift: the best prompt isn't the goal. Giving AI real context about your business, voice, and work is.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">06</div>
+        <div><h4>Live AI demo</h4><p>Real workflows in ChatGPT, Claude, and Canva, and how combining them turns research into a finished, published post.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">07</div>
+        <div><h4>Real client examples</h4><p>Actual sales pages, emails, social content, and SOPs, and which AI tools helped build them.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">08</div>
+        <div><h4>Break</h4><p>Coffee and more networking.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">09</div>
+        <div><h4>Discover your Ikigai</h4><p>A guided worksheet to find where what you enjoy, what you're good at, and what clients pay for actually overlap, and use that to figure out exactly which AI platform fits your specific path.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">10</div>
+        <div><h4>Group sharing</h4><p>Volunteers share what they found, and we connect it to real freelance opportunities.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">11</div>
+        <div><h4>Your action plan</h4><p>One skill. One niche. One project. A concrete next step you can start building this week.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">12</div>
+        <div><h4>Q&A</h4><p>Write your questions on a card anytime during the afternoon, so even quieter folks get theirs answered.</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">13</div>
+        <div><h4>Closing & networking</h4><p>We'll close with open networking: share what you do, the work or services you can offer, and the help you're looking for. Bring business cards to exchange.</p></div>
+      </div>
+    </div>
+    <div class="flow-bonus">
+      <p><b>Bonus for anyone who stays after:</b> a free 10-15 minute one-on-one coaching session. Ask about your niche, get portfolio feedback, or talk through your own AI workflow.</p>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="wrap">
+    <h2 class="display">Who this Sunday is for</h2>
+    <div class="who-list">
+      <span class="who-tag">Freelancers feeling the AI squeeze</span>
+      <span class="who-tag">VAs tired of being seen as replaceable</span>
+      <span class="who-tag">Career switchers going independent</span>
+      <span class="who-tag">Students building freelance income</span>
+      <span class="who-tag">Anyone who's lost a bid to "we'll just use AI"</span>
+    </div>
+  </div>
+</section>
+
+<section class="venue">
+  <div class="wrap">
+    <div class="venue-card">
+      <div class="venue-badge">THE VENUE</div>
+      <h3>Hosted at Brewlivia Cafe, steps from FocusLab</h3>
+      <p>The workshop runs at Brewlivia Cafe, 2nd Flr, Southscape, Talisay City, Cebu, just a few steps from FocusLab Coworking Space. Landmark: at the back of Mani Mogo Restaurant.</p>
+      <p><strong>Every seat includes free 3-hour access to FocusLab Coworking Space</strong> (a ₱250 value), valid anytime within 30 days of the workshop, so you can come back and actually apply what you learned in a quiet, focused space.</p>
+      <div class="venue-amenities">
+        <span class="amenity">Fully air-conditioned</span>
+        <span class="amenity">Fast, stable internet</span>
+        <span class="amenity">Free 3-hr FocusLab access, valid 30 days (₱250 value)</span>
+        <span class="amenity">Quiet, distraction-free space</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="speaker">
+  <div class="wrap speaker-grid">
+    <div class="stamp">
+      <div class="stamp-inner">
+        <div class="top mono">LICENSED · CIVIL ENGINEER</div>
+        <div class="mid">6 YRS FREELANCE</div>
+        <div class="bot mono">CEBU · PHILIPPINES</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow mono">MEET YOUR FACILITATOR</div>
+      <h2 class="display">Sheila Mae Unabia, a licensed engineer who traded blueprints for the freelance life.</h2>
+      <p>Licensed Civil Engineer with 6 years freelancing full time for international clients: copywriting, email marketing, marketing strategy, funnel building, and AI workflows. I'm not here to sell you a dream. I'm here to show you what's actually working, with actual clients, right now.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="reserve">
+  <div class="wrap">
+    <div class="price-card">
+      <h3>Reserve your seat</h3>
+      <div class="price-row">
+        <span class="price-then">₱799</span>
+        <span class="price-now">₱499</span>
+      </div>
+      <div class="price-note mono">EARLY RATE ENDS SOON · 25 SEATS ONLY</div>
+      <div class="perks">
+        <div class="perk">
+          <div class="k">WHEN</div>
+          <div class="v">Sunday, Aug 2, 2026<br>1:00 PM onwards</div>
+        </div>
+        <div class="perk">
+          <div class="k">WHERE</div>
+          <div class="v">Brewlivia Cafe, 2nd Flr<br>Southscape, Talisay City, Cebu</div>
+        </div>
+        <div class="perk">
+          <div class="k">INCLUDES</div>
+          <div class="v">Workshop and materials, plus free 3-hr FocusLab access valid within 30 days (₱250 value)</div>
+        </div>
+      </div>
+      <a href="#" class="btn-primary btn-block">Reserve Your Seat, ₱499</a>
+      <p class="seats-note">Price goes to ₱799 at the door. No pressure tactics, just math: earlier booking helps us plan seats and materials.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2 class="display">Before you go, a few honest answers</h2>
+    <div class="faq-item">
+      <h4>Does this apply to me even if I'm not a freelancer, or haven't started yet?</h4>
+      <p>Yes, it applies to everyone. Beginners, students, career switchers, working professionals thinking about going independent, current freelancers, VAs, and business owners who just want to run their own work faster and more efficiently are all welcome. The earlier you get this, the less catching up you'll have to do later.</p>
+    </div>
+    <div class="faq-item">
+      <h4>I've never used AI tools for work. Will I be lost?</h4>
+      <p>No. We start from zero and build up. If you can send a client an email, you can follow this.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is this just a sales pitch for more paid stuff after?</h4>
+      <p>No. This is one full workshop. What you learn is yours to keep, no upsell pitch waiting at the end.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What if I can't make it after I book?</h4>
+      <p>Message us as early as you can. Seats are limited to 25, so we'll do our best to work something out.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Do I need to bring a laptop?</h4>
+      <p>It's optional, but highly encouraged, especially if you're already using AI tools like ChatGPT or Claude. I'll be doing a live demo and sharing the slides afterward, so you can follow along even without one, or revisit everything at home.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2 class="display">The freelancers who get cut this year won't be the ones AI is better than.</h2>
+    <p>They'll be the ones who never learned to use it, while someone else quietly did. Let's fix that on August 2nd.</p>
+    <a href="#reserve" class="btn-primary">Reserve Your Seat, ₱499</a>
+    <div class="ps-line">
+      <p>P.S. There's no next batch scheduled yet, and the ₱499 rate disappears the moment this window closes. If you've been waiting for a sign to finally get ahead of this, this is it.</p>
+      <p>P.P.S. Worst case, you spend one Sunday and walk away with tools and a system you'll use for years. The only way this costs you anything is by skipping it.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="mono">HOW TO BECOME A FUTURE-PROOF FREELANCER · AUG 2, 2026<br>
+  In partnership with FocusLab Coworking Space, Southscape Commercial Bldg., Talisay City, Cebu<br>
+  <a href="https://www.focuslab-cebu.com/">focuslab-cebu.com</a></p>
+</footer>
+
+</body>
+</html>
