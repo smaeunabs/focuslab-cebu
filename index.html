@@ -359,6 +359,17 @@
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.6rem;font-size:.8rem;flex-wrap:wrap;gap:1rem}
   .foot-bottom .socials{display:flex;gap:.8rem}
   .foot-bottom .socials a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;transition:background .25s,color .25s}
+  .messenger-fab-wrap{position:fixed;right:1.4rem;bottom:1.4rem;z-index:60;display:flex;align-items:center;gap:.7rem}
+  .messenger-fab{flex:none;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--green-950);box-shadow:0 10px 24px -8px rgba(183,138,60,.55);transition:transform .2s}
+  .messenger-fab:hover{transform:scale(1.08)}
+  .messenger-fab svg{width:28px;height:28px}
+  .messenger-label{background:var(--green-900);color:var(--cream-2);font-size:.82rem;font-weight:600;padding:.55rem .9rem;border-radius:999px;box-shadow:var(--shadow);white-space:nowrap}
+  @media(max-width:640px){
+    .messenger-fab-wrap{right:1rem;bottom:1rem;flex-direction:column;align-items:flex-end;gap:.4rem}
+    .messenger-fab{width:50px;height:50px}
+    .messenger-fab svg{width:25px;height:25px}
+    .messenger-label{font-size:.68rem;padding:.4rem .65rem}
+  }
   .foot-bottom .socials a:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
   .foot-bottom .socials svg{width:16px;height:16px}
 
@@ -852,5 +863,12 @@
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+
+<div class="messenger-fab-wrap">
+  <span class="messenger-label">Send us a message on Facebook</span>
+  <a class="messenger-fab" href="https://m.me/focuslab.talisay" target="_blank" rel="noopener" aria-label="Send us a message on Facebook">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.9 1.52 5.48 3.9 7.16V22l3.56-1.96c.8.22 1.65.34 2.54.34 5.52 0 10-4.02 10-9S17.52 2 12 2z"/><path d="M13 7l-3.2 5h2.7l-2 5 5.2-6.2h-2.8L13 7z" fill="currentColor" stroke="none"/></svg>
+  </a>
+</div>
 </body>
 </html>
