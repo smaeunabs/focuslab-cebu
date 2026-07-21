@@ -113,6 +113,16 @@
   .gcash-info .gname{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--green-900)}
   .gcash-info .gnum{font-size:1.3rem;font-weight:700;color:var(--ink);letter-spacing:.03em;margin-top:.2rem}
   .gcash-info .gtag{display:inline-block;margin-top:.5rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#0d6efd;background:rgba(13,110,253,.1);padding:.3rem .6rem;border-radius:999px}
+  .gnum-copy{display:inline-flex;align-items:center;gap:.5rem;margin:.2rem 0 0 -.55rem;padding:.3rem .55rem;background:none;border:none;border-radius:10px;cursor:pointer;font-family:var(--body);transition:background .2s}
+  .gnum-copy:hover{background:rgba(183,138,60,.1)}
+  .gnum-copy .gnum{margin-top:0}
+  .gnum-copy .copy-ic{display:inline-flex;flex:none;color:var(--muted)}
+  .gnum-copy .copy-ic svg{width:16px;height:16px}
+  .gnum-copy .copy-ic.check{display:none;color:#1a9e5c}
+  .gnum-copy.copied .copy-ic.copy{display:none}
+  .gnum-copy.copied .copy-ic.check{display:inline-flex}
+  .gnum-copy .copy-label{font-size:.72rem;font-weight:700;color:#1a9e5c;display:none;letter-spacing:.02em}
+  .gnum-copy.copied .copy-label{display:inline}
   .gcash-steps{margin-top:1.4rem;padding-top:1.2rem;border-top:1px dashed var(--line);font-size:.9rem;color:var(--muted)}
   .gcash-steps ol{margin:.6rem 0 0 1.1rem;display:flex;flex-direction:column;gap:.35rem}
   .upload{margin-top:1.3rem}
@@ -309,9 +319,14 @@
             </div>
             <div class="gcash-info">
               <div class="gname" id="gcashName">HA***D D.</div>
-              <div class="gnum" id="gcashNum">+63 929 704 ••••</div>
+              <button type="button" class="gnum-copy" id="gcashNumCopy" data-copy="09297049661" aria-label="Copy GCash number">
+                <span class="gnum" id="gcashNum">0929 704 9661</span>
+                <span class="copy-ic copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></span>
+                <span class="copy-ic check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg></span>
+                <span class="copy-label">Copied!</span>
+              </button>
               <span class="gtag">GCash · InstaPay</span>
-              <div class="hint" style="margin-top:.5rem">Scan the QR to pay automatically. The account name above confirms it's the right recipient.</div>
+              <div class="hint" style="margin-top:.5rem">Scan the QR to pay automatically, or tap the number above to copy it. The account name confirms it's the right recipient.</div>
             </div>
           </div>
           <div class="gcash-steps">
@@ -689,6 +704,22 @@
     t.focus(); t.select();
     try { document.execCommand('copy'); } catch(e) {}
     document.body.removeChild(t);
+  }
+
+  const gcashNumCopy = document.getElementById('gcashNumCopy');
+  if (gcashNumCopy) {
+    gcashNumCopy.addEventListener('click', function(){
+      const num = gcashNumCopy.dataset.copy;
+      const done = function(){
+        gcashNumCopy.classList.add('copied');
+        setTimeout(function(){ gcashNumCopy.classList.remove('copied'); }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(num).then(done).catch(function(){ fallbackCopy(num); done(); });
+      } else {
+        fallbackCopy(num); done();
+      }
+    });
   }
 </script>
 
