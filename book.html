@@ -213,6 +213,7 @@
           <button class="cat-tab" data-cat="night">Night Memberships</button>
         </div>
         <p class="promo-flag" id="paygNote">Promo rates valid until July 31 only</p>
+        <p class="promo-flag hide" id="nightNote">Rainy Days Promo: Free Dinner on Weekly &amp; Monthly Night Pass · Jul 19–31 only</p>
         <div class="opt-grid" id="optGrid"></div>
 
         <div class="info-hl">
@@ -407,9 +408,9 @@
       {id:'dedicated', name:'Dedicated Monthly', price:8000, desc:'Your own workspace', club:true},
     ],
     night: [
-      {id:'weekly-night', name:'Weekly Night Pass', price:3500, desc:'Unlimited, 7 days'},
+      {id:'weekly-night', name:'Weekly Night Pass', price:2600, wasPrice:3500, desc:'Unlimited, 7 days + Free Dinner'},
       {id:'10day-night', name:'10-Day Night Pass', price:4500, desc:'Valid for 30 days'},
-      {id:'monthly-night', name:'Monthly Night Pass', price:8000, desc:'Flexible seating', club:true},
+      {id:'monthly-night', name:'Monthly Night Pass', price:6500, wasPrice:8000, desc:'Flexible seating + Free Dinner', club:true},
       {id:'dedicated-night', name:'Dedicated Night Pass', price:10000, desc:'Your own workspace', club:true},
     ]
   };
@@ -450,6 +451,7 @@
     state.cat = btn.dataset.cat;
     state.planId = PLANS[state.cat][0].id;
     $('paygNote').classList.toggle('hide', state.cat !== 'payg');
+    $('nightNote').classList.toggle('hide', state.cat !== 'night');
     afterPlanChange();
   });
 
@@ -530,6 +532,8 @@
         state.planId = wanted;
         state.cat = PLANS.day.indexOf(found) > -1 ? 'day' : PLANS.night.indexOf(found) > -1 ? 'night' : 'payg';
         document.querySelectorAll('.cat-tab').forEach(t => t.classList.toggle('active', t.dataset.cat===state.cat));
+        $('paygNote').classList.toggle('hide', state.cat !== 'payg');
+        $('nightNote').classList.toggle('hide', state.cat !== 'night');
       }
     }
     ['date','time'].forEach(id => $(id).addEventListener('input', update));

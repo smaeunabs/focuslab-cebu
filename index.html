@@ -248,6 +248,38 @@
   .night-note svg{flex:none;width:26px;height:26px;color:var(--gold-light);margin-top:2px}
   .night-note b{color:var(--gold-light)}
 
+  /* Rainy Days Promo */
+  .rainy-promo{padding:1rem 0 4.5rem}
+  .rp-card{
+    position:relative;overflow:hidden;border-radius:26px;
+    background:linear-gradient(135deg,var(--night-900),var(--night) 55%,var(--green-900));
+    color:var(--cream-2);padding:3rem clamp(1.5rem,5vw,3.5rem);text-align:center;
+  }
+  .rp-card::before{content:"";position:absolute;top:-30%;left:-10%;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(217,184,115,.25),transparent 70%);pointer-events:none}
+  .rp-card::after{content:"";position:absolute;bottom:-30%;right:-10%;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(183,138,60,.2),transparent 70%);pointer-events:none}
+  .rp-badge{position:relative;display:inline-flex;align-items:center;gap:.5rem;background:rgba(217,184,115,.16);border:1px solid rgba(217,184,115,.4);color:var(--gold-light);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.5rem 1.1rem;border-radius:999px;margin-bottom:1.4rem}
+  .rp-badge .ic-rain{width:16px;height:16px}
+  .rp-head{position:relative;max-width:640px;margin-inline:auto}
+  .rp-head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.1}
+  .rp-head h2 em{font-style:italic;color:var(--gold-light)}
+  .rp-head p{color:var(--cream-2);opacity:.82;margin-top:.9rem;font-size:1rem}
+  .rp-period{margin-top:.7rem !important;font-size:.78rem !important;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gold-light) !important;opacity:1 !important}
+  .rp-prices{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,260px));justify-content:center;gap:1.4rem;margin:2.4rem 0 2rem}
+  .rp-price{position:relative;background:rgba(250,246,236,.06);border:1px solid rgba(217,184,115,.3);border-radius:18px;padding:1.6rem 1.4rem;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+  .rp-price.featured{border-color:var(--gold-light);background:rgba(217,184,115,.1)}
+  .rp-ribbon{position:absolute;top:-.7rem;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:999px;white-space:nowrap}
+  .rp-name{font-size:.85rem;font-weight:600;letter-spacing:.03em;color:var(--cream-2);opacity:.85}
+  .rp-was{text-decoration:line-through;opacity:.55;font-size:.9rem}
+  .rp-now{font-family:var(--display);font-weight:500;font-size:2.3rem;color:var(--gold-light);line-height:1}
+  .rp-now sup{font-size:.85rem;top:-1.1em;margin-right:.1em}
+  .rp-save{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8fd19e;margin-top:.1rem}
+  .rp-pick{margin-top:.7rem;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-light);border-bottom:1px solid transparent;transition:border-color .2s}
+  .rp-pick:hover{border-color:var(--gold-light)}
+  .rp-cta{position:relative;margin-top:.4rem}
+  .rp-terms{position:relative;margin:2.2rem auto 0;max-width:640px;display:flex;gap:.8rem;align-items:flex-start;text-align:left;background:rgba(0,0,0,.18);border-radius:14px;padding:1.1rem 1.4rem;font-size:.82rem;color:var(--cream-2);opacity:.9}
+  .rp-terms svg{flex:none;width:20px;height:20px;color:var(--gold-light);margin-top:.15rem}
+  .rp-terms b{color:var(--gold-light)}
+
   /* Monthly to Freelancers Club callout */
   .club-cta{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;justify-content:center;text-align:center;background:linear-gradient(150deg,var(--green-800),var(--green-900));color:var(--cream-2);border:1px solid rgba(217,184,115,.3);border-radius:18px;padding:1.4rem 2rem;margin-bottom:2.6rem;position:relative;overflow:hidden}
   .club-cta::before{content:"";position:absolute;top:-50%;right:-5%;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(183,138,60,.22),transparent 70%);pointer-events:none}
@@ -657,6 +689,45 @@
     <div class="night-note reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 11v5M12 7.5v.5"/></svg>
       <div><b>Night Pass Policy:</b> If you start working at <b>9:00 PM or later</b>, a Night Pass is required. Night Passes are available on <b>Weekly plans and above</b> only (Weekly, 10-Day, and Monthly). They are not offered on hourly, 3-hour, or single day passes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RAINY DAYS PROMO -->
+<section class="rainy-promo" id="rainy-days-promo">
+  <div class="wrap">
+    <div class="rp-card reveal">
+      <span class="rp-badge">
+        <svg class="ic-rain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 16.5a4.5 4.5 0 0 1 .3-8.98A6 6 0 0 1 20 9.5a3.75 3.75 0 0 1-1 7.37"/><path d="M9 19l-1 2M13 19l-1 2M17 19l-1 2"/></svg>
+        Rainy Days Promo
+      </span>
+      <div class="rp-head">
+        <h2>Night Pass, <em>free dinner's</em> on us</h2>
+        <p>Book a Weekly or Monthly Night Pass this rainy season and get a free dinner included, on the house, perfect for late nights getting things done while it pours outside.</p>
+        <p class="rp-period">Valid July 19–31, 2026</p>
+      </div>
+      <div class="rp-prices">
+        <div class="rp-price">
+          <span class="rp-name">Weekly Night Pass</span>
+          <span class="rp-was">₱3,500</span>
+          <span class="rp-now"><sup>₱</sup>2,600</span>
+          <span class="rp-save">Save ₱900</span>
+          <a href="book.html?plan=weekly-night" class="rp-pick">Choose Weekly →</a>
+        </div>
+        <div class="rp-price featured">
+          <span class="rp-ribbon">Best Savings</span>
+          <span class="rp-name">Monthly Night Pass</span>
+          <span class="rp-was">₱8,000</span>
+          <span class="rp-now"><sup>₱</sup>6,500</span>
+          <span class="rp-save">Save ₱1,500</span>
+          <a href="book.html?plan=monthly-night" class="rp-pick">Choose Monthly →</a>
+        </div>
+      </div>
+      <a href="book.html?plan=weekly-night" class="btn btn-gold rp-cta">Book Now</a>
+      <div class="rp-terms">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.01"/></svg>
+        <div><b>Terms:</b> Free Dinner applies only to <b>Night Pass bookings starting 9:00 PM onwards</b>. Valid on <b>Weekly and Monthly Night Pass plans only</b>, not applicable to hourly, 3-hour, or Day Pass rates. Promo runs <b>July 19–31, 2026</b>.</div>
+      </div>
     </div>
   </div>
 </section>
