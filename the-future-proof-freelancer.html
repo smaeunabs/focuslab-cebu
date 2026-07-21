@@ -65,6 +65,8 @@
   .btn-primary:hover{background:#DBAA42; transform:translateY(-2px) scale(1.035); box-shadow:0 6px 0 #96731C;}
   .btn-primary:active{transform:translateY(0) scale(1);box-shadow:0 2px 0 #96731C;}
   .hero-meta{font-size:12.5px; color:var(--concrete); font-family:'IBM Plex Mono', monospace;}
+  .seats-was{text-decoration:line-through; text-decoration-color:var(--redline); opacity:0.7;}
+  .seats-left{color:var(--redline); font-weight:700;}
   .hero-perk{display:inline-block; font-size:12.5px; color:var(--blueprint); background:rgba(62,122,86,0.1); border:1px solid rgba(62,122,86,0.3); padding:6px 12px; border-radius:6px; font-weight:600;}
 
   /* PAIN */
@@ -367,7 +369,7 @@
     <p class="sub">AI isn't taking your clients. Freelancers who know how to use it are. One afternoon in Cebu to make sure you're the one they keep, not the one they cut.</p>
     <div class="hero-ctas">
       <a href="#reserve" class="btn-primary">Reserve Your Seat</a>
-      <span class="hero-meta">Saturday, Aug 1, 2026 · 1:00 PM onwards · Brewlivia Cafe, Talisay City, Cebu · 25 seats only</span>
+      <span class="hero-meta">Saturday, Aug 1, 2026 · 1:00 PM onwards · Brewlivia Cafe, Talisay City, Cebu · <span class="seats-was">25 seats</span> <span class="seats-left">24 left</span></span>
       <span class="hero-perk">+ Free 3-hr access to FocusLab Coworking Space (₱250 value), usable as soon as you reserve</span>
     </div>
   </div>
@@ -702,7 +704,7 @@
           </div>
         </div>
         <div class="walkin-note" id="walkin-note">
-          <p>No payment needed now. Just show up at Brewlivia Cafe on Saturday, Aug 1, and pay ₱799 at the door. Seats are still limited to 25, so booking ahead (even for walk-in) helps us hold your spot.</p>
+          <p>No payment needed now. Just show up at Brewlivia Cafe on Saturday, Aug 1, and pay ₱799 at the door. Only 24 seats are left, so booking ahead (even for walk-in) helps us hold your spot.</p>
         </div>
         <button type="button" id="review-btn" class="btn-primary btn-block" style="border:none; font-family:inherit; cursor:pointer;">Review Booking</button>
         <p class="form-submit-msg" id="form-msg"></p>
@@ -761,7 +763,7 @@
     </div>
     <div class="faq-item">
       <h4>What if I can't make it after I book?</h4>
-      <p>Message us as early as you can. Seats are limited to 25, so we'll do our best to work something out.</p>
+      <p>Message us as early as you can. Only 24 seats are left, so we'll do our best to work something out.</p>
     </div>
     <div class="faq-item">
       <h4>How does the free FocusLab pass work?</h4>
