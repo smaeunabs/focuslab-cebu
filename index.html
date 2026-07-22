@@ -368,6 +368,19 @@
   .amen-item .ic{width:38px;height:38px;color:var(--gold-light)}
   .amen-item span{font-size:.86rem;font-weight:600;letter-spacing:.02em;color:rgba(244,239,228,.85)}
 
+  /* ---------- Gallery ---------- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem}
+  .gallery-item{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--paper);border:1px solid var(--line)}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .gallery-item:hover img{transform:scale(1.06)}
+  .gallery-media{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;align-items:start}
+  .gallery-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:1.6rem}
+  .gallery-card h3{font-family:var(--display);font-weight:500;font-size:1.15rem;color:var(--green-900);margin-bottom:1.1rem}
+  .gallery-video-frame{border-radius:14px;overflow:hidden;background:var(--green-950);max-width:300px;margin-inline:auto}
+  .gallery-video-frame iframe{width:100%;aspect-ratio:9/16;display:block;border:none}
+  .gallery-fb-frame{border-radius:14px;overflow:hidden;display:flex;justify-content:center;background:#fff}
+  .gallery-fb-frame iframe{width:100%;max-width:500px;height:500px;border:none}
+
   /* ---------- Guidelines + Location ---------- */
   .info-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
   .guide-card{background:var(--green-800);color:var(--cream-2);border-radius:22px;padding:2.4rem}
@@ -440,12 +453,15 @@
     .nav-links{display:none}
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--cream);padding:1.5rem 6vw;gap:1.2rem;border-bottom:1px solid var(--line)}
     .nav-toggle{display:block}
+    .gallery-media{grid-template-columns:1fr}
   }
   @media(max-width:560px){
     .hero{padding:2.25rem 0 2.5rem}
     .feat-grid,.rate-grid,.plan-grid,.amen-grid{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     section{padding:3.5rem 0}
+    .gallery-grid{grid-template-columns:1fr 1fr;gap:.7rem}
+    .gallery-fb-frame iframe{height:420px}
   }
 </style>
 <!-- LocalBusiness structured data. TODO: add "geo":{"@type":"GeoCoordinates","latitude":..,"longitude":..} once the exact Google Maps pin is available. -->
@@ -915,6 +931,46 @@
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 3v6M9.5 3v6M11.5 3v6M7.5 9h4M9.5 9v12"/><path d="M16.5 3c-1.6 0-2.8 2-2.8 5s1.2 3.5 2.8 3.5"/><path d="M16.5 3v18"/></svg><span>Bring Your Own Food, No Corkage</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11a9 9 0 0 1 18 0"/><path d="M3 11v3a9 9 0 0 0 18 0v-3"/><path d="M4 5l16 14" /></svg><span>Quiet Productivity Environment</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg><span>Security Provided</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Gallery</p>
+      <h2>Come See It <em>Yourself</em></h2>
+      <p>A look inside FocusLab, a quick video walkthrough, and live updates straight from our Facebook page.</p>
+    </div>
+
+    <!-- Photo grid: drop image files into /public/gallery named gallery-1.jpg through gallery-6.jpg (roughly 4:3, under ~500KB each is ideal). Add more <div class="gallery-item"> tiles here anytime. -->
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><img src="/public/gallery/gallery-1.jpg" alt="FocusLab coworking space in Talisay City, Cebu - open workspace seating" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item"><img src="/public/gallery/gallery-2.jpg" alt="FocusLab coworking space in Talisay City, Cebu - lounge and break area" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item"><img src="/public/gallery/gallery-3.jpg" alt="FocusLab coworking space in Talisay City, Cebu - individual desk with charging station" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item"><img src="/public/gallery/gallery-4.jpg" alt="FocusLab coworking space in Talisay City, Cebu - air-conditioned interior" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item"><img src="/public/gallery/gallery-5.jpg" alt="FocusLab coworking space in Talisay City, Cebu - entrance at Southscape Commercial Building" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item"><img src="/public/gallery/gallery-6.jpg" alt="FocusLab coworking space in Talisay City, Cebu - quiet focus area" loading="lazy" onerror="this.remove()"></div>
+    </div>
+
+    <div class="gallery-media reveal">
+      <div class="gallery-card">
+        <h3>Video Walkthrough</h3>
+        <div class="gallery-video-frame">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2189906491857717%2F&show_text=0"
+            scrolling="no" frameborder="0" allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="FocusLab video walkthrough"></iframe>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <h3>Follow Us on Facebook</h3>
+        <div class="gallery-fb-frame">
+          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffocuslab.talisay%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+            scrolling="no" frameborder="0" allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="FocusLab Facebook page feed"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
