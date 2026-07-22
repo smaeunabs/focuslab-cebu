@@ -1,18 +1,18 @@
 # Gallery photos
 
-Drop the photos for the homepage Gallery section in this folder, named:
+The 8 photos for the homepage Gallery section live here, resized and compressed
+from the originals (each was several MB; these are optimized to ~80-190KB each
+so the section stays fast on mobile):
 
-- `gallery-1.jpg`
-- `gallery-2.jpg`
-- `gallery-3.jpg`
-- `gallery-4.jpg`
-- `gallery-5.jpg`
-- `gallery-6.jpg`
+- `gallery-1.jpg` through `gallery-8.jpg`
 
 Tips:
-- Roughly 4:3 aspect ratio (e.g. 1200x900) looks best in the grid, since each tile crops to that shape.
-- Keep each file under ~500KB (export as JPG, "web quality" ~70-80%) so the page stays fast to load.
-- Want more than 6? Just add `gallery-7.jpg`, `gallery-8.jpg`, etc., and add a matching
-  `<div class="gallery-item"><img src="/public/gallery/gallery-7.jpg" ...></div>` line in the
+- Currently sized to fit a 3:4 portrait tile (900x1200), since the source photos
+  were portrait. If you add landscape photos, resizing them to roughly the same
+  height keeps the grid looking even.
+- Keep each file under ~300KB (export as JPG, "web quality" ~70-80%) so the page
+  stays fast to load.
+- Want more than 8? Add `gallery-9.jpg`, etc., and add a matching
+  `<div class="gallery-item"><img src="/public/gallery/gallery-9.jpg" ...></div>` line in the
   Gallery section of `index.html`.
 - Until a file exists at one of these paths, that tile is skipped automatically (no broken-image icon).

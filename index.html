@@ -369,8 +369,8 @@
   .amen-item span{font-size:.86rem;font-weight:600;letter-spacing:.02em;color:rgba(244,239,228,.85)}
 
   /* ---------- Gallery ---------- */
-  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem}
-  .gallery-item{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--paper);border:1px solid var(--line)}
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
+  .gallery-item{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4;background:var(--paper);border:1px solid var(--line)}
   .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
   .gallery-item:hover img{transform:scale(1.06)}
   .gallery-media{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;align-items:start}
@@ -399,6 +399,13 @@
   .hours-badge{margin-top:1.6rem;display:flex;align-items:center;justify-content:space-between;background:var(--green-950);color:var(--cream-2);border-radius:16px;padding:1.2rem 1.6rem}
   .hours-badge .lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);font-weight:700}
   .hours-badge .val{font-family:var(--display);font-size:1.4rem}
+  .gbp-rating{display:inline-flex;align-items:center;gap:.6rem;margin:-.8rem 0 1.5rem;font-size:.9rem;color:var(--ink);transition:color .2s}
+  .gbp-rating:hover{color:var(--gold)}
+  .gbp-rating .stars{color:var(--gold);letter-spacing:.05em;font-size:1rem}
+  .gbp-rating b{font-weight:700}
+  .directions-btn{margin-top:1.2rem;width:100%;justify-content:center}
+  .map-embed{margin-top:2.5rem;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .map-embed iframe{width:100%;height:400px;display:block;border:none}
 
   /* ---------- CTA / Footer ---------- */
   .cta{
@@ -453,6 +460,7 @@
     .nav-links{display:none}
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--cream);padding:1.5rem 6vw;gap:1.2rem;border-bottom:1px solid var(--line)}
     .nav-toggle{display:block}
+    .gallery-grid{grid-template-columns:repeat(3,1fr)}
     .gallery-media{grid-template-columns:1fr}
   }
   @media(max-width:560px){
@@ -461,10 +469,12 @@
     .foot-grid{grid-template-columns:1fr}
     section{padding:3.5rem 0}
     .gallery-grid{grid-template-columns:1fr 1fr;gap:.7rem}
+    .fb-card{padding:1.6rem .6rem}
     .gallery-fb-frame iframe{height:420px}
+    .map-embed iframe{height:280px}
   }
 </style>
-<!-- LocalBusiness structured data. TODO: add "geo":{"@type":"GeoCoordinates","latitude":..,"longitude":..} once the exact Google Maps pin is available. -->
+<!-- LocalBusiness structured data. aggregateRating is a snapshot from Google Business Profile - update ratingValue/reviewCount here whenever the review count changes meaningfully. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -477,11 +487,21 @@
   "priceRange": "₱49–₱10,000",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Southscape Commercial Bldg., 2nd Floor Unit B1-2-4A, Lawa-an 1",
+    "streetAddress": "Southscape Commercial Bldg., 2nd Floor Unit B1-2-7, Lawa-an 1",
     "addressLocality": "Talisay City",
     "addressRegion": "Cebu",
     "postalCode": "6045",
     "addressCountry": "PH"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.258101,
+    "longitude": 123.8226513
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "4"
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -506,7 +526,7 @@
     {
       "@type": "Question",
       "name": "Where is FocusLab coworking space located?",
-      "acceptedAnswer": { "@type": "Answer", "text": "FocusLab is located at Southscape Commercial Building, 2nd Floor Unit B1-2-4A, Lawa-an 1, Talisay City, Cebu — at the back of Mani Mogo Restaurant. We're easy to find in Southscape, just south of Cebu City." }
+      "acceptedAnswer": { "@type": "Answer", "text": "FocusLab is located at Southscape Commercial Building, 2nd Floor Unit B1-2-7, Lawa-an 1, Talisay City, Cebu — at the back of Mani Mogo Restaurant. We're easy to find in Southscape, just south of Cebu City." }
     },
     {
       "@type": "Question",
@@ -944,7 +964,7 @@
       <p>A look inside FocusLab, a quick video walkthrough, and live updates straight from our Facebook page.</p>
     </div>
 
-    <!-- Photo grid: drop image files into /public/gallery named gallery-1.jpg through gallery-6.jpg (roughly 4:3, under ~500KB each is ideal). Add more <div class="gallery-item"> tiles here anytime. -->
+    <!-- Photo grid: images live in /public/gallery, named gallery-1.jpg through gallery-8.jpg. Add more <div class="gallery-item"> tiles here anytime, following the same pattern. -->
     <div class="gallery-grid reveal">
       <div class="gallery-item"><img src="/public/gallery/gallery-1.jpg" alt="FocusLab coworking space in Talisay City, Cebu - open workspace seating" loading="lazy" onerror="this.remove()"></div>
       <div class="gallery-item"><img src="/public/gallery/gallery-2.jpg" alt="FocusLab coworking space in Talisay City, Cebu - lounge and break area" loading="lazy" onerror="this.remove()"></div>
@@ -952,6 +972,8 @@
       <div class="gallery-item"><img src="/public/gallery/gallery-4.jpg" alt="FocusLab coworking space in Talisay City, Cebu - air-conditioned interior" loading="lazy" onerror="this.remove()"></div>
       <div class="gallery-item"><img src="/public/gallery/gallery-5.jpg" alt="FocusLab coworking space in Talisay City, Cebu - entrance at Southscape Commercial Building" loading="lazy" onerror="this.remove()"></div>
       <div class="gallery-item"><img src="/public/gallery/gallery-6.jpg" alt="FocusLab coworking space in Talisay City, Cebu - quiet focus area" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item"><img src="/public/gallery/gallery-7.jpg" alt="FocusLab coworking space in Talisay City, Cebu - shared workspace view" loading="lazy" onerror="this.remove()"></div>
+      <div class="gallery-item"><img src="/public/gallery/gallery-8.jpg" alt="FocusLab coworking space in Talisay City, Cebu - coworking interior" loading="lazy" onerror="this.remove()"></div>
     </div>
 
     <div class="gallery-media reveal">
@@ -963,10 +985,10 @@
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="FocusLab video walkthrough"></iframe>
         </div>
       </div>
-      <div class="gallery-card">
+      <div class="gallery-card fb-card">
         <h3>Follow Us on Facebook</h3>
         <div class="gallery-fb-frame">
-          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffocuslab.talisay%2F&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffocuslab.talisay%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
             scrolling="no" frameborder="0" allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy" title="FocusLab Facebook page feed"></iframe>
         </div>
@@ -989,9 +1011,13 @@
     </div>
     <div class="contact-card reveal" style="transition-delay:.1s">
       <h3>Visit &amp; Connect</h3>
+      <a class="gbp-rating" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">
+        <span class="stars">★★★★★</span>
+        <span><b>5.0</b> · 4 Google reviews</span>
+      </a>
       <div class="contact-row">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-        <div class="ct"><small>Location</small><b>Southscape Commercial Bldg., 2nd Floor Unit B1-2-4A, Lawa-an 1, Talisay City, Cebu 6045</b></div>
+        <div class="ct"><small>Location</small><b>Southscape Commercial Bldg., 2nd Floor Unit B1-2-7, Lawa-an 1, Talisay City, Cebu 6045</b></div>
       </div>
       <div class="contact-row">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l2 5v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span>
@@ -1009,6 +1035,12 @@
         <span class="lbl">Open Daily</span>
         <span class="val">24 / 7</span>
       </div>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=10.258101,123.8226513" target="_blank" rel="noopener" class="btn btn-green directions-btn">Get Directions</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="map-embed reveal">
+      <iframe src="https://www.google.com/maps?q=FOCUSLAB+COWORKING+SPACE,10.258101,123.8226513&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="FocusLab Coworking Space location on Google Maps"></iframe>
     </div>
   </div>
 </section>
@@ -1024,7 +1056,7 @@
     <div class="faq-list reveal">
       <details class="faq-item">
         <summary>Where is FocusLab coworking space located?</summary>
-        <p>FocusLab is located at Southscape Commercial Building, 2nd Floor Unit B1-2-4A, Lawa-an 1, Talisay City, Cebu — at the back of Mani Mogo Restaurant. We're easy to find in Southscape, just south of Cebu City.</p>
+        <p>FocusLab is located at Southscape Commercial Building, 2nd Floor Unit B1-2-7, Lawa-an 1, Talisay City, Cebu — at the back of Mani Mogo Restaurant. We're easy to find in Southscape, just south of Cebu City.</p>
       </details>
       <details class="faq-item">
         <summary>Is FocusLab open 24/7?</summary>
@@ -1102,7 +1134,7 @@
       </div>
       <div class="foot-col">
         <h5>Get in Touch</h5>
-        <p>Southscape Commercial Bldg.,<br>2nd Floor Unit B1-2-4A,<br>Lawa-an 1, Talisay City, Cebu</p>
+        <p>Southscape Commercial Bldg.,<br>2nd Floor Unit B1-2-7,<br>Lawa-an 1, Talisay City, Cebu</p>
         <a href="tel:+639606396680">(0960) 639 6680</a>
         <a href="mailto:support@focuslab-cebu.com">support@focuslab-cebu.com</a>
       </div>
