@@ -114,13 +114,6 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
   }
   .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:.6rem;
-    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
-    color:var(--green-700);background:rgba(255,255,255,.6);
-    padding:.5rem 1rem;border-radius:999px;border:1px solid var(--line);margin-bottom:1.5rem;
-  }
-  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(183,138,60,.2)}
   h1.hero-title{
     font-family:var(--display);font-weight:300;font-size:clamp(2.6rem,7vw,5.6rem);
     line-height:1.02;letter-spacing:-.02em;color:var(--green-900);
@@ -451,7 +444,6 @@
   /* ---------- Responsive ---------- */
   @media(max-width:920px){
     .hero{padding:2.75rem 0 3rem}
-    .eyebrow{margin-bottom:1rem}
     .hero-grid,.about-grid,.info-grid{grid-template-columns:1fr;gap:2.5rem}
     .feat-grid,.rate-grid,.plan-grid,.amen-grid{grid-template-columns:repeat(2,1fr)}
     .promo-band{grid-template-columns:1fr;text-align:center;justify-items:center;gap:1.4rem}
@@ -464,7 +456,7 @@
     .gallery-media{grid-template-columns:1fr}
   }
   @media(max-width:560px){
-    .hero{padding:2.25rem 0 2.5rem}
+    .hero{padding:2rem 0 2.25rem}
     .feat-grid,.rate-grid,.plan-grid,.amen-grid{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     section{padding:3.5rem 0}
@@ -472,6 +464,10 @@
     .fb-card{padding:1.6rem .6rem}
     .gallery-fb-frame iframe{height:420px}
     .map-embed iframe{height:280px}
+    h1.hero-title{font-size:clamp(2rem,9vw,2.8rem)}
+    .sec-head h2{font-size:clamp(1.6rem,6vw,2.2rem)}
+    .hero-lead{font-size:1rem;max-width:28ch}
+    .hero-sub{font-size:.72rem;letter-spacing:.14em}
   }
 </style>
 <!-- LocalBusiness structured data. aggregateRating is a snapshot from Google Business Profile - update ratingValue/reviewCount here whenever the review count changes meaningfully. -->
@@ -501,7 +497,7 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
-    "reviewCount": "4"
+    "reviewCount": "7"
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -604,8 +600,7 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <span class="eyebrow"><span class="dot"></span>Coworking Space · Talisay City, Cebu</span>
-      <h1 class="hero-title">Work <em>Smarter</em><b>Here.</b><span class="tag">Coworking Space in Talisay, Cebu</span></h1>
+      <h1 class="hero-title">Work <em>Smarter</em><b>Here.</b><span class="tag">Coworking Space in Lawaan, Talisay, Cebu</span></h1>
       <p class="hero-sub">Open 24/7 <span>·</span> Fast Internet <span>·</span> Built for Focused Work</p>
       <p class="hero-lead">A comfortable, fully air-conditioned 24/7 coworking space in Talisay, Cebu for work, study, and independent productivity, open around the clock.</p>
       <div class="hero-cta">
@@ -781,6 +776,7 @@
         <h4>Weekly Pass</h4>
         <p class="desc">Unlimited access for 7 days.</p>
         <div class="amt"><sup>₱</sup>2,500</div>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Free Breakfast</span>
         <a href="book.html?plan=weekly" class="pick">Choose plan →</a>
       </div>
       <div class="plan">
@@ -788,6 +784,7 @@
         <h4>10-Day Pass</h4>
         <p class="desc">Ten days of access, valid for 30 days.</p>
         <div class="amt"><sup>₱</sup>3,500</div>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Free Breakfast</span>
         <a href="book.html?plan=10day" class="pick">Choose plan →</a>
       </div>
       <div class="plan">
@@ -795,7 +792,7 @@
         <h4>Monthly Membership</h4>
         <p class="desc">Flexible seating access all month.</p>
         <div class="amt"><sup>₱</sup>6,500</div>
-        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club</span>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club · Free Breakfast</span>
         <a href="book.html?plan=monthly" class="pick">Choose plan →</a>
       </div>
       <div class="plan">
@@ -803,7 +800,7 @@
         <h4>Dedicated Monthly</h4>
         <p class="desc">Includes your own dedicated workspace.</p>
         <div class="amt"><sup>₱</sup>8,000</div>
-        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club</span>
+        <span class="club-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Includes Freelancers Club · Free Breakfast</span>
         <a href="book.html?plan=dedicated" class="pick">Choose plan →</a>
       </div>
     </div>
@@ -1013,7 +1010,7 @@
       <h3>Visit &amp; Connect</h3>
       <a class="gbp-rating" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">
         <span class="stars">★★★★★</span>
-        <span><b>5.0</b> · 4 Google reviews</span>
+        <span><b>5.0</b> · 7 Google reviews</span>
       </a>
       <div class="contact-row">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
@@ -1040,7 +1037,7 @@
   </div>
   <div class="wrap">
     <div class="map-embed reveal">
-      <iframe src="https://www.google.com/maps?q=FOCUSLAB+COWORKING+SPACE,10.258101,123.8226513&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="FocusLab Coworking Space location on Google Maps"></iframe>
+      <iframe src="https://www.google.com/maps?q=10.258101,123.8226513&z=17&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="FocusLab Coworking Space location on Google Maps"></iframe>
     </div>
   </div>
 </section>
