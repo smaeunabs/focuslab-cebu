@@ -374,6 +374,23 @@
   .gallery-fb-frame{border-radius:14px;overflow:hidden;display:flex;justify-content:center;background:#fff}
   .gallery-fb-frame iframe{width:100%;max-width:500px;height:500px;border:none}
 
+  /* ---------- Testimonials ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .testi-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+  .testi-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .testi-photos{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .testi-photos.one{grid-template-columns:1fr}
+  .testi-photos img{width:100%;height:160px;object-fit:cover;display:block}
+  .testi-body{padding:1.6rem;display:flex;flex-direction:column;flex:1}
+  .testi-stars{color:var(--gold);font-size:.95rem;letter-spacing:.1em;margin-bottom:.7rem}
+  .testi-quote{color:var(--ink);font-size:.95rem;line-height:1.6;margin-bottom:1.2rem;flex:1}
+  .testi-name{display:flex;align-items:center;gap:.7rem}
+  .testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--green-700);color:#fff;display:grid;place-items:center;font-weight:700;font-family:var(--display);font-size:1.05rem;flex:none}
+  .testi-who b{display:block;font-weight:700;color:var(--green-900);font-size:.92rem}
+  .testi-who small{font-size:.76rem;color:var(--muted)}
+  .testi-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:2.2rem;font-weight:700;color:var(--gold);font-size:.92rem;transition:color .2s}
+  .testi-more:hover{color:var(--green-800)}
+
   /* ---------- Guidelines + Location ---------- */
   .info-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
   .guide-card{background:var(--green-800);color:var(--cream-2);border-radius:22px;padding:2.4rem}
@@ -445,7 +462,7 @@
   @media(max-width:920px){
     .hero{padding:2.75rem 0 3rem}
     .hero-grid,.about-grid,.info-grid{grid-template-columns:1fr;gap:2.5rem}
-    .feat-grid,.rate-grid,.plan-grid,.amen-grid{grid-template-columns:repeat(2,1fr)}
+    .feat-grid,.rate-grid,.plan-grid,.amen-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}
     .promo-band{grid-template-columns:1fr;text-align:center;justify-items:center;gap:1.4rem}
     .promo-mini{justify-content:center;flex-wrap:wrap}
     .foot-grid{grid-template-columns:1fr 1fr}
@@ -457,7 +474,8 @@
   }
   @media(max-width:560px){
     .hero{padding:2rem 0 2.25rem}
-    .feat-grid,.rate-grid,.plan-grid,.amen-grid{grid-template-columns:1fr}
+    .feat-grid,.rate-grid,.plan-grid,.amen-grid,.testi-grid{grid-template-columns:1fr}
+    .testi-photos{grid-template-columns:1fr 1fr}
     .foot-grid{grid-template-columns:1fr}
     section{padding:3.5rem 0}
     .gallery-grid{grid-template-columns:1fr 1fr;gap:.7rem}
@@ -468,6 +486,78 @@
     .sec-head h2{font-size:clamp(1.6rem,6vw,2.2rem)}
     .hero-lead{font-size:1rem;max-width:28ch}
     .hero-sub{font-size:.72rem;letter-spacing:.14em}
+
+    /* Tighter body text + spacing sitewide for less scrolling */
+    section{padding:3rem 0}
+    .sec-head{margin:0 auto 2rem}
+    .sec-head p{font-size:.92rem}
+    .kicker{font-size:.68rem;margin-bottom:.6rem}
+
+    .about-copy h2{font-size:1.7rem}
+    .about-copy p{font-size:.92rem;margin-bottom:1rem}
+    .about-tags .t{padding:1.4rem 1.2rem}
+    .about-tags .t .big{font-size:2rem}
+
+    .feat{padding:1.6rem 1.4rem}
+    .feat h3{font-size:1.05rem}
+    .feat p{font-size:.85rem}
+
+    .rate-card{padding:1.8rem 1.4rem}
+    .rate-card .price{font-size:2.2rem}
+    .rate-card h3{font-size:.72rem}
+    .rate-card .note{font-size:.85rem}
+    .promo-band{padding:1.6rem 1.4rem;gap:1rem}
+    .promo-band .pb-title .big{font-size:1.4rem}
+    .promo-mini{gap:1.2rem}
+    .promo-mini .m .h{font-size:1.5rem}
+
+    .plan{padding:1.6rem 1.2rem}
+    .plan h4{font-size:1.05rem}
+    .plan .amt{font-size:1.7rem}
+    .plan .desc{font-size:.85rem;margin:.4rem 0 1rem}
+    .night-note{padding:1.1rem 1.3rem;font-size:.85rem}
+
+    .hl-card{padding:1.4rem 1.6rem}
+    .hl-card .hl-body h3{font-size:1.2rem}
+    .hl-card .hl-body p{font-size:.85rem}
+
+    .club .club-head h2{font-size:1.7rem}
+    .club .club-head p{font-size:.92rem}
+    .club .club-head .auto{font-size:.85rem}
+    .bene{padding:1.4rem 1.2rem}
+    .bene h4{font-size:1.05rem}
+    .bene p{font-size:.85rem}
+    .club-foot{padding:1.8rem}
+    .club-foot .mission h3{font-size:1.25rem}
+    .club-foot .mission p{font-size:.92rem}
+    .club-foot .mission .tagline{font-size:1.1rem}
+    .incl-list li{font-size:.85rem}
+    .club-cta{padding:1.2rem 1.4rem}
+    .club-cta .cc-text{font-size:.9rem}
+
+    .amen-item span{font-size:.8rem}
+
+    .gallery-card h3{font-size:1.05rem}
+
+    .testi-body{padding:1.3rem}
+    .testi-quote{font-size:.88rem}
+    .testi-who b{font-size:.88rem}
+
+    .guide-card,.contact-card{padding:1.8rem}
+    .guide-card h3,.contact-card h3{font-size:1.25rem}
+    .guide-list li{font-size:.88rem}
+
+    .rp-card{padding:2rem 1.4rem}
+    .rp-sub{font-size:.88rem}
+
+    .faq-item summary{font-size:.98rem;padding:1rem 1.8rem 1rem 0}
+    .faq-item p{font-size:.88rem}
+
+    .cta{padding:3rem 1.5rem}
+    .cta h2{font-size:1.8rem}
+    .cta p{font-size:.92rem}
+
+    .foot-brand p,.foot-col a,.foot-col p{font-size:.85rem}
   }
 </style>
 <!-- LocalBusiness structured data. aggregateRating is a snapshot from Google Business Profile - update ratingValue/reviewCount here whenever the review count changes meaningfully. -->
@@ -984,6 +1074,7 @@
       </div>
       <div class="gallery-card fb-card">
         <h3>Follow Us on Facebook</h3>
+        <a class="testi-more" href="https://www.facebook.com/focuslab.talisay" target="_blank" rel="noopener" style="margin-top:0;margin-bottom:1rem">Visit our Facebook Page <span>→</span></a>
         <div class="gallery-fb-frame">
           <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffocuslab.talisay%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
             scrolling="no" frameborder="0" allowfullscreen="true"
@@ -991,6 +1082,80 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Testimonials</p>
+      <h2>What People Are <em>Saying</em></h2>
+      <p>Real 5.0-star reviews from FocusLab members on Google.</p>
+    </div>
+
+    <!-- Review text and photos sourced from FocusLab's Google Business Profile. Photos live in /public/reviews. -->
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-photos">
+          <img src="/public/reviews/review-sheila-1.jpg" alt="FocusLab coworking space private work pod, photo from a Google review by Sheila G." loading="lazy" onerror="this.parentElement.remove()">
+          <img src="/public/reviews/review-sheila-2.jpg" alt="FocusLab coworking space lounge area, photo from a Google review by Sheila G." loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="testi-body">
+          <span class="testi-stars">★★★★★</span>
+          <p class="testi-quote">"As someone nga usahay lisod kaayo maka-focus kung sa balay ra mag-work tungod sa distractions ug hinay nga internet, dako gyud ug tabang ang FocusLab dri sa Talisay. Hilom, very comfy, ug productive kaayo ang environment… Sulit kaayo ang FocusLab. Mobalik gyudo ko diri!"</p>
+          <div class="testi-name"><span class="testi-avatar">S</span><div class="testi-who"><b>Sheila G.</b><small>Google review</small></div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-photos one">
+          <img src="/public/reviews/review-vladi-1.jpg" alt="Pickleball court next to FocusLab coworking space, photo from a Google review by Vladi T." loading="lazy" onerror="this.parentElement.remove()">
+        </div>
+        <div class="testi-body">
+          <span class="testi-stars">★★★★★</span>
+          <p class="testi-quote">"Been looking for a place where I can stay focused on work and still get my pickleball sessions in, and this place checks all the boxes!"</p>
+          <div class="testi-name"><span class="testi-avatar">V</span><div class="testi-who"><b>Vladi T.</b><small>Google review</small></div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-photos one">
+          <img src="/public/reviews/review-shaun-1.jpg" alt="FocusLab coworking space workspace table, photo from a Google review by Shaun Y." loading="lazy" onerror="this.parentElement.remove()">
+        </div>
+        <div class="testi-body">
+          <span class="testi-stars">★★★★★</span>
+          <p class="testi-quote">"Been here a couple of times and it's honestly a solid spot to work for a 3D artist and game developer like me. The place is clean, quiet, and comfy, so it's easy to stay focused."</p>
+          <div class="testi-name"><span class="testi-avatar">S</span><div class="testi-who"><b>Shaun Y.</b><small>Google review</small></div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-body">
+          <span class="testi-stars">★★★★★</span>
+          <p class="testi-quote">"Great place to focus on work. Unique concept, fastest internet, unlimited coffee and water, clean cozy environment, highly recommend for work from home. 24/7 security guard and a lot of parking space — a complete, superb, affordable package."</p>
+          <div class="testi-name"><span class="testi-avatar">S</span><div class="testi-who"><b>Shirly D.</b><small>Google review</small></div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-body">
+          <span class="testi-stars">★★★★★</span>
+          <p class="testi-quote">"Very quiet and affordable ra kaayo ang mga prices, also very convenient since naa pud sila cafe. Would recommend this place!"</p>
+          <div class="testi-name"><span class="testi-avatar">S</span><div class="testi-who"><b>Sam S.</b><small>Google review</small></div></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-body">
+          <span class="testi-stars">★★★★★</span>
+          <p class="testi-quote">"Sophisticated and elegant, classy space, first in Talisay Cebu!!! And the food served all day is so delicious. Vietnam cafe, great and tastefully affordable price — come try this new exquisite work venue."</p>
+          <div class="testi-name"><span class="testi-avatar">H</span><div class="testi-who"><b>Hans D.</b><small>Google review</small></div></div>
+        </div>
+      </div>
+    </div>
+
+    <a class="testi-more" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">See all reviews on Google <span>→</span></a>
   </div>
 </section>
 
