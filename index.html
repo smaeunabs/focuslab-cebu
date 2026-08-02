@@ -402,6 +402,11 @@
   .testi-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
   .testi-photos{display:grid;grid-template-columns:1fr 1fr;gap:2px}
   .testi-photos.one{grid-template-columns:1fr}
+  .testi-photo{position:relative}
+  .testi-photo button{all:unset;display:block;width:100%;height:100%;cursor:pointer}
+  .testi-photo .zoom-ic{position:absolute;top:.5rem;right:.5rem;width:26px;height:26px;border-radius:50%;background:rgba(16,32,26,.55);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.85);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
+  .testi-photo .zoom-ic svg{width:14px;height:14px}
+  .testi-photo:hover .zoom-ic,.testi-photo button:focus-visible ~ .zoom-ic{opacity:1;transform:scale(1)}
   .testi-photos img{width:100%;height:160px;object-fit:cover;display:block}
   .testi-body{padding:1.6rem;display:flex;flex-direction:column;flex:1}
   .testi-stars{color:var(--gold);font-size:.95rem;letter-spacing:.1em;margin-bottom:.7rem}
@@ -609,7 +614,7 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
-    "reviewCount": "7"
+    "reviewCount": "9"
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -747,14 +752,14 @@
 
     <!-- Photo grid: images live in /public/gallery, named gallery-1.jpg through gallery-8.jpg. Add more <div class="gallery-item"> tiles here anytime, following the same pattern. -->
     <div class="gallery-grid reveal" id="galleryGrid">
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-1.jpg" alt="FocusLab coworking space in Talisay City, Cebu - open workspace seating" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-2.jpg" alt="FocusLab coworking space in Talisay City, Cebu - lounge and break area" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-3.jpg" alt="FocusLab coworking space in Talisay City, Cebu - individual desk with charging station" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-4.jpg" alt="FocusLab coworking space in Talisay City, Cebu - air-conditioned interior" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-5.jpg" alt="FocusLab coworking space in Talisay City, Cebu - entrance at Southscape Commercial Building" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-6.jpg" alt="FocusLab coworking space in Talisay City, Cebu - quiet focus area" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-7.jpg" alt="FocusLab coworking space in Talisay City, Cebu - shared workspace view" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
-      <div class="gallery-item"><button type="button" data-lightbox-open><img src="/public/gallery/gallery-8.jpg" alt="FocusLab coworking space in Talisay City, Cebu - coworking interior" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-1.jpg" alt="FocusLab coworking space in Talisay City, Cebu - open workspace seating" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-2.jpg" alt="FocusLab coworking space in Talisay City, Cebu - lounge and break area" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-3.jpg" alt="FocusLab coworking space in Talisay City, Cebu - individual desk with charging station" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-4.jpg" alt="FocusLab coworking space in Talisay City, Cebu - air-conditioned interior" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-5.jpg" alt="FocusLab coworking space in Talisay City, Cebu - entrance at Southscape Commercial Building" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-6.jpg" alt="FocusLab coworking space in Talisay City, Cebu - quiet focus area" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-7.jpg" alt="FocusLab coworking space in Talisay City, Cebu - shared workspace view" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+      <div class="gallery-item"><button type="button" data-lightbox-open data-lightbox-group="gallery"><img src="/public/gallery/gallery-8.jpg" alt="FocusLab coworking space in Talisay City, Cebu - coworking interior" loading="lazy" onerror="this.closest('.gallery-item').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
     </div>
 
     <div class="gallery-media reveal">
@@ -789,11 +794,11 @@
     </div>
 
     <!-- Review text and photos sourced from FocusLab's Google Business Profile. Photos live in /public/reviews. -->
-    <div class="testi-grid reveal">
+    <div class="testi-grid reveal" id="testiGrid">
       <div class="testi-card">
         <div class="testi-photos">
-          <img src="/public/reviews/review-sheila-1.jpg" alt="FocusLab coworking space private work pod, photo from a Google review by Sheila G." loading="lazy" onerror="this.parentElement.remove()">
-          <img src="/public/reviews/review-sheila-2.jpg" alt="FocusLab coworking space lounge area, photo from a Google review by Sheila G." loading="lazy" onerror="this.remove()">
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-sheila"><img src="/public/reviews/review-sheila-1.jpg" alt="FocusLab coworking space private work pod, photo from a Google review by Sheila G." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-sheila"><img src="/public/reviews/review-sheila-2.jpg" alt="FocusLab coworking space lounge area, photo from a Google review by Sheila G." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
         </div>
         <div class="testi-body">
           <span class="testi-stars">★★★★★</span>
@@ -804,7 +809,7 @@
 
       <div class="testi-card">
         <div class="testi-photos one">
-          <img src="/public/reviews/review-vladi-1.jpg" alt="Pickleball court next to FocusLab coworking space, photo from a Google review by Vladi T." loading="lazy" onerror="this.parentElement.remove()">
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-vladi"><img src="/public/reviews/review-vladi-1.jpg" alt="Pickleball court next to FocusLab coworking space, photo from a Google review by Vladi T." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
         </div>
         <div class="testi-body">
           <span class="testi-stars">★★★★★</span>
@@ -815,7 +820,7 @@
 
       <div class="testi-card">
         <div class="testi-photos one">
-          <img src="/public/reviews/review-shaun-1.jpg" alt="FocusLab coworking space workspace, Shaun Y. working in Blender on 3D character art, photo from a Google review" loading="lazy" onerror="this.parentElement.remove()">
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-shaun"><img src="/public/reviews/review-shaun-1.jpg" alt="FocusLab coworking space workspace, Shaun Y. working in Blender on 3D character art, photo from a Google review" loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
         </div>
         <div class="testi-body">
           <span class="testi-stars">★★★★★</span>
@@ -825,31 +830,91 @@
       </div>
 
       <div class="testi-card">
+        <div class="testi-photos">
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-may"><img src="/public/reviews/review-may-1.jpg" alt="FocusLab coworking space workspace table with laptop, notebook, and breakfast plate, photo from a Google review by May Mary I." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-may"><img src="/public/reviews/review-may-2.jpg" alt="FocusLab coworking space free snacks and drinks pantry station, photo from a Google review by May Mary I." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-may"><img src="/public/reviews/review-may-3.jpg" alt="FocusLab coworking space lounge area with hanging egg chair and dining table, photo from a Google review by May Mary I." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-may"><img src="/public/reviews/review-may-4.jpg" alt="FocusLab coworking space cozy chaise lounge chair, photo from a Google review by May Mary I." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+        </div>
         <div class="testi-body">
           <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">"Great place to focus on work. Unique concept, fastest internet, unlimited coffee and water, clean cozy environment, highly recommend for work from home. 24/7 security guard and a lot of parking space — a complete, superb, affordable package."</p>
-          <div class="testi-name"><span class="testi-avatar">S</span><div class="testi-who"><b>Shirly D.</b><small>Google review</small></div></div>
+          <p class="testi-quote">"A new workplace/studyplace in the south, i searched for places early in the morning, thank God i found this place. Very cozy, internet is great, food is great. Price is very reasonable staff here? So pleasant! Shoutout to miss Silvana and Miss Anna the first, very fun and very accommodating!! Comin back soonest!! &lt;3"</p>
+          <div class="testi-name"><span class="testi-avatar">M</span><div class="testi-who"><b>May Mary I.</b><small>Google review</small></div></div>
         </div>
       </div>
 
       <div class="testi-card">
+        <div class="testi-photos one">
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-will"><img src="/public/reviews/review-will-1.jpg" alt="FocusLab coworking space reception and workspace setup, photo from a Google review by Will A." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+        </div>
         <div class="testi-body">
           <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">"Very quiet and affordable ra kaayo ang mga prices, also very convenient since naa pud sila cafe. Would recommend this place!"</p>
-          <div class="testi-name"><span class="testi-avatar">S</span><div class="testi-who"><b>Sam S.</b><small>Google review</small></div></div>
+          <p class="testi-quote">"Super convenient to have a coworking space here. Great staff. Great food. Great setup. Peaceful and quite. Definitely worth it!"</p>
+          <div class="testi-name"><span class="testi-avatar">W</span><div class="testi-who"><b>Will A.</b><small>Google review</small></div></div>
         </div>
       </div>
 
       <div class="testi-card">
+        <div class="testi-photos one">
+          <div class="testi-photo"><button type="button" data-lightbox-open data-lightbox-group="testi-yeon"><img src="/public/reviews/review-yeon-1.jpg" alt="FocusLab coworking space individual desk area, photo from a Google review by Yeon B." loading="lazy" onerror="this.closest('button').remove()"></button><span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg></span></div>
+        </div>
         <div class="testi-body">
           <span class="testi-stars">★★★★★</span>
-          <p class="testi-quote">"Sophisticated and elegant, classy space, first in Talisay Cebu!!! And the food served all day is so delicious. Vietnam cafe, great and tastefully affordable price — come try this new exquisite work venue."</p>
-          <div class="testi-name"><span class="testi-avatar">H</span><div class="testi-who"><b>Hans D.</b><small>Google review</small></div></div>
+          <p class="testi-quote">"Quiet and cozy, the individual desks allows for a deep focus on the task while the open area is comfortable. Good for students or people with remote job."</p>
+          <div class="testi-name"><span class="testi-avatar">Y</span><div class="testi-who"><b>Yeon B.</b><small>Google review</small></div></div>
         </div>
       </div>
     </div>
 
     <a class="testi-more" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">See all reviews on Google <span>→</span></a>
+  </div>
+</section>
+
+<!-- GUIDELINES + LOCATION -->
+<section id="location">
+  <div class="wrap info-grid">
+    <div class="guide-card reveal">
+      <h3>Lounge Guidelines</h3>
+      <ul class="guide-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Please clean as you go.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Keep your belongings with you at all times.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Management is not responsible for any lost items.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Respect the quiet and shared workspace.</li>
+      </ul>
+    </div>
+    <div class="contact-card reveal" style="transition-delay:.1s">
+      <h3>Visit &amp; Connect</h3>
+      <a class="gbp-rating" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">
+        <span class="stars">★★★★★</span>
+        <span><b>5.0</b> · 9 Google reviews</span>
+      </a>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <div class="ct"><small>Location</small><b>Southscape Commercial Bldg., 2nd Floor Unit B1-2-7, Lawa-an 1, Talisay City, Cebu 6045</b></div>
+      </div>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l2 5v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span>
+        <div class="ct"><small>Mobile · Call or Text</small><b>(0960) 639 6680</b></div>
+      </div>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
+        <div class="ct"><small>Email</small><b>support@focuslab-cebu.com</b></div>
+      </div>
+      <div class="contact-row">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></span>
+        <div class="ct"><small>Follow Us</small><b>Focuslab Coworking Space</b></div>
+      </div>
+      <div class="hours-badge">
+        <span class="lbl">Open Daily</span>
+        <span class="val">24 / 7</span>
+      </div>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=10.258101,123.8226513" target="_blank" rel="noopener" class="btn btn-green directions-btn">Get Directions</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="map-embed reveal">
+      <iframe src="https://www.google.com/maps?q=10.258101,123.8226513&z=17&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="FocusLab Coworking Space location on Google Maps"></iframe>
+    </div>
   </div>
 </section>
 
@@ -1181,54 +1246,6 @@
   </div>
 </section>
 
-<!-- GUIDELINES + LOCATION -->
-<section id="location">
-  <div class="wrap info-grid">
-    <div class="guide-card reveal">
-      <h3>Lounge Guidelines</h3>
-      <ul class="guide-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Please clean as you go.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Keep your belongings with you at all times.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Management is not responsible for any lost items.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg>Respect the quiet and shared workspace.</li>
-      </ul>
-    </div>
-    <div class="contact-card reveal" style="transition-delay:.1s">
-      <h3>Visit &amp; Connect</h3>
-      <a class="gbp-rating" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">
-        <span class="stars">★★★★★</span>
-        <span><b>5.0</b> · 7 Google reviews</span>
-      </a>
-      <div class="contact-row">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-        <div class="ct"><small>Location</small><b>Southscape Commercial Bldg., 2nd Floor Unit B1-2-7, Lawa-an 1, Talisay City, Cebu 6045</b></div>
-      </div>
-      <div class="contact-row">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l2 5v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span>
-        <div class="ct"><small>Mobile · Call or Text</small><b>(0960) 639 6680</b></div>
-      </div>
-      <div class="contact-row">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
-        <div class="ct"><small>Email</small><b>support@focuslab-cebu.com</b></div>
-      </div>
-      <div class="contact-row">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></span>
-        <div class="ct"><small>Follow Us</small><b>Focuslab Coworking Space</b></div>
-      </div>
-      <div class="hours-badge">
-        <span class="lbl">Open Daily</span>
-        <span class="val">24 / 7</span>
-      </div>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=10.258101,123.8226513" target="_blank" rel="noopener" class="btn btn-green directions-btn">Get Directions</a>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="map-embed reveal">
-      <iframe src="https://www.google.com/maps?q=10.258101,123.8226513&z=17&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="FocusLab Coworking Space location on Google Maps"></iframe>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
@@ -1380,12 +1397,17 @@
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Gallery lightbox
+  // Lightbox (gallery + testimonial review photos)
   (function () {
-    const grid = document.getElementById('galleryGrid');
-    if (!grid) return;
-    const items = Array.from(grid.querySelectorAll('.gallery-item img'));
-    if (!items.length) return;
+    const triggers = Array.from(document.querySelectorAll('[data-lightbox-open]'));
+    if (!triggers.length) return;
+
+    const groups = new Map();
+    triggers.forEach((btn) => {
+      const key = btn.dataset.lightboxGroup || 'default';
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(btn);
+    });
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -1395,19 +1417,26 @@
     const nextBtn = document.getElementById('lightboxNext');
     const focusable = [prevBtn, nextBtn, closeBtn];
 
+    let currentItems = [];
     let currentIndex = 0;
     let lastFocused = null;
     let touchStartX = null;
 
     function show(index) {
-      currentIndex = (index + items.length) % items.length;
-      const img = items[currentIndex];
+      currentIndex = (index + currentItems.length) % currentItems.length;
+      const img = currentItems[currentIndex].querySelector('img');
       lightboxImg.src = img.currentSrc || img.src;
       lightboxImg.alt = img.alt;
-      counter.textContent = (currentIndex + 1) + ' / ' + items.length;
+      const multi = currentItems.length > 1;
+      prevBtn.style.display = multi ? '' : 'none';
+      nextBtn.style.display = multi ? '' : 'none';
+      counter.style.display = multi ? '' : 'none';
+      if (multi) counter.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
     }
 
-    function open(index, trigger) {
+    function open(groupKey, index, trigger) {
+      currentItems = groups.get(groupKey) || [];
+      if (!currentItems.length) return;
       lastFocused = trigger || document.activeElement;
       show(index);
       lightbox.hidden = false;
@@ -1440,8 +1469,11 @@
       }
     }
 
-    grid.querySelectorAll('[data-lightbox-open]').forEach((btn, index) => {
-      btn.addEventListener('click', () => open(index, btn));
+    triggers.forEach((btn) => {
+      const key = btn.dataset.lightboxGroup || 'default';
+      const items = groups.get(key);
+      const index = items.indexOf(btn);
+      btn.addEventListener('click', () => open(key, index, btn));
     });
 
     closeBtn.addEventListener('click', close);
