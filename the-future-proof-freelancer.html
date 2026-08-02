@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <title>Become the Freelancer Clients Can't Replace | FocusLab Coworking</title>
-<meta name="description" content="Join The Future-Proof Freelancer workshop in Talisay City, Cebu, hosted at Brewlivia Cafe in partnership with FocusLab Coworking Space, a 24/7 coworking space in South Cebu.">
+<meta name="description" content="Join The Future-Proof Freelancer Live Workshop in Talisay City, Cebu, hosted at Brewlivia Cafe in partnership with FocusLab Coworking Space, a 24/7 coworking space in South Cebu.">
 <link rel="canonical" href="https://focuslab-cebu.com/the-future-proof-freelancer">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -378,7 +378,7 @@
     <p class="sub">AI isn't taking your clients. Freelancers who know how to use it are. One afternoon in Cebu to make sure you're the one they keep, not the one they cut.</p>
     <div class="hero-ctas">
       <a href="#reserve" class="btn-primary">Reserve Your Seat</a>
-      <span class="hero-meta">Every Saturday · 1:00 PM onwards · Brewlivia Cafe, Talisay City, Cebu · Next session: <span id="hero-next-date">Sat, Aug 8, 2026</span> · <span class="seats-left">Limited seats available</span></span>
+      <span class="hero-meta">Every Saturday · 1:00 PM – 5:00 PM · Brewlivia Cafe, Talisay City, Cebu · Next session: <span id="hero-next-date">Sat, Aug 8, 2026</span> · <span class="seats-left">Limited seats available</span></span>
       <span class="hero-perk">+ Free 3-hr access to FocusLab Coworking Space (₱250 value), usable as soon as you reserve</span>
     </div>
   </div>
@@ -646,7 +646,7 @@
       <div class="perks">
         <div class="perk">
           <div class="k">WHEN</div>
-          <div class="v">Every Saturday<br>1:00 PM onwards</div>
+          <div class="v">Every Saturday<br>1:00 PM – 5:00 PM</div>
         </div>
         <div class="perk">
           <div class="k">WHERE</div>
@@ -658,7 +658,7 @@
         </div>
       </div>
       <form class="booking-form" id="booking-form" action="https://formspree.io/f/mpqvrbvl" method="POST">
-        <input type="hidden" name="_subject" value="New booking: The Future-Proof Freelancer">
+        <input type="hidden" name="_subject" value="New booking: The Future-Proof Freelancer Live Workshop">
         <input type="hidden" name="Workshop Date" id="workshop-date-field" value="">
         <div class="form-group">
           <label for="workshop-date-select">Choose your Saturday</label>
@@ -724,7 +724,7 @@
         <h3>Your booking</h3>
         <div class="summary-row">
           <span class="summary-label">Workshop</span>
-          <span class="summary-value">The Future-Proof Freelancer</span>
+          <span class="summary-value">The Future-Proof Freelancer Live Workshop</span>
         </div>
         <div class="summary-row">
           <span class="summary-label">Name</span>
@@ -934,7 +934,7 @@
     var name = document.getElementById('fname').value || '—';
     var isGcash = document.querySelector('.payment-option[data-option="gcash"]').classList.contains('active');
     document.getElementById('summary-name').textContent = name;
-    document.getElementById('summary-when').textContent = selectedLabel() + ', 1:00 PM';
+    document.getElementById('summary-when').textContent = selectedLabel() + ', 1:00 PM – 5:00 PM';
     document.getElementById('summary-payment').textContent = isGcash ? 'GCash' : 'Walk-in (pay at the door)';
     document.getElementById('summary-total').textContent = isGcash ? '499' : '799';
     form.style.display = 'none';
@@ -960,14 +960,18 @@
       confirmBtn.disabled = false;
       confirmBtn.textContent = 'Confirm Your Seat';
       if(response.ok){
+        var wasGcash = document.querySelector('.payment-option[data-option="gcash"]').classList.contains('active');
+        var paymentFaq = wasGcash
+          ? '<p><b>Paid via GCash?</b>We\'ll confirm your seat once we verify your reference number or screenshot.</p>'
+          : '<p><b>Chose walk-in?</b>Just show up on ' + selectedLabel() + ' and pay ₱799 at the door. Bring a valid ID if you can.</p>';
         summary.innerHTML = '<div class="ty-icon">&#10003;</div>' +
           '<h3 style="text-align:center;">You\'re almost in!</h3>' +
-          '<p class="ty-lead">We\'ve received your booking for <b>The Future-Proof Freelancer</b>. <b>Please wait for our text or email</b>, that\'s your final confirmation of your seat.</p>' +
-          '<div class="summary-row"><span class="summary-label">When</span><span class="summary-value">' + selectedLabel() + '<br>1:00 PM onwards</span></div>' +
+          '<p class="ty-lead">We\'ve received your booking for <b>The Future-Proof Freelancer Live Workshop</b>. <b>Please wait for our text or email</b>, that\'s your final confirmation of your seat.</p>' +
+          '<div class="summary-row"><span class="summary-label">When</span><span class="summary-value">' + selectedLabel() + '<br>1:00 PM – 5:00 PM</span></div>' +
           '<div class="summary-row"><span class="summary-label">Where</span><span class="summary-value">Brewlivia Cafe, 2nd Flr<br>Southscape, Talisay City, Cebu<br>(behind Mani Mogo Restaurant)</span></div>' +
+          '<div class="summary-row"><span class="summary-label">Payment</span><span class="summary-value">' + (wasGcash ? 'GCash — ₱499' : 'Walk-in — ₱799 at the door') + '</span></div>' +
           '<div class="ty-faq">' +
-            '<p><b>Paid via GCash?</b>We\'ll confirm your seat once we verify your reference number or screenshot.</p>' +
-            '<p><b>Chose walk-in?</b>Just show up on ' + selectedLabel() + ' and pay ₱799 at the door. Bring a valid ID if you can.</p>' +
+            paymentFaq +
             '<p><b>Need to bring anything?</b>Yes, a laptop is required. We\'ll build a portfolio sample together, then you\'ll build your own AI-assisted project during the session.</p>' +
           '</div>' +
           '<a href="https://m.me/focuslab.talisay" target="_blank" rel="noopener" class="btn-fb-link">Questions? Message us on Facebook</a>';
