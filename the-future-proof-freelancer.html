@@ -232,6 +232,14 @@
   .form-group label{display:block; font-size:12.5px; font-weight:600; color:var(--ink); margin-bottom:6px;}
   .form-input{width:100%; padding:12px 14px; border:1px solid #DDD6C4; border-radius:8px; font-family:'Inter',sans-serif; font-size:14px; color:var(--charcoal); background:var(--paper); transition:border-color 0.15s ease;}
   .form-input:focus{outline:none; border-color:var(--blueprint);}
+  select.form-input{
+    appearance:none; -webkit-appearance:none; -moz-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%233E7A56' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+    padding-right:36px;
+    cursor:pointer;
+  }
   .payment-toggle{display:flex; gap:10px; margin-bottom:16px;}
   .payment-option{flex:1; border:1.5px solid #DDD6C4; border-radius:8px; padding:12px 10px; text-align:center; cursor:pointer; font-size:12.5px; font-weight:600; color:var(--charcoal); transition:all 0.15s ease; background:var(--paper);}
   .payment-option.active{border-color:var(--blueprint); background:rgba(62,122,86,0.08); color:var(--blueprint);}
@@ -370,7 +378,7 @@
     <p class="sub">AI isn't taking your clients. Freelancers who know how to use it are. One afternoon in Cebu to make sure you're the one they keep, not the one they cut.</p>
     <div class="hero-ctas">
       <a href="#reserve" class="btn-primary">Reserve Your Seat</a>
-      <span class="hero-meta">Saturday, Aug 1, 2026 · 1:00 PM onwards · Brewlivia Cafe, Talisay City, Cebu · <span class="seats-left">Limited seats available</span></span>
+      <span class="hero-meta">Every Saturday · 1:00 PM onwards · Brewlivia Cafe, Talisay City, Cebu · Next session: <span id="hero-next-date">Sat, Aug 8, 2026</span> · <span class="seats-left">Limited seats available</span></span>
       <span class="hero-perk">+ Free 3-hr access to FocusLab Coworking Space (₱250 value), usable as soon as you reserve</span>
     </div>
   </div>
@@ -634,7 +642,7 @@
       <div class="perks">
         <div class="perk">
           <div class="k">WHEN</div>
-          <div class="v">Saturday, Aug 1, 2026<br>1:00 PM onwards</div>
+          <div class="v">Every Saturday<br>1:00 PM onwards</div>
         </div>
         <div class="perk">
           <div class="k">WHERE</div>
@@ -647,6 +655,11 @@
       </div>
       <form class="booking-form" id="booking-form" action="https://formspree.io/f/mpqvrbvl" method="POST">
         <input type="hidden" name="_subject" value="New booking: The Future-Proof Freelancer">
+        <input type="hidden" name="Workshop Date" id="workshop-date-field" value="">
+        <div class="form-group">
+          <label for="workshop-date-select">Choose your Saturday</label>
+          <select class="form-input" id="workshop-date-select" required></select>
+        </div>
         <div class="form-group">
           <label for="fname">Full name</label>
           <input class="form-input" type="text" id="fname" name="Full Name" required>
@@ -697,7 +710,7 @@
           </div>
         </div>
         <div class="walkin-note" id="walkin-note">
-          <p>No payment needed now. Just show up at Brewlivia Cafe on Saturday, Aug 1, and pay ₱799 at the door. Seats are limited, so booking ahead (even for walk-in) helps us hold your spot.</p>
+          <p>No payment needed now. Just show up at Brewlivia Cafe on <span id="walkin-date">Sat, Aug 8, 2026</span> and pay ₱799 at the door. Seats are limited, so booking ahead (even for walk-in) helps us hold your spot.</p>
         </div>
         <button type="button" id="review-btn" class="btn-primary btn-block" style="border:none; font-family:inherit; cursor:pointer;">Review Booking</button>
         <p class="form-submit-msg" id="form-msg"></p>
@@ -715,7 +728,7 @@
         </div>
         <div class="summary-row">
           <span class="summary-label">When</span>
-          <span class="summary-value">Sat, Aug 1, 1:00 PM</span>
+          <span class="summary-value" id="summary-when">—</span>
         </div>
         <div class="summary-row">
           <span class="summary-label">Payment</span>
@@ -772,17 +785,17 @@
 <section class="final-cta">
   <div class="wrap">
     <h2 class="display">The freelancers who get cut this year won't be the ones AI is better than.</h2>
-    <p>They'll be the ones who never learned to use it, while someone else quietly did. Let's fix that on August 1st.</p>
+    <p>They'll be the ones who never learned to use it, while someone else quietly did. Let's fix that this Saturday.</p>
     <a href="#reserve" class="btn-primary">Reserve Your Seat, ₱499</a>
     <div class="ps-line">
-      <p>P.S. There's no next batch scheduled yet, and the ₱499 rate disappears the moment this window closes. If you've been waiting for a sign to finally get ahead of this, this is it.</p>
+      <p>P.S. This runs every Saturday now, so there's no single deadline to miss. The real limit is seats, since each session only fits so many people. Pick whichever Saturday works for you and book ahead while the ₱499 rate still applies.</p>
       <p>P.P.S. Worst case, you spend one Saturday and walk away with tools and a system you'll use for years. The only way this costs you anything is by skipping it.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p class="mono">HOW TO BECOME A FUTURE-PROOF FREELANCER · AUG 1, 2026<br>
+  <p class="mono">HOW TO BECOME A FUTURE-PROOF FREELANCER · EVERY SATURDAY<br>
   In partnership with FocusLab Coworking Space, Southscape Commercial Bldg., Talisay City, Cebu<br>
   <a href="https://www.focuslab-cebu.com/">focuslab-cebu.com</a></p>
 </footer>
@@ -804,6 +817,61 @@
   var walkinNote = document.getElementById('walkin-note');
   var methodInput = document.getElementById('payment-method-input');
   var refInput = document.getElementById('fref');
+
+  function getUpcomingSaturdays(count){
+    var results = [];
+    var d = new Date();
+    d.setHours(0,0,0,0);
+    var offset = (6 - d.getDay() + 7) % 7;
+    d.setDate(d.getDate() + offset);
+    for(var i=0;i<count;i++){
+      results.push(new Date(d));
+      d.setDate(d.getDate() + 7);
+    }
+    return results;
+  }
+
+  function formatSaturday(date){
+    return date.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric', year:'numeric'});
+  }
+
+  function toLocalISO(date){
+    var m = String(date.getMonth() + 1).padStart(2, '0');
+    var d = String(date.getDate()).padStart(2, '0');
+    return date.getFullYear() + '-' + m + '-' + d;
+  }
+
+  var dateSelect = document.getElementById('workshop-date-select');
+  var workshopDateField = document.getElementById('workshop-date-field');
+  var saturdays = getUpcomingSaturdays(8);
+  var selectedDate = saturdays[0];
+
+  saturdays.forEach(function(d){
+    var opt = document.createElement('option');
+    opt.value = toLocalISO(d);
+    opt.textContent = formatSaturday(d);
+    dateSelect.appendChild(opt);
+  });
+
+  function selectedLabel(){
+    return formatSaturday(selectedDate);
+  }
+
+  function refreshDateReferences(){
+    var label = selectedLabel();
+    var heroNext = document.getElementById('hero-next-date');
+    if(heroNext) heroNext.textContent = label;
+    var walkinDate = document.getElementById('walkin-date');
+    if(walkinDate) walkinDate.textContent = label;
+    workshopDateField.value = label;
+  }
+
+  dateSelect.addEventListener('change', function(){
+    selectedDate = saturdays[dateSelect.selectedIndex];
+    refreshDateReferences();
+  });
+
+  refreshDateReferences();
 
   function fallbackCopy(text){
     var t = document.createElement('textarea');
@@ -862,6 +930,7 @@
     var name = document.getElementById('fname').value || '—';
     var isGcash = document.querySelector('.payment-option[data-option="gcash"]').classList.contains('active');
     document.getElementById('summary-name').textContent = name;
+    document.getElementById('summary-when').textContent = selectedLabel() + ', 1:00 PM';
     document.getElementById('summary-payment').textContent = isGcash ? 'GCash' : 'Walk-in (pay at the door)';
     document.getElementById('summary-total').textContent = isGcash ? '499' : '799';
     form.style.display = 'none';
@@ -890,15 +959,17 @@
         summary.innerHTML = '<div class="ty-icon">&#10003;</div>' +
           '<h3 style="text-align:center;">You\'re almost in!</h3>' +
           '<p class="ty-lead">We\'ve received your booking for <b>The Future-Proof Freelancer</b>. <b>Please wait for our text or email</b>, that\'s your final confirmation of your seat.</p>' +
-          '<div class="summary-row"><span class="summary-label">When</span><span class="summary-value">Sat, Aug 1, 2026<br>1:00 PM onwards</span></div>' +
+          '<div class="summary-row"><span class="summary-label">When</span><span class="summary-value">' + selectedLabel() + '<br>1:00 PM onwards</span></div>' +
           '<div class="summary-row"><span class="summary-label">Where</span><span class="summary-value">Brewlivia Cafe, 2nd Flr<br>Southscape, Talisay City, Cebu<br>(behind Mani Mogo Restaurant)</span></div>' +
           '<div class="ty-faq">' +
             '<p><b>Paid via GCash?</b>We\'ll confirm your seat once we verify your reference number or screenshot.</p>' +
-            '<p><b>Chose walk-in?</b>Just show up on Aug 1 and pay ₱799 at the door. Bring a valid ID if you can.</p>' +
+            '<p><b>Chose walk-in?</b>Just show up on ' + selectedLabel() + ' and pay ₱799 at the door. Bring a valid ID if you can.</p>' +
             '<p><b>Need to bring anything?</b>A laptop is optional but encouraged. Slides will be shared either way.</p>' +
           '</div>' +
           '<a href="https://m.me/focuslab.talisay" target="_blank" rel="noopener" class="btn-fb-link">Questions? Message us on Facebook</a>';
         form.reset();
+        selectedDate = saturdays[0];
+        refreshDateReferences();
         gcashDetails.classList.add('show');
         walkinNote.classList.remove('show');
         options.forEach(function(o){ o.classList.remove('active'); });
