@@ -24,8 +24,14 @@
   "@context": "https://schema.org",
   "@type": "Event",
   "name": "The Future-Proof Freelancer Live Workshop",
-  "startDate": "2026-08-01T13:00:00+08:00",
-  "endDate": "2026-08-01T17:00:00+08:00",
+  "eventSchedule": {
+    "@type": "Schedule",
+    "repeatFrequency": "P1W",
+    "byDay": "https://schema.org/Saturday",
+    "startTime": "13:00",
+    "endTime": "17:00",
+    "startDate": "2026-08-08"
+  },
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "eventStatus": "https://schema.org/EventScheduled",
   "location": {
@@ -124,6 +130,18 @@
   .events-empty h3{font-family:var(--display);font-weight:500;font-size:1.4rem;color:var(--green-900);margin-bottom:.5rem}
   .events-empty p{max-width:42ch;margin-inline:auto}
 
+  /* Freelancers Club recap */
+  .club-recap{background:linear-gradient(165deg,var(--green-900),var(--green-950));color:var(--cream-2);position:relative;overflow:hidden;padding:4.5rem 0}
+  .club-recap::before{content:"";position:absolute;top:-20%;left:-10%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(183,138,60,.16),transparent 70%);pointer-events:none}
+  .club-recap .club-head{max-width:680px;margin:0 auto 2.5rem;text-align:center;position:relative}
+  .club-recap .badge-pill{display:inline-flex;align-items:center;gap:.6rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--green-950);background:var(--gold-light);padding:.5rem 1.1rem;border-radius:999px;margin-bottom:1.4rem}
+  .club-recap .club-head h2{font-family:var(--display);font-weight:300;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.05;color:var(--cream-2)}
+  .club-recap .club-head h2 em{font-style:italic;color:var(--gold-light)}
+  .club-recap .club-head p{color:rgba(244,239,228,.75);margin-top:1.1rem;font-size:1.02rem}
+  .club-gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:.8rem;margin-bottom:2.4rem;position:relative}
+  .club-gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;display:block;border:1px solid rgba(217,184,115,.25)}
+  .club-cta-wrap{text-align:center;position:relative}
+
   /* Footer */
   footer{background:var(--green-950);color:rgba(244,239,228,.7);padding:3.5rem 0 2rem}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -155,6 +173,7 @@
     .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--cream);padding:1.5rem 6vw;gap:1.2rem;border-bottom:1px solid var(--line)}
     .nav-toggle{display:block}
     .foot-grid{grid-template-columns:1fr 1fr}
+    .club-gallery{grid-template-columns:repeat(3,1fr)}
   }
   @media(max-width:640px){
     .messenger-fab-wrap{right:1rem;bottom:1rem;flex-direction:column;align-items:flex-end;gap:.4rem}
@@ -168,6 +187,8 @@
     .event-card{padding:1.7rem}
     .ec-price{flex-wrap:wrap}
     .ec-price .ep-note{margin-left:0}
+    .club-recap{padding:3.5rem 0}
+    .club-gallery{grid-template-columns:repeat(2,1fr);gap:.6rem}
   }
 </style>
 </head>
@@ -210,7 +231,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           Live Workshop
         </span>
-        <span class="ec-dates">Sat, Aug 1, 2026</span>
+        <span class="ec-dates">Every Saturday</span>
       </div>
       <h3 class="ec-title">The Future-Proof Freelancer Live Workshop</h3>
       <p class="ec-desc">A hands-on afternoon on using AI without losing the work only you can do. Real workflows, real client examples, and a Monday-ready plan, hosted just steps from FocusLab.</p>
@@ -222,7 +243,7 @@
       <div class="ec-price">
         <span class="ep-was">₱799</span>
         <span class="ep-now"><sup>₱</sup>499</span>
-        <span class="ep-note">Early rate, ends soon</span>
+        <span class="ep-note">Early rate</span>
       </div>
       <a href="the-future-proof-freelancer.html" class="btn btn-gold ec-cta">See Full Details &amp; Reserve</a>
     </article>
@@ -258,6 +279,30 @@
     <p>Check back soon, or follow us on Facebook so you don't miss the next one.</p>
   </div>
 </main>
+
+<section class="club-recap" id="freelancers-club">
+  <div class="wrap">
+    <div class="club-head reveal">
+      <span class="badge-pill">Free with Monthly Membership</span>
+      <h2>The <em>South Cebu Freelancers Club</em></h2>
+      <p>A community of freelancers, remote workers, creators, and online entrepreneurs across South Cebu, included free with any Monthly Membership. Saturday night meetups and monthly events, so you always have people to work, connect, and grow alongside.</p>
+    </div>
+
+    <!-- Photo grid: images live in /public/club, named club-1.jpg through club-6.jpg. Add more <img> tiles here anytime, following the same pattern. -->
+    <div class="club-gallery reveal" id="clubGallery">
+      <img src="/public/club/club-1.jpg" alt="South Cebu Freelancers Club meetup at FocusLab Coworking Space" loading="lazy" onerror="this.remove()">
+      <img src="/public/club/club-2.jpg" alt="South Cebu Freelancers Club Saturday night meetup" loading="lazy" onerror="this.remove()">
+      <img src="/public/club/club-3.jpg" alt="South Cebu Freelancers Club members networking" loading="lazy" onerror="this.remove()">
+      <img src="/public/club/club-4.jpg" alt="South Cebu Freelancers Club community event" loading="lazy" onerror="this.remove()">
+      <img src="/public/club/club-5.jpg" alt="South Cebu Freelancers Club members at a monthly event" loading="lazy" onerror="this.remove()">
+      <img src="/public/club/club-6.jpg" alt="South Cebu Freelancers Club meetup group photo" loading="lazy" onerror="this.remove()">
+    </div>
+
+    <div class="club-cta-wrap reveal">
+      <a href="https://www.facebook.com/groups/2533847403702726" target="_blank" rel="noopener" class="btn btn-gold">Join the South Cebu Freelancers Club on Facebook</a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
