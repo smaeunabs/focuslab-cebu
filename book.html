@@ -234,9 +234,11 @@
           <button class="cat-tab active" data-cat="payg">Pay-as-you-go</button>
           <button class="cat-tab" data-cat="day">Day Memberships</button>
           <button class="cat-tab" data-cat="night">Night Memberships</button>
+          <button class="cat-tab" data-cat="student">Student &amp; Reviewer Passes</button>
         </div>
         <p class="promo-flag" id="paygNote">Promo rates valid until August 31 only</p>
         <p class="promo-flag hide" id="nightNote">Rainy Days Promo: Free Dinner on Weekly &amp; Monthly Night Pass · Jul 19–Aug 31 only</p>
+        <p class="promo-flag hide" id="studentNote">For students &amp; board exam reviewees · Valid ID required upon entry · Aug 1–31, 2026 only</p>
         <div class="opt-grid" id="optGrid"></div>
 
         <div class="info-hl">
@@ -440,9 +442,13 @@
       {id:'10day-night', name:'10-Day Night Pass', price:4500, desc:'Valid for 30 days + Free Dinner'},
       {id:'monthly-night', name:'Monthly Night Pass', price:6500, wasPrice:8000, desc:'Flexible seating + Free Dinner', club:true},
       {id:'dedicated-night', name:'Dedicated Night Pass', price:10000, desc:'Your own workspace + Free Dinner', club:true},
+    ],
+    student: [
+      {id:'study-day', name:'Daily Study Pass', price:195, wasPrice:450, desc:'For students & board exam reviewees · Free coffee, water & snacks · Valid ID required'},
+      {id:'study-meal', name:'Study + Meal Package', price:499, wasPrice:800, desc:'For students & board exam reviewees · 2 free meals + free coffee, water & snacks · Valid ID required'},
     ]
   };
-  const ALL = [...PLANS.payg, ...PLANS.day, ...PLANS.night];
+  const ALL = [...PLANS.payg, ...PLANS.day, ...PLANS.night, ...PLANS.student];
   const NIGHT_IDS = PLANS.night.map(p => p.id);
 
   let state = { cat:'payg', planId:'day', hours:2, people:1, pay:'gcash' };
@@ -480,6 +486,7 @@
     state.planId = PLANS[state.cat][0].id;
     $('paygNote').classList.toggle('hide', state.cat !== 'payg');
     $('nightNote').classList.toggle('hide', state.cat !== 'night');
+    $('studentNote').classList.toggle('hide', state.cat !== 'student');
     afterPlanChange();
   });
 
@@ -558,10 +565,11 @@
       const found = ALL.find(p => p.id === wanted);
       if(found){
         state.planId = wanted;
-        state.cat = PLANS.day.indexOf(found) > -1 ? 'day' : PLANS.night.indexOf(found) > -1 ? 'night' : 'payg';
+        state.cat = PLANS.day.indexOf(found) > -1 ? 'day' : PLANS.night.indexOf(found) > -1 ? 'night' : PLANS.student.indexOf(found) > -1 ? 'student' : 'payg';
         document.querySelectorAll('.cat-tab').forEach(t => t.classList.toggle('active', t.dataset.cat===state.cat));
         $('paygNote').classList.toggle('hide', state.cat !== 'payg');
         $('nightNote').classList.toggle('hide', state.cat !== 'night');
+        $('studentNote').classList.toggle('hide', state.cat !== 'student');
       }
     }
     ['date','time'].forEach(id => $(id).addEventListener('input', update));
