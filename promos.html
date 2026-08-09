@@ -72,6 +72,7 @@
     color:var(--cream-2);padding:2.2rem;display:flex;flex-direction:column;gap:1.1rem;
   }
   .promo-card::before{content:"";position:absolute;top:-35%;right:-15%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(217,184,115,.22),transparent 70%);pointer-events:none}
+  .promo-card .ribbon{position:absolute;top:1.3rem;right:-2.4rem;transform:rotate(45deg);background:var(--gold);color:#fff;font-size:.66rem;letter-spacing:.14em;font-weight:700;text-transform:uppercase;padding:.3rem 2.6rem;z-index:1}
   .pc-top{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem}
   .pc-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(217,184,115,.16);border:1px solid rgba(217,184,115,.4);color:var(--gold-light);font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:.4rem .85rem;border-radius:999px}
   .pc-badge svg{width:14px;height:14px}
@@ -191,6 +192,43 @@
 
 <main class="wrap">
   <div class="promos-grid" id="promoCards">
+    <!-- EXCLUSIVE STUDENT BENEFITS PROMO -->
+    <article class="promo-card reveal">
+      <span class="ribbon">Most Popular</span>
+      <div class="pc-top">
+        <span class="pc-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
+          Exclusive Student Benefits
+        </span>
+        <span class="pc-dates">Aug 1–31, 2026</span>
+      </div>
+      <h3 class="pc-title">Exclusive Student Benefits</h3>
+      <p class="pc-desc">Special rates for students. Pay in advance for 1 week or 1 month and get an additional 5% off the promotional rate.</p>
+
+      <div class="pc-prices">
+        <div class="pc-price">
+          <span class="pp-name">Daily Study Pass</span>
+          <span class="pp-was">₱450</span>
+          <span class="pp-now"><sup>₱</sup>195</span>
+          <span class="pp-desc">Unlimited access for the day</span>
+          <span class="pp-desc">Free coffee, water &amp; snacks</span>
+        </div>
+        <div class="pc-price">
+          <span class="pp-name">Study + Meal Package</span>
+          <span class="pp-was">₱800</span>
+          <span class="pp-now"><sup>₱</sup>499</span>
+          <span class="pp-desc">Unlimited access for the day</span>
+          <span class="pp-desc">2 free meals (breakfast, lunch, or dinner) + free coffee, water &amp; snacks</span>
+        </div>
+      </div>
+
+      <div class="pc-footnote">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><b>Student ID Required:</b> A valid student ID must be presented upon entry to avail of Student Benefits pricing.</div>
+      </div>
+
+      <a href="book.html" class="btn btn-gold pc-cta">Book Now</a>
+    </article>
     <!-- RAINY DAYS PROMO -->
     <article class="promo-card reveal">
       <div class="pc-top">
@@ -280,37 +318,6 @@
         <div class="pc-footnote">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           <div><b>Night Pass Booking Policy:</b> Night Pass (9:00 PM onwards) requires advance booking at least 1 day prior. Available exclusively on Weekly, 10-Day, and Monthly plans. No walk-ins — guests without a booking will be asked to book for the next night, provided they commit to at least a Weekly plan.</div>
-        </div>
-      </div>
-
-      <a href="book.html" class="btn btn-gold pc-cta">Book Now</a>
-    </article>
-    <!-- EXCLUSIVE STUDENT BENEFITS PROMO -->
-    <article class="promo-card reveal">
-      <div class="pc-top">
-        <span class="pc-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
-          Exclusive Student Benefits
-        </span>
-        <span class="pc-dates">Aug 1–31, 2026</span>
-      </div>
-      <h3 class="pc-title">Exclusive Student Benefits</h3>
-      <p class="pc-desc">Special rates for students. Pay in advance for 1 week or 1 month and get an additional 5% off the promotional rate.</p>
-
-      <div class="pc-prices">
-        <div class="pc-price">
-          <span class="pp-name">Daily Study Pass</span>
-          <span class="pp-was">₱450</span>
-          <span class="pp-now"><sup>₱</sup>195</span>
-          <span class="pp-desc">Unlimited access for the day</span>
-          <span class="pp-desc">Free coffee, water &amp; snacks</span>
-        </div>
-        <div class="pc-price">
-          <span class="pp-name">Study + Meal Package</span>
-          <span class="pp-was">₱800</span>
-          <span class="pp-now"><sup>₱</sup>499</span>
-          <span class="pp-desc">Unlimited access for the day</span>
-          <span class="pp-desc">2 free meals (breakfast, lunch, or dinner) + free coffee, water &amp; snacks</span>
         </div>
       </div>
 

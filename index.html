@@ -204,10 +204,13 @@
   .rate-card .price{font-family:var(--display);font-weight:400;font-size:3rem;line-height:1;color:var(--green-900)}
   .rate-card .price sup{font-size:1.2rem;top:-1.1em;color:var(--gold)}
   .rate-card .note{color:var(--muted);font-size:.95rem;margin-top:.6rem}
+  .rate-card .pick{margin-top:1.2rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:.4rem;transition:gap .25s}
+  .rate-card:hover .pick{gap:.8rem}
   .rate-card.feature{background:linear-gradient(165deg,var(--green-800),var(--green-900));color:var(--cream-2);border-color:transparent}
   .rate-card.feature .ic,.rate-card.feature .price{color:var(--gold-light)}
   .rate-card.feature h3{color:rgba(244,239,228,.7)}
   .rate-card.feature .price sup{color:var(--gold-light)}
+  .rate-card.feature .pick{color:var(--gold-light)}
   .rate-card.feature .note{color:rgba(244,239,228,.7)}
   .rate-card .ribbon{position:absolute;top:1.3rem;right:-2.4rem;transform:rotate(45deg);background:var(--gold);color:#fff;font-size:.66rem;letter-spacing:.14em;font-weight:700;text-transform:uppercase;padding:.3rem 2.6rem}
 
@@ -345,6 +348,7 @@
   .club-foot .mission h3{font-family:var(--display);font-weight:500;font-size:1.5rem;color:var(--gold-light);margin-bottom:.7rem}
   .club-foot .mission p{color:rgba(244,239,228,.78)}
   .club-foot .mission .tagline{margin-top:1.2rem;font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--cream-2)}
+  .club-foot .mission .mission-cta{margin-top:1.6rem}
   .incl-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
   .incl-list li{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;color:rgba(244,239,228,.85)}
   .incl-list li svg{flex:none;width:18px;height:18px;color:var(--gold-light);margin-top:3px}
@@ -360,6 +364,8 @@
   .amen-item:hover{background:rgba(255,255,255,.04)}
   .amen-item .ic{width:38px;height:38px;color:var(--gold-light)}
   .amen-item span{font-size:.86rem;font-weight:600;letter-spacing:.02em;color:rgba(244,239,228,.85)}
+  .amen-cta{text-align:center;margin-top:2.6rem}
+  .amen-cta p{margin-bottom:1.2rem;color:rgba(244,239,228,.85)}
 
   /* ---------- Gallery ---------- */
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
@@ -417,6 +423,8 @@
   .testi-who small{font-size:.76rem;color:var(--muted)}
   .testi-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:2.2rem;font-weight:700;color:var(--gold);font-size:.92rem;transition:color .2s}
   .testi-more:hover{color:var(--green-800)}
+  .testi-cta-row{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap;margin-top:2.2rem}
+  .testi-cta-row .testi-more{margin-top:0}
 
   /* ---------- Guidelines + Location ---------- */
   .info-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
@@ -729,6 +737,7 @@
         <b>Walk-ins welcome</b> anytime before 9 PM. Night Pass (9 PM onwards) requires advance booking.
       </p>
       <a href="#memberships" class="hero-plans">View all plans <span>·</span> weekly, 10-day &amp; monthly</a>
+      <a href="#student-promo-teaser" class="hero-plans">Student? <span>·</span> Save on Study Passes from ₱195/day</a>
     </div>
     <div class="hero-card reveal in" style="transition-delay:.15s">
       <span class="promo-tag">Pay as you go</span>
@@ -867,7 +876,10 @@
       </div>
     </div>
 
-    <a class="testi-more" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">See all reviews on Google <span>→</span></a>
+    <div class="testi-cta-row">
+      <a class="testi-more" href="https://www.google.com/maps/place/FOCUSLAB+COWORKING+SPACE/@10.258101,123.8226513,17z/data=!3m1!4b1!4m6!3m5!1s0x33a99f53a4663d07:0x3bcefb45a9695e39!8m2!3d10.258101!4d123.8226513!16s%2Fg%2F11nr8rynb5" target="_blank" rel="noopener">See all reviews on Google <span>→</span></a>
+      <a href="book.html" class="btn btn-gold">Book Now</a>
+    </div>
   </div>
 </section>
 
@@ -1004,12 +1016,14 @@
         <h3>Hourly Pass</h3>
         <div class="price"><span class="was-price">₱100</span><sup>₱</sup>49</div>
         <p class="note">Flat <b>₱49</b> per hour, any duration</p>
+        <a href="book.html?plan=hourly" class="pick">Book Now →</a>
       </div>
       <div class="rate-card">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M19 5l2-2"/></svg>
         <h3>3-Hour Pass</h3>
         <div class="price"><span class="was-price">₱250</span><sup>₱</sup>147</div>
         <p class="note">A solid block of focused work</p>
+        <a href="book.html?plan=3hour" class="pick">Book Now →</a>
       </div>
       <div class="rate-card feature">
         <span class="ribbon">Best Value</span>
@@ -1017,6 +1031,7 @@
         <h3>Day Pass</h3>
         <div class="price"><span class="was-price">₱450</span><sup>₱</sup>249</div>
         <p class="note">Unlimited access for the entire day</p>
+        <a href="book.html?plan=day" class="pick">Book Now →</a>
       </div>
     </div>
 
@@ -1145,6 +1160,24 @@
   </div>
 </section>
 
+<!-- STUDENT BENEFITS PROMO TEASER -->
+<section class="rainy-promo" id="student-promo-teaser">
+  <div class="wrap">
+    <div class="rp-card reveal">
+      <span class="rp-badge">
+        <svg class="ic-rain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
+        Exclusive Student Benefits
+      </span>
+      <h2>Students, we've got you. Study Passes from <em>₱195</em>/day</h2>
+      <p class="rp-sub">Daily Study Pass at <b>₱195</b>/day with free coffee, water &amp; snacks, or the Study + Meal Package at <b>₱499</b>/day with 2 free meals included · Pay in advance for 1 week or 1 month for an extra 5% off · Valid August 1–31, 2026 · Valid student ID required upon entry</p>
+      <div class="rp-actions">
+        <a href="promos.html" class="btn btn-gold">See Full Promo</a>
+        <a href="book.html" class="rp-more">Book Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CURRENT PROMOS TEASER -->
 <section class="rainy-promo" id="promos-teaser">
   <div class="wrap">
@@ -1211,6 +1244,7 @@
         <h3>Our Mission</h3>
         <p>To create the leading community for freelancers, remote workers, creators, and online entrepreneurs in South Cebu by providing a place to work, learn, connect, and grow together.</p>
         <p class="tagline">Work. Connect. Learn. Grow.</p>
+        <a href="book.html?plan=monthly" class="btn btn-gold mission-cta">Book a Monthly Membership</a>
       </div>
       <ul class="incl-list">
         <li class="title">Included with all monthly memberships</li>
@@ -1243,6 +1277,10 @@
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7.5 3v6M9.5 3v6M11.5 3v6M7.5 9h4M9.5 9v12"/><path d="M16.5 3c-1.6 0-2.8 2-2.8 5s1.2 3.5 2.8 3.5"/><path d="M16.5 3v18"/></svg><span>Bring Your Own Food, No Corkage</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11a9 9 0 0 1 18 0"/><path d="M3 11v3a9 9 0 0 0 18 0v-3"/><path d="M4 5l16 14" /></svg><span>Quiet Productivity Environment</span></div>
       <div class="amen-item"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg><span>Security Provided</span></div>
+    </div>
+    <div class="amen-cta reveal">
+      <p>Ready to experience it yourself?</p>
+      <a href="book.html" class="btn btn-gold">Book Now</a>
     </div>
   </div>
 </section>
