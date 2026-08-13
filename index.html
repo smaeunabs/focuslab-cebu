@@ -323,6 +323,20 @@
   .hl-night .hl-body p b{color:var(--gold-light)}
   @media(max-width:780px){.hl-grid{grid-template-columns:1fr}}
 
+  /* Night Booking section */
+  #night-booking{padding:4.5rem 0}
+  .nb-card{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--night-900),var(--night) 60%);color:var(--cream-2);border-radius:26px;padding:clamp(2rem,5vw,3.2rem) clamp(1.5rem,5vw,3.5rem)}
+  .nb-badge{position:relative;display:inline-flex;align-items:center;gap:.5rem;background:rgba(217,184,115,.16);border:1px solid rgba(217,184,115,.4);color:var(--gold-light);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.5rem 1.1rem;border-radius:999px;margin-bottom:1.2rem}
+  .nb-badge svg{width:16px;height:16px}
+  .nb-card h2{position:relative;font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.15;max-width:34ch}
+  .nb-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.4rem;margin-top:2rem}
+  .nb-item{display:flex;gap:.9rem;align-items:flex-start}
+  .nb-item svg{flex:none;width:22px;height:22px;color:var(--gold-light);margin-top:2px}
+  .nb-item p{font-size:.92rem;line-height:1.55;color:rgba(244,239,228,.88)}
+  .nb-item p b{color:var(--gold-light)}
+  .nb-actions{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:1.4rem;margin-top:2.2rem}
+  @media(max-width:780px){.nb-grid{grid-template-columns:1fr}}
+
   .hidden{display:none}
   .plan .club-tag{margin-top:.9rem;display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:rgba(183,138,60,.1);border:1px solid rgba(183,138,60,.3);padding:.35rem .6rem;border-radius:999px}
   .plan .club-tag svg{width:13px;height:13px}
@@ -710,6 +724,7 @@
       <a href="#memberships">Memberships</a>
       <a href="#community">Community</a>
       <a href="#amenities">Amenities</a>
+      <a href="#night-booking">Night Booking</a>
       <a href="#location">Location</a>
       <a href="events.html">Meetups &amp; Events</a>
       <a href="promos.html">Promos</a>
@@ -749,6 +764,41 @@
     </div>
   </div>
 </header>
+
+<!-- NIGHT BOOKING -->
+<section id="night-booking">
+  <div class="wrap">
+    <div class="nb-card reveal">
+      <span class="nb-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></svg>
+        Night Pass
+      </span>
+      <h2>Working the Night Shift? Here's Your Night Pass Rundown</h2>
+      <div class="nb-grid">
+        <div class="nb-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <p><b>Night Pass: 9:00 PM–7:00 AM</b></p>
+        </div>
+        <div class="nb-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 7"/></svg>
+          <p>If you begin working at <b>9:00 PM or later</b>, a Night Pass is required, available on <b>Weekly plans and above</b> only.</p>
+        </div>
+        <div class="nb-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+          <p>Must be booked at least 1 day in advance; same-day night bookings are accepted until 5:00 PM cutoff.</p>
+        </div>
+        <div class="nb-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 11v5M12 7.5v.5"/></svg>
+          <p>You may leave anytime during your Night Pass, but once you leave FocusLab, your booking time stops and access ends. You cannot re-enter using the same pass.</p>
+        </div>
+      </div>
+      <div class="nb-actions">
+        <a href="book.html?plan=nightly" class="btn btn-gold">Book Night Pass</a>
+        <a href="promos.html" class="rp-more">See full Night Pass policy <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- GALLERY -->
 <section id="gallery">
