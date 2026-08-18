@@ -639,8 +639,8 @@
     <div class="price-card">
       <h3>Reserve your seat</h3>
       <div class="price-row">
-        <span class="price-then">₱799</span>
-        <span class="price-now">₱499</span>
+        <span class="price-then">₱999</span>
+        <span class="price-now">₱699</span>
       </div>
       <div class="price-note mono">EARLY RATE ENDS SOON · <span class="seats-left">LIMITED SEATS AVAILABLE</span></div>
       <div class="perks">
@@ -679,10 +679,10 @@
         <div class="form-group">
           <label>How will you pay?</label>
           <div class="payment-toggle">
-            <div class="payment-option active" data-option="gcash">Pay ₱499 via GCash</div>
-            <div class="payment-option" data-option="walkin">Walk-in, pay ₱799 at the door</div>
+            <div class="payment-option active" data-option="gcash">Pay ₱699 via GCash</div>
+            <div class="payment-option" data-option="walkin">Walk-in, pay ₱999 at the door</div>
           </div>
-          <input type="hidden" name="Payment Method" id="payment-method-input" value="GCash (₱499)">
+          <input type="hidden" name="Payment Method" id="payment-method-input" value="GCash (₱699)">
         </div>
         <div class="gcash-details show" id="gcash-details">
           <div class="gcash-top">
@@ -703,7 +703,7 @@
             <p class="gcash-steps-label">How to pay:</p>
             <ol>
               <li>Scan the QR with your GCash app, or any InstaPay-enabled bank app.</li>
-              <li>Enter ₱499 and use your full name as the note.</li>
+              <li>Enter ₱699 and use your full name as the note.</li>
               <li>Take a screenshot of the confirmation.</li>
               <li>Send the screenshot to us on Facebook, and enter your reference number below.</li>
             </ol>
@@ -714,7 +714,7 @@
           </div>
         </div>
         <div class="walkin-note" id="walkin-note">
-          <p>No payment needed now. Just show up at Brewlivia Cafe on <span id="walkin-date">Sat, Aug 8, 2026</span> and pay ₱799 at the door. Seats are limited, so booking ahead (even for walk-in) helps us hold your spot.</p>
+          <p>No payment needed now. Just show up at Brewlivia Cafe on <span id="walkin-date">Sat, Aug 8, 2026</span> and pay ₱999 at the door. Seats are limited, so booking ahead (even for walk-in) helps us hold your spot.</p>
         </div>
         <button type="button" id="review-btn" class="btn-primary btn-block" style="border:none; font-family:inherit; cursor:pointer;">Review Booking</button>
         <p class="form-submit-msg" id="form-msg"></p>
@@ -740,13 +740,13 @@
         </div>
         <div class="summary-total-row">
           <span class="summary-total-label">ESTIMATED TOTAL</span>
-          <span class="summary-total-value"><sup>₱</sup><span id="summary-total">499</span></span>
+          <span class="summary-total-value"><sup>₱</sup><span id="summary-total">699</span></span>
         </div>
         <button type="button" class="btn-confirm" id="confirm-btn">Confirm Your Seat</button>
         <p class="summary-disclaimer">This is a reservation request, not a final payment. GCash payments are confirmed once we receive your reference number or screenshot.</p>
         <button type="button" class="summary-edit-link" id="edit-btn">&larr; Edit details</button>
       </div>
-      <p class="seats-note">Price goes to ₱799 at the door. No pressure tactics, just math: earlier booking helps us plan seats and materials.</p>
+      <p class="seats-note">Price goes to ₱999 at the door. No pressure tactics, just math: earlier booking helps us plan seats and materials.</p>
       <p class="seats-note">Have questions? Send us a message on Facebook, <a href="https://www.facebook.com/focuslab.talisay" target="_blank" rel="noopener" style="color:var(--blueprint); font-weight:600;">FocusLab Coworking Space</a>.</p>
     </div>
   </div>
@@ -790,9 +790,9 @@
   <div class="wrap">
     <h2 class="display">The freelancers who get cut this year won't be the ones AI is better than.</h2>
     <p>They'll be the ones who never learned to use it, while someone else quietly did. Let's fix that this Saturday.</p>
-    <a href="#reserve" class="btn-primary">Reserve Your Seat, ₱499</a>
+    <a href="#reserve" class="btn-primary">Reserve Your Seat, ₱699</a>
     <div class="ps-line">
-      <p>P.S. This runs every Saturday now, so there's no single deadline to miss. The real limit is seats, since each session only fits so many people. Pick whichever Saturday works for you and book ahead while the ₱499 rate still applies.</p>
+      <p>P.S. This runs every Saturday now, so there's no single deadline to miss. The real limit is seats, since each session only fits so many people. Pick whichever Saturday works for you and book ahead while the ₱699 rate still applies.</p>
       <p>P.P.S. Worst case, you spend one Saturday and walk away with tools and a system you'll use for years. The only way this costs you anything is by skipping it.</p>
     </div>
   </div>
@@ -911,12 +911,12 @@
       if(opt.dataset.option === 'gcash'){
         gcashDetails.classList.add('show');
         walkinNote.classList.remove('show');
-        methodInput.value = 'GCash (₱499)';
+        methodInput.value = 'GCash (₱699)';
         refInput.required = true;
       } else {
         gcashDetails.classList.remove('show');
         walkinNote.classList.add('show');
-        methodInput.value = 'Walk-in (₱799 at the door)';
+        methodInput.value = 'Walk-in (₱999 at the door)';
         refInput.required = false;
       }
     });
@@ -936,7 +936,7 @@
     document.getElementById('summary-name').textContent = name;
     document.getElementById('summary-when').textContent = selectedLabel() + ', 1:00 PM – 5:00 PM';
     document.getElementById('summary-payment').textContent = isGcash ? 'GCash' : 'Walk-in (pay at the door)';
-    document.getElementById('summary-total').textContent = isGcash ? '499' : '799';
+    document.getElementById('summary-total').textContent = isGcash ? '699' : '999';
     form.style.display = 'none';
     summary.classList.add('show');
     summary.scrollIntoView({behavior:'smooth', block:'center'});
@@ -963,13 +963,13 @@
         var wasGcash = document.querySelector('.payment-option[data-option="gcash"]').classList.contains('active');
         var paymentFaq = wasGcash
           ? '<p><b>Paid via GCash?</b>We\'ll confirm your seat once we verify your reference number or screenshot.</p>'
-          : '<p><b>Chose walk-in?</b>Just show up on ' + selectedLabel() + ' and pay ₱799 at the door. Bring a valid ID if you can.</p>';
+          : '<p><b>Chose walk-in?</b>Just show up on ' + selectedLabel() + ' and pay ₱999 at the door. Bring a valid ID if you can.</p>';
         summary.innerHTML = '<div class="ty-icon">&#10003;</div>' +
           '<h3 style="text-align:center;">You\'re almost in!</h3>' +
           '<p class="ty-lead">We\'ve received your booking for <b>The Future-Proof Freelancer Live Workshop</b>. <b>Please wait for our text or email</b>, that\'s your final confirmation of your seat.</p>' +
           '<div class="summary-row"><span class="summary-label">When</span><span class="summary-value">' + selectedLabel() + '<br>1:00 PM – 5:00 PM</span></div>' +
           '<div class="summary-row"><span class="summary-label">Where</span><span class="summary-value">Brewlivia Cafe, 2nd Flr<br>Southscape, Talisay City, Cebu<br>(behind Mani Mogo Restaurant)</span></div>' +
-          '<div class="summary-row"><span class="summary-label">Payment</span><span class="summary-value">' + (wasGcash ? 'GCash — ₱499' : 'Walk-in — ₱799 at the door') + '</span></div>' +
+          '<div class="summary-row"><span class="summary-label">Payment</span><span class="summary-value">' + (wasGcash ? 'GCash — ₱699' : 'Walk-in — ₱999 at the door') + '</span></div>' +
           '<div class="ty-faq">' +
             paymentFaq +
             '<p><b>Need to bring anything?</b>Yes, a laptop is required. We\'ll build a portfolio sample together, then you\'ll build your own AI-assisted project during the session.</p>' +
