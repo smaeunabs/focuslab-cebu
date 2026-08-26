@@ -36,11 +36,11 @@
 
   /* Nav */
   nav{position:sticky;top:0;z-index:50;background:rgba(244,239,228,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0}
-  .logo{display:inline-flex;align-items:center;text-decoration:none}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:.85rem 0;width:min(1320px,94vw)}
+  .logo{display:inline-flex;align-items:center;text-decoration:none;flex:none}
   .logo-img{height:46px;width:auto;display:block;color:var(--ink)}
-  .nav-links{display:flex;align-items:center;gap:2rem}
-  .nav-links a{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--green-800);transition:color .2s}
+  .nav-links{display:flex;align-items:center;gap:1.4rem;flex-wrap:nowrap}
+  .nav-links a{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--green-800);transition:color .2s;white-space:nowrap}
   .nav-links a:hover{color:var(--gold)}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--body);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;padding:.85rem 1.6rem;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s}
   .btn-gold{background:var(--gold);color:#fff;box-shadow:0 10px 24px -10px rgba(183,138,60,.8)}
