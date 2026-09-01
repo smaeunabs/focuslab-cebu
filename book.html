@@ -237,17 +237,15 @@
           <button class="cat-tab" data-cat="day">Day Memberships</button>
           <button class="cat-tab" data-cat="night">Night Memberships</button>
           <button class="cat-tab" data-cat="student">Student &amp; Reviewer Passes</button>
-          <button class="cat-tab" data-cat="group">Group Bookings</button>
         </div>
-        <p class="promo-flag" id="paygNote">Promo rates valid until August 31 only</p>
-        <p class="promo-flag hide" id="nightNote">Rainy Days Promo: Free Dinner on Weekly &amp; Monthly Night Pass · Jul 19–Aug 31 only · Single Night Pass Promo: ₱299 (reg. ₱500) · Aug 1–31, 2026 only</p>
-        <p class="promo-flag hide" id="studentNote">For students &amp; board exam reviewees · Valid ID required upon entry · Aug 1–31, 2026 only</p>
-        <p class="promo-flag hide" id="groupNote">Barkadahan All Day Pass · Groups of 5–10 · Aug 1–31, 2026 only</p>
+        <p class="promo-flag" id="paygNote">Ber Months Promo rates valid until September 30 only</p>
+        <p class="promo-flag hide" id="nightNote">Ber Months Promo: Midnight Pass ₱499 (Free 1 Loaded Meal + Drinks) · September 1–30, 2026 only</p>
+        <p class="promo-flag hide" id="studentNote">Ber Months Promo: Student Day Pass ₱195 · September 1–30, 2026 only · Valid ID required</p>
         <div class="opt-grid" id="optGrid"></div>
 
         <div class="info-hl">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <span><b>Open 24/7.</b> Come in any hour. <b>Night Pass</b> (9:00 PM–7:00 AM) is required for a <b>9:00 PM or later</b> start, available as a <b>Single Night (₱299)</b> or on <b>Weekly plans and above</b> for better value. Book at least 1 day ahead, same-day cutoff <b>5:00 PM</b>. Leaving during your pass ends that booking's access. <a href="promos.html">Full policy</a></span>
+          <span><b>Open 24/7.</b> Come in any hour. <b>Night Pass</b> (9:00 PM–7:00 AM) is required for a <b>9:00 PM or later</b> start, available as a <b>Midnight Pass (₱499, Free 1 Loaded Meal + Drinks)</b> or on <b>Weekly plans and above</b> for better value. Book at least 1 day ahead, same-day cutoff <b>5:00 PM</b>. Leaving during your pass ends that booking's access. <a href="promos.html">Full policy</a></span>
         </div>
 
         <div class="hours-only" id="hoursWrap">
@@ -398,7 +396,11 @@
         </div>
         <div class="policy hide" id="nightPolicy">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 11v5M12 7.5v.5"/></svg>
-          <span>You've selected a <b>9:00 PM or later</b> start. A Night Pass is required, available as a <b>Single Night (₱299)</b> or on <b>Weekly plans and above</b>. Book by <b>5:00 PM</b> same-day.</span>
+          <span>You've selected a <b>9:00 PM or later</b> start. A Night Pass is required, available as a <b>Midnight Pass (₱499, Free 1 Loaded Meal + Drinks)</b> or on <b>Weekly plans and above</b>. Book by <b>5:00 PM</b> same-day.</span>
+        </div>
+        <div class="policy hide" id="timeWindowWarning">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+          <span id="timeWindowWarningText"></span>
         </div>
         <p class="sum-note">This is a reservation request, not a final payment. The amount is confirmed on arrival.</p>
       </div>
@@ -433,7 +435,8 @@
     payg: [
       {id:'hourly', name:'Hourly Pass', price:49, wasPrice:100, desc:'Flat ₱49 per hour', hourly:true},
       {id:'3hour', name:'3-Hour Pass', price:147, wasPrice:250, desc:'A focused work block'},
-      {id:'day', name:'Day Pass', price:249, wasPrice:450, desc:'Unlimited for the day'},
+      {id:'day', name:'Day Pass', price:249, wasPrice:450, desc:'Unlimited access, 8:00 AM–4:00 PM only', timeWindow:{start:'08:00', end:'16:00'}},
+      {id:'afternoon-night', name:'Afternoon-Night Pass', price:249, wasPrice:450, desc:'Unlimited access, 1:00 PM–9:00 PM', timeWindow:{start:'13:00', end:'21:00'}},
     ],
     day: [
       {id:'weekly', name:'Weekly Pass', price:2500, desc:'Unlimited, 7 days'},
@@ -442,7 +445,7 @@
       {id:'dedicated', name:'Dedicated Monthly', price:8000, desc:'Your own workspace', club:true},
     ],
     night: [
-      {id:'nightly', name:'Single Night Pass', price:299, wasPrice:500, desc:'One night, 9:00 PM–7:00 AM'},
+      {id:'nightly', name:'Midnight Pass', price:499, desc:'Unlimited access, 9:00 PM–5:00 AM · Free 1 Loaded Meal + Drinks', timeWindow:{start:'21:00', end:'05:00'}},
       {id:'weekly-night', name:'Weekly Night Pass', price:2600, wasPrice:3500, desc:'Unlimited, 7 days + Free Dinner'},
       {id:'10day-night', name:'10-Day Night Pass', price:4500, desc:'Valid for 30 days + Free Dinner'},
       {id:'monthly-night', name:'Monthly Night Pass', price:6500, wasPrice:8000, desc:'Flexible seating + Free Dinner', club:true},
@@ -452,12 +455,8 @@
       {id:'study-day', name:'Daily Study Pass', price:195, wasPrice:450, desc:'For students & board exam reviewees · Free self-serve coffee, water & snacks from our pantry · Valid ID required'},
       {id:'study-meal', name:'Study + Meal Package', price:499, wasPrice:800, desc:'For students & board exam reviewees · 2 free meals + free self-serve coffee, water & snacks from our pantry · Valid ID required'},
     ],
-    group: [
-      {id:'group-5', name:'Barkadahan Pass (Group of 5)', price:1225, desc:'Unlimited access 7:00 AM–8:30 PM for up to 5 people · Free coffee, snacks & water', flatGroup:true, groupSize:5},
-      {id:'group-10', name:'Barkadahan Pass (Group of 10)', price:2400, desc:'Unlimited access 7:00 AM–8:30 PM for up to 10 people · Free coffee, snacks & water', flatGroup:true, groupSize:10},
-    ]
   };
-  const ALL = [...PLANS.payg, ...PLANS.day, ...PLANS.night, ...PLANS.student, ...PLANS.group];
+  const ALL = [...PLANS.payg, ...PLANS.day, ...PLANS.night, ...PLANS.student];
   const NIGHT_IDS = PLANS.night.map(p => p.id);
 
   let state = { cat:'payg', planId:'day', hours:2, people:1, pay:'gcash' };
@@ -512,7 +511,6 @@
     $('paygNote').classList.toggle('hide', state.cat !== 'payg');
     $('nightNote').classList.toggle('hide', state.cat !== 'night');
     $('studentNote').classList.toggle('hide', state.cat !== 'student');
-    $('groupNote').classList.toggle('hide', state.cat !== 'group');
     afterPlanChange();
   });
 
@@ -582,6 +580,22 @@
     const lateStart = t && (+t.split(':')[0] >= 21);
     const isNight = NIGHT_IDS.includes(state.planId);
     $('nightPolicy').classList.toggle('hide', !(lateStart && !isNight));
+
+    let outsideWindow = false;
+    if(plan && plan.timeWindow && t){
+      const [tH, tM] = t.split(':').map(Number);
+      const tMin = tH * 60 + tM;
+      const [sH, sM] = plan.timeWindow.start.split(':').map(Number);
+      const [eH, eM] = plan.timeWindow.end.split(':').map(Number);
+      const startMin = sH * 60 + sM, endMin = eH * 60 + eM;
+      outsideWindow = startMin > endMin
+        ? !(tMin >= startMin || tMin <= endMin)
+        : !(tMin >= startMin && tMin <= endMin);
+    }
+    $('timeWindowWarning').classList.toggle('hide', !outsideWindow);
+    if(outsideWindow){
+      $('timeWindowWarningText').innerHTML = 'Heads up: <b>' + plan.name + '</b> is intended for the <b>' + formatTime(plan.timeWindow.start) + '–' + formatTime(plan.timeWindow.end) + '</b> window. You can still book, but access outside this window isn\'t guaranteed under this promo rate.';
+    }
   }
 
   (function init(){
@@ -595,12 +609,11 @@
       const found = ALL.find(p => p.id === wanted);
       if(found){
         state.planId = wanted;
-        state.cat = PLANS.day.indexOf(found) > -1 ? 'day' : PLANS.night.indexOf(found) > -1 ? 'night' : PLANS.student.indexOf(found) > -1 ? 'student' : PLANS.group.indexOf(found) > -1 ? 'group' : 'payg';
+        state.cat = PLANS.day.indexOf(found) > -1 ? 'day' : PLANS.night.indexOf(found) > -1 ? 'night' : PLANS.student.indexOf(found) > -1 ? 'student' : 'payg';
         document.querySelectorAll('.cat-tab').forEach(t => t.classList.toggle('active', t.dataset.cat===state.cat));
         $('paygNote').classList.toggle('hide', state.cat !== 'payg');
         $('nightNote').classList.toggle('hide', state.cat !== 'night');
         $('studentNote').classList.toggle('hide', state.cat !== 'student');
-        $('groupNote').classList.toggle('hide', state.cat !== 'group');
       }
     }
     ['date','time'].forEach(id => $(id).addEventListener('input', update));

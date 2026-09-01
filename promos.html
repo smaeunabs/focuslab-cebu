@@ -193,66 +193,27 @@
 
 <main class="wrap">
   <div class="promos-grid" id="promoCards">
-    <!-- EXCLUSIVE STUDENT BENEFITS PROMO -->
+    <!-- BER MONTHS PROMO -->
     <article class="promo-card reveal">
-      <span class="ribbon">Most Popular</span>
+      <span class="ribbon">Ber Months</span>
       <div class="pc-top">
         <span class="pc-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
-          Exclusive Student Benefits
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.9 5.9L20 8l-5 4 1.8 6-4.8-3.6L7.2 18 9 12 4 8l6.1-.1z"/></svg>
+          Ber Months Promo!
         </span>
-        <span class="pc-dates">Aug 1–31, 2026</span>
+        <span class="pc-dates">Sep 1–30, 2026</span>
       </div>
-      <h3 class="pc-title">Exclusive Student Benefits</h3>
-      <p class="pc-desc">Special rates for students. Pay in advance for 1 week or 1 month and get an additional 5% off the promotional rate.</p>
-
-      <div class="pc-prices">
-        <div class="pc-price">
-          <span class="pp-name">Daily Study Pass</span>
-          <span class="pp-was">₱450</span>
-          <span class="pp-now"><sup>₱</sup>195</span>
-          <span class="pp-desc">Unlimited access for the day</span>
-          <span class="pp-desc">Free self-serve coffee, water &amp; snacks from our pantry</span>
-        </div>
-        <div class="pc-price">
-          <span class="pp-name">Study + Meal Package</span>
-          <span class="pp-was">₱800</span>
-          <span class="pp-now"><sup>₱</sup>499</span>
-          <span class="pp-desc">Unlimited access for the day</span>
-          <span class="pp-desc">2 free meals (breakfast, lunch, or dinner) + free self-serve coffee, water &amp; snacks from our pantry</span>
-        </div>
-      </div>
-
-      <div class="pc-footnote">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <div><b>Student ID Required:</b> A valid student ID must be presented upon entry to avail of Student Benefits pricing.</div>
-      </div>
-
-      <a href="book.html" class="btn btn-gold pc-cta">Book Now</a>
-    </article>
-    <!-- RAINY DAYS PROMO -->
-    <article class="promo-card reveal">
-      <div class="pc-top">
-        <span class="pc-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 16.5a4.5 4.5 0 0 1 .3-8.98A6 6 0 0 1 20 9.5a3.75 3.75 0 0 1-1 7.37"/><path d="M9 19l-1 2M13 19l-1 2M17 19l-1 2"/></svg>
-          Rainy Days Promo
-        </span>
-        <span class="pc-dates">Until Aug 31, 2026</span>
-      </div>
-      <h3 class="pc-title">Rainy Days Promo</h3>
-      <p class="pc-desc">Beat the rainy season with discounted pay-as-you-go passes, plus Weekly, 10-Day, Monthly, and Dedicated Night Pass plans with a free dinner included, on the house.</p>
+      <h3 class="pc-title">Ber Months Promo</h3>
+      <p class="pc-desc">Extended promo with a new time schedule, plus new day, afternoon-night, and midnight pass options — all September long.</p>
 
       <div class="pc-tabs" id="pcTabs">
         <span class="pc-tab-slider"></span>
-        <button class="active" data-tab="day">Day Memberships</button>
-        <button data-tab="night">Night Memberships</button>
+        <button class="active" data-tab="payg">Pay-As-You-Go</button>
+        <button data-tab="passes">Pass Options</button>
       </div>
 
-      <!-- DAY MEMBERSHIPS -->
-      <div class="pc-panel" id="pcDay">
-        <div class="pc-tags">
-          <span class="pc-tag">Free Breakfast on Weekly &amp; Monthly Day Pass only.</span>
-        </div>
+      <!-- PAY-AS-YOU-GO -->
+      <div class="pc-panel" id="pcPayg">
         <div class="pc-prices">
           <div class="pc-price">
             <span class="pp-name">Hourly Pass</span>
@@ -266,136 +227,45 @@
             <span class="pp-desc">A focused work block</span>
           </div>
           <div class="pc-price">
+            <span class="pp-name">Student Day Pass</span>
+            <span class="pp-was">₱450</span>
+            <span class="pp-now"><sup>₱</sup>195</span>
+            <span class="pp-desc">Valid student ID required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASS OPTIONS -->
+      <div class="pc-panel hidden" id="pcPasses">
+        <div class="pc-prices">
+          <div class="pc-price">
             <span class="pp-name">Day Pass</span>
             <span class="pp-was">₱450</span>
             <span class="pp-now"><sup>₱</sup>249</span>
-            <span class="pp-desc">Unlimited for the day</span>
+            <span class="pp-desc">8:00 AM–4:00 PM</span>
           </div>
           <div class="pc-price">
-            <span class="pp-fd">+ Free Breakfast</span>
-            <span class="pp-name">Weekly Day Pass</span>
-            <span class="pp-now"><sup>₱</sup>2,500</span>
+            <span class="pp-name">Afternoon-Night Pass</span>
+            <span class="pp-was">₱450</span>
+            <span class="pp-now"><sup>₱</sup>249</span>
+            <span class="pp-desc">1:00 PM–9:00 PM</span>
           </div>
           <div class="pc-price">
-            <span class="pp-fd">+ Free Breakfast</span>
-            <span class="pp-name">Monthly Day Pass</span>
-            <span class="pp-now"><sup>₱</sup>6,500</span>
+            <span class="pp-fd">+ Free Meal</span>
+            <span class="pp-name">Midnight Pass</span>
+            <span class="pp-now"><sup>₱</sup>499</span>
+            <span class="pp-desc">9:00 PM–5:00 AM</span>
+            <span class="pp-desc">Free 1 Loaded Meal + Drinks</span>
           </div>
-        </div>
-        <p class="pc-note">Pay-as-you-go rates, no plan commitment required.</p>
-      </div>
-
-      <!-- NIGHT MEMBERSHIPS -->
-      <div class="pc-panel hidden" id="pcNight">
-        <div class="pc-tags">
-          <span class="pc-tag">Night Pass only · 9:00 PM–7:00 AM</span>
-        </div>
-        <div class="pc-prices">
-          <div class="pc-price">
-            <span class="pp-name">Single Night Pass</span>
-            <span class="pp-was">₱500</span>
-            <span class="pp-now"><sup>₱</sup>299</span>
-            <span class="pp-save">Save ₱201</span>
-            <span class="pp-desc">One night, 9:00 PM–7:00 AM</span>
-          </div>
-          <div class="pc-price">
-            <span class="pp-fd">+ Free Dinner</span>
-            <span class="pp-name">Weekly Night Pass</span>
-            <span class="pp-was">₱3,500</span>
-            <span class="pp-now"><sup>₱</sup>2,500</span>
-            <span class="pp-save">Save ₱1,000</span>
-          </div>
-          <div class="pc-price">
-            <span class="pp-fd">+ Free Dinner</span>
-            <span class="pp-name">10-Day Night Pass</span>
-            <span class="pp-now"><sup>₱</sup>4,500</span>
-          </div>
-          <div class="pc-price">
-            <span class="pp-fd">+ Free Dinner</span>
-            <span class="pp-name">Monthly Night Pass</span>
-            <span class="pp-was">₱8,000</span>
-            <span class="pp-now"><sup>₱</sup>6,500</span>
-            <span class="pp-save">Save ₱1,500</span>
-          </div>
-          <div class="pc-price">
-            <span class="pp-fd">+ Free Dinner</span>
-            <span class="pp-name">Dedicated Night Pass</span>
-            <span class="pp-now"><sup>₱</sup>10,000</span>
-          </div>
-        </div>
-        <div class="pc-footnote">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <div><b>Night Pass Booking Policy:</b> Must be booked at least 1 day in advance; same-day night bookings are accepted until 5:00 PM cutoff. Allows unlimited access from 9:00 PM–7:00 AM. You may leave anytime during your Night Pass, but once you leave FocusLab, your booking time stops and access ends. You cannot re-enter using the same pass. To return, you'll need to book and pay for another pass. Available as a Single Night (₱299) or on Weekly, 10-Day, and Monthly plans; we recommend Weekly or Monthly for the best value if you're booking regularly. No walk-ins.</div>
-        </div>
-      </div>
-
-      <a href="book.html" class="btn btn-gold pc-cta">Book Now</a>
-    </article>
-    <!-- BARKADAHAN ALL DAY PASS PROMO -->
-    <article class="promo-card reveal">
-      <div class="pc-top">
-        <span class="pc-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Barkadahan All Day Pass
-        </span>
-        <span class="pc-dates">Aug 1–31, 2026</span>
-      </div>
-      <h3 class="pc-title">Barkadahan All Day Pass</h3>
-      <p class="pc-desc">Only applicable to groups of 5–10 people. Unlimited access for the day from 7:00 AM to 8:30 PM.</p>
-
-      <div class="pc-tags">
-        <span class="pc-tag">Groups of 5–10 only · 7:00 AM–8:30 PM</span>
-      </div>
-
-      <div class="pc-prices">
-        <div class="pc-price">
-          <span class="pp-name">Group of 5 People</span>
-          <span class="pp-now"><sup>₱</sup>1,225</span>
-          <span class="pp-desc">Unlimited access for the day</span>
-          <span class="pp-desc">Free Coffee, Snacks &amp; Water</span>
-        </div>
-        <div class="pc-price">
-          <span class="pp-name">Group of 10 People</span>
-          <span class="pp-now"><sup>₱</sup>2,400</span>
-          <span class="pp-desc">Unlimited access for the day</span>
-          <span class="pp-desc">Free Coffee, Snacks &amp; Water</span>
-        </div>
-      </div>
-
-      <a href="book.html?plan=group-5" class="btn btn-gold pc-cta">Book Now</a>
-    </article>
-    <!-- SINGLE NIGHT PASS PROMO -->
-    <article class="promo-card reveal">
-      <div class="pc-top">
-        <span class="pc-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14A8 8 0 0 1 10 4a8 8 0 1 0 10 10z"/></svg>
-          Single Night Pass Promo
-        </span>
-        <span class="pc-dates">Aug 1–31, 2026</span>
-      </div>
-      <h3 class="pc-title">Single Night Pass Promo</h3>
-      <p class="pc-desc">Working late just one night? Get a single Night Pass at a discounted rate, no weekly commitment needed.</p>
-
-      <div class="pc-tags">
-        <span class="pc-tag">Night Pass only · 9:00 PM–7:00 AM</span>
-      </div>
-
-      <div class="pc-prices">
-        <div class="pc-price">
-          <span class="pp-name">Single Night Pass</span>
-          <span class="pp-was">₱500</span>
-          <span class="pp-now"><sup>₱</sup>299</span>
-          <span class="pp-save">Save ₱201</span>
-          <span class="pp-desc">One night, 9:00 PM–7:00 AM</span>
         </div>
       </div>
 
       <div class="pc-footnote">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <div><b>Night Pass Booking Policy:</b> Must be booked at least 1 day in advance; same-day night bookings are accepted until 5:00 PM cutoff. No walk-ins.</div>
+        <div><b>Booking Policy:</b> Must be booked at least 1 day in advance; same-day bookings are accepted until 5:00 PM cutoff. Midnight Pass (₱499) includes a free 1 Loaded Meal + Drinks. No walk-ins.</div>
       </div>
 
-      <a href="book.html?plan=nightly" class="btn btn-gold pc-cta">Book Now</a>
+      <a href="book.html" class="btn btn-gold pc-cta">Book Now</a>
     </article>
     <!-- Add future promo cards here as sibling <article class="promo-card reveal"> blocks -->
   </div>
@@ -462,18 +332,18 @@
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // Promo card tabs (Day / Night Memberships)
+  // Promo card tabs (Pay-As-You-Go / Pass Options)
   const pcTabs = document.getElementById('pcTabs');
-  const pcDay = document.getElementById('pcDay');
-  const pcNight = document.getElementById('pcNight');
+  const pcPayg = document.getElementById('pcPayg');
+  const pcPasses = document.getElementById('pcPasses');
   pcTabs.querySelectorAll('button').forEach(b => {
     b.addEventListener('click', () => {
       const mode = b.dataset.tab;
       pcTabs.querySelectorAll('button').forEach(x => x.classList.remove('active'));
       b.classList.add('active');
-      pcTabs.classList.toggle('night', mode === 'night');
-      pcDay.classList.toggle('hidden', mode === 'night');
-      pcNight.classList.toggle('hidden', mode === 'day');
+      pcTabs.classList.toggle('night', mode === 'passes');
+      pcPayg.classList.toggle('hidden', mode === 'passes');
+      pcPasses.classList.toggle('hidden', mode === 'payg');
     });
   });
 
