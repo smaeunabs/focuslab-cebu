@@ -36,11 +36,11 @@
 
   /* Nav */
   nav{position:sticky;top:0;z-index:50;background:rgba(244,239,228,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0}
-  .logo{display:inline-flex;align-items:center;text-decoration:none}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:.85rem 0;width:min(1320px,94vw)}
+  .logo{display:inline-flex;align-items:center;text-decoration:none;flex:none}
   .logo-img{height:46px;width:auto;display:block;color:var(--ink)}
-  .nav-links{display:flex;align-items:center;gap:2rem}
-  .nav-links a{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--green-800);transition:color .2s}
+  .nav-links{display:flex;align-items:center;gap:1.4rem;flex-wrap:nowrap}
+  .nav-links a{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--green-800);transition:color .2s;white-space:nowrap}
   .nav-links a:hover{color:var(--gold)}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--body);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:none;padding:.85rem 1.6rem;border-radius:999px;transition:transform .25s,box-shadow .25s,background .25s}
   .btn-gold{background:var(--gold);color:#fff;box-shadow:0 10px 24px -10px rgba(183,138,60,.8)}
@@ -132,13 +132,6 @@
   .gnum-copy.copied .copy-label{display:inline}
   .gcash-steps{margin-top:1.4rem;padding-top:1.2rem;border-top:1px dashed var(--line);font-size:.9rem;color:var(--muted)}
   .gcash-steps ol{margin:.6rem 0 0 1.1rem;display:flex;flex-direction:column;gap:.35rem}
-  .upload{margin-top:1.3rem}
-  .upload label{margin-bottom:.5rem}
-  .file-drop{display:flex;align-items:center;gap:.9rem;border:1.5px dashed var(--line);border-radius:12px;padding:.9rem 1.1rem;cursor:pointer;background:#fff;transition:border-color .2s}
-  .file-drop:hover{border-color:var(--gold)}
-  .file-drop svg{width:24px;height:24px;color:var(--green-700);flex:none}
-  .file-drop .ftext{font-size:.9rem;color:var(--muted)}
-  .file-drop .ftext b{color:var(--green-800);display:block}
   .counter-panel{font-size:.95rem;color:var(--muted)}
   .counter-panel b{color:var(--green-800)}
 
@@ -245,7 +238,7 @@
 
         <div class="info-hl">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <span><b>Open 24/7.</b> Come in any hour. <b>Night Pass</b> (9:00 PM–7:00 AM) is required for a <b>9:00 PM or later</b> start, available as a <b>Midnight Pass (₱499, Free 1 Loaded Meal + Drinks)</b> or on <b>Weekly plans and above</b> for better value. Book at least 1 day ahead, same-day cutoff <b>5:00 PM</b>. Leaving during your pass ends that booking's access. <a href="promos.html">Full policy</a></span>
+          <span><b>Walk-ins welcome until 9 PM daily.</b> For access beyond that, book a <b>Night Pass</b> (9:00 PM–7:00 AM) is required for a <b>9:00 PM or later</b> start, available as a <b>Midnight Pass (₱499, Free 1 Loaded Meal + Drinks)</b> or on <b>Weekly plans and above</b> for better value. Book at least 1 day ahead, same-day cutoff <b>5:00 PM</b>. Leaving during your pass ends that booking's access. <a href="promos.html">Full policy</a></span>
         </div>
 
         <div class="hours-only" id="hoursWrap">
@@ -309,7 +302,7 @@
           <label class="opt checked">
             <input type="radio" name="pay" value="gcash" checked>
             <span class="o-name">Pay via GCash <span class="o-price">Now</span></span>
-            <span class="o-desc">Scan, pay, then upload your proof.</span>
+            <span class="o-desc">Scan, pay, then send us your receipt on Messenger.</span>
           </label>
           <label class="opt">
             <input type="radio" name="pay" value="counter">
@@ -345,16 +338,8 @@
               <li>Scan the QR with your GCash app, or any InstaPay-enabled bank app.</li>
               <li>Enter your booking total and use your full name as the note.</li>
               <li>Take a screenshot of the confirmation.</li>
-              <li>Upload it below, or send it to us on <a href="https://m.me/focuslab.talisay" target="_blank" rel="noopener">Messenger</a>.</li>
+              <li>Send the screenshot to us on <a href="https://m.me/focuslab.talisay" target="_blank" rel="noopener">Messenger</a> so we can confirm your payment.</li>
             </ol>
-          </div>
-          <div class="upload">
-            <label>Upload proof of payment <span style="color:var(--muted);font-weight:400">(optional)</span></label>
-            <label class="file-drop" for="proof">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-              <span class="ftext"><b id="fileName">Tap to upload a screenshot</b>JPG, PNG, or PDF</span>
-            </label>
-            <input type="file" id="proof" accept="image/*,.pdf" style="display:none">
           </div>
         </div>
 
@@ -531,9 +516,6 @@
     $('counterPanel').classList.toggle('show', state.pay === 'counter');
     update();
   });
-  $('proof').addEventListener('change', e => {
-    $('fileName').textContent = e.target.files[0] ? e.target.files[0].name : 'Tap to upload a screenshot';
-  });
 
   function unitPrice(){
     const plan = ALL.find(p => p.id === state.planId);
@@ -682,14 +664,12 @@
 
   // Returns true (sent), false (send failed), or null (not configured yet)
   async function sendBooking(d){
-    const file = $('proof').files[0];
     if(WEB3FORMS_KEY){
       const fd = new FormData();
       fd.append('access_key', WEB3FORMS_KEY);
       fd.append('subject', 'New FocusLab booking - ' + d.name);
       fd.append('from_name', 'FocusLab Website');
       Object.keys(d).forEach(k => fd.append(k, d[k]));
-      if(file) fd.append('attachment', file);
       const r = await fetch('https://api.web3forms.com/submit', { method:'POST', body:fd, headers:{ 'Accept':'application/json' } });
       return r.ok;
     }
